@@ -1,0 +1,1073 @@
+{
+  "last-updated": "06-12-23",
+  "config": {
+    "triesAllowedPerDay": 50,
+    "pointsCorrect": 1000,
+    "pointsWrong": 500,
+    "pointsBonus": 1000
+  },
+  "URLImagesHost": "",
+  "images": {
+    "es": {
+      "logoHeader": "/img/logo.webp",
+      "bubbleStartMessage": "",
+      "bubbleDailyLimit": "",
+      "rewardsImages": [
+        {
+          "src": "/img/premios-01.webp",
+          "name": "prize"
+        }
+      ]
+    },
+    "madeBy": "img/by-memoob.webp",
+    "backgroundApp": "",
+    "iconSoundActive": "/img/sound_active_icon.webp",
+    "iconSoundMute": "/img/sound_mute_icon.webp",
+    "spinButton": "/img/girar-icon.webp",
+    "pointerRoulette": "",
+    "rewardsButton": "/img/premios-icon.webp",
+    "termsButton": "/img/bases-icon.webp",
+    "arrowsSlider": {
+      "left": "/img/left-golden-arrow.webp",
+      "right": "/img/right-golden-arrow.webp"
+    },
+    "idolImage": "",
+    "idolCatCompleted": "",
+    "idolGolden": "",
+    "backgroundPoints": "/img/barra-puntos.webp"
+  },
+  "sounds": {
+    "muteButton": "/sound/pop-click.mp3",
+    "clickOpen": "/sound/arcade-pop.mp3",
+    "closePopup": "/sound/popup-close-minimize.mp3",
+    "startButton": "/sound/button_sound.mp3",
+    "rouletteWheel": "/sound/roulette_wheel.mp3",
+    "correctAnswerSound": "/sound/correct_answer.mp3",
+    "wrongAnswerSound": "/sound/wrong_answer.mp3"
+  },
+  "links": {
+    "termsURL": ""
+  },
+  "textsByLang": {
+    "es": {
+      "terms": "Bases",
+      "rewards": "Premios",
+      "categoryTitle": "Categoría",
+      "buttonStart": "Comenzar",
+      "dailyLimit": "Alcanzaste el límite diario para esta categoría",
+      "categoryCompleted": "¡Felicidades! ¡Completaste toda esta categoría!",
+      "congratsTriviaCompleted": "¡Felicidades! ¡Completaste toda la trivia!",
+      "correctAnswer": "Correcta",
+      "wrongAnswer": "Incorrecta"
+    },
+    "en": {
+      "terms": "T&C",
+      "rewards": "Prizes",
+      "categoryTitle": "Category",
+      "buttonStart": "Start",
+      "dailyLimit": "You reached the daily limit for this category",
+      "categoryCompleted": "Congratulations! You completed this entire category!",
+      "congratsTriviaCompleted": "Congratulations! You completed the Quiz!",
+      "correctAnswer": "Correct",
+      "wrongAnswer": "Incorrect"
+    },
+    "pt": {
+      "terms": "T&C",
+      "rewards": "Premios",
+      "categoryTitle": "Categoria",
+      "buttonStart": "Começar",
+      "dailyLimit": "Atingiste o limite diário de respostas nestas categorias",
+      "categoryCompleted": "Parabéns! Completaste toda nesta categoria!",
+      "congratsTriviaCompleted": "Parabéns! Completaste todo o desafio!",
+      "correctAnswer": "Correcta",
+      "wrongAnswer": "Incorrecta"
+    }
+  },
+  "categories": [
+    {
+      "name": "Amor y Sexo",
+      "imgURL": "/img/categoria-amor-sexo.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuál de las siguientes es una app de citas?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Cupid",
+              "isCorrect": false
+            },
+            {
+              "text": "OkCupid",
+              "isCorrect": true
+            },
+            {
+              "text": "Cupido",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Qué día se celebra San Valentín?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "12 de febrero",
+              "isCorrect": false
+            },
+            {
+              "text": "13 de febrero",
+              "isCorrect": false
+            },
+            {
+              "text": "14 de febrero",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Por qué hay que usar preservativos?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Evitar embarazos",
+              "isCorrect": false
+            },
+            {
+              "text": "Evitar enfermedades sexuales",
+              "isCorrect": false
+            },
+            {
+              "text": "Ambas cosas",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Qué significa el poliamor?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Relación amorosa entre dos personas",
+              "isCorrect": false
+            },
+            {
+              "text": "Relación amorosa entre más de dos personas",
+              "isCorrect": true
+            },
+            {
+              "text": "Relación amorosa con uno mismo",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Qué es el sexo tantrico?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Prácticas tabúes",
+              "isCorrect": false
+            },
+            {
+              "text": "Prácticas BDSM",
+              "isCorrect": false
+            },
+            {
+              "text": "Prácticas del tantra hindú",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Qué significa ser asexual?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "No tener atracción o deseo sexual",
+              "isCorrect": true
+            },
+            {
+              "text": "Tener mucha atracción o deseo sexual",
+              "isCorrect": false
+            },
+            {
+              "text": "Ninguna es correcta",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "La práctica BDSM es...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Juegos eróticos de rol basados en jerarquías de poder",
+              "isCorrect": true
+            },
+            {
+              "text": "Juegos eroticos basados en prácticas budistas",
+              "isCorrect": false
+            },
+            {
+              "text": "Juegos eróticos basados en el empoderamiento de la mujer",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "La mejor forma de evitar enfermedades sexuales es con...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "DIU",
+              "isCorrect": false
+            },
+            {
+              "text": "Preservativos",
+              "isCorrect": true
+            },
+            {
+              "text": "Pastillas",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Como se llaman las relaciones amorosas entre dos personas?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Monogamia",
+              "isCorrect": true
+            },
+            {
+              "text": "Monomia",
+              "isCorrect": false
+            },
+            {
+              "text": "Monoamor",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Dónde se originó el día de los enamorados?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "París",
+              "isCorrect": false
+            },
+            {
+              "text": "Roma",
+              "isCorrect": true
+            },
+            {
+              "text": "San Francisco",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Makeup",
+      "imgURL": "/img/categoria-makeup.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Para qué sirve el polvo o el spray fijador?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Para hacer que los productos se adhieran a la piel",
+              "isCorrect": true
+            },
+            {
+              "text": "Para darle a la piel brillo",
+              "isCorrect": false
+            },
+            {
+              "text": "Para secar la piel",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Quieres que se note mucho el color de labios que usas?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Brillo labial",
+              "isCorrect": false
+            },
+            {
+              "text": "Pintalabios",
+              "isCorrect": true
+            },
+            {
+              "text": "Bálsamo labial",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Dónde se usa normalmente el corrector?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Solamente en la frente",
+              "isCorrect": false
+            },
+            {
+              "text": "En todo el rostro",
+              "isCorrect": false
+            },
+            {
+              "text": "En lugares puntuales del rostro",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Qué es un primer?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Sirve para que dure más el maquillaje",
+              "isCorrect": true
+            },
+            {
+              "text": "Sirve para fijar el maquillaje",
+              "isCorrect": false
+            },
+            {
+              "text": "Es un protector solar",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿En qué parte del cuerpo es mejor probar el tono de la base?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Muñeca",
+              "isCorrect": true
+            },
+            {
+              "text": "Cuello",
+              "isCorrect": false
+            },
+            {
+              "text": "Frente",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Para qué sirve una Beauty Blender?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Aplicar lápiz labial",
+              "isCorrect": false
+            },
+            {
+              "text": "Aplicar la base",
+              "isCorrect": true
+            },
+            {
+              "text": "Aplicar el delineador",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Cuál de estos no es maquillaje?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Corrector",
+              "isCorrect": false
+            },
+            {
+              "text": "Rubor",
+              "isCorrect": false
+            },
+            {
+              "text": "Gel de cejas",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Cuándo debes aplicar la crema hidratante?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Solo una vez al día",
+              "isCorrect": false
+            },
+            {
+              "text": "Después de aplicar tu maquillaje",
+              "isCorrect": false
+            },
+            {
+              "text": "Después de limpiar tu rostro",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Dónde se inventó el peine?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Egipto",
+              "isCorrect": true
+            },
+            {
+              "text": "Italia",
+              "isCorrect": false
+            },
+            {
+              "text": "Grecia",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Dónde surgió el maquillaje?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Antiguo Egipto",
+              "isCorrect": true
+            },
+            {
+              "text": "Antigua Grecia",
+              "isCorrect": false
+            },
+            {
+              "text": "Antigua Roma",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Moda",
+      "imgURL": "img/categoria-moda.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Qué es una 'colección cápsula'?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Una colección de ropa deportiva",
+              "isCorrect": false
+            },
+            {
+              "text": "Una colección de diseñador",
+              "isCorrect": false
+            },
+            {
+              "text": "Una colección de prendas fácilmente combinables",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Quién popularizó la minifalda?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Mary Quant",
+              "isCorrect": true
+            },
+            {
+              "text": "Vivienne Westwood",
+              "isCorrect": false
+            },
+            {
+              "text": "Sonia Rykiel",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Quién es Anna Wintour?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Jefa de la edición de Elle",
+              "isCorrect": false
+            },
+            {
+              "text": "Jefa de la edición de Cosmopolitan",
+              "isCorrect": false
+            },
+            {
+              "text": "Jefa de la edición de Vogue",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Dónde se colocan las alpargatas?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Cabeza",
+              "isCorrect": false
+            },
+            {
+              "text": "Pies",
+              "isCorrect": true
+            },
+            {
+              "text": "Manos",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Cuál es el verdadero nombre de Coco Chanel?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Anette",
+              "isCorrect": false
+            },
+            {
+              "text": "Céline",
+              "isCorrect": false
+            },
+            {
+              "text": "Gabrielle",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Quiénes inventaron el jean?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Lévi Strauss y C. C. Hudson",
+              "isCorrect": false
+            },
+            {
+              "text": "Jacob Davis y Chuck Taylor",
+              "isCorrect": false
+            },
+            {
+              "text": "Levi Strauss y Jacob Davis",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Para qué deporte fueron creadas las Converse?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Fútbol",
+              "isCorrect": false
+            },
+            {
+              "text": "Basquet",
+              "isCorrect": true
+            },
+            {
+              "text": "Atletismo",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Qué es un stiletto?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Un zapato",
+              "isCorrect": true
+            },
+            {
+              "text": "Una cartera",
+              "isCorrect": false
+            },
+            {
+              "text": "Una falda",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿En qué año se celebró la primer semana de la moda?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1943",
+              "isCorrect": true
+            },
+            {
+              "text": "1945",
+              "isCorrect": false
+            },
+            {
+              "text": "1947",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Cómo se llama la moda de usar ropa superpuesta?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Trench",
+              "isCorrect": false
+            },
+            {
+              "text": "Oversized",
+              "isCorrect": false
+            },
+            {
+              "text": "Layering",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bienestar",
+      "imgURL": "/img/categoria-bienestar.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuál es el yoga que se relaciona con el ejercicio físico?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Raja yoga",
+              "isCorrect": false
+            },
+            {
+              "text": "Haṭha yoga",
+              "isCorrect": true
+            },
+            {
+              "text": "Bhakti yoga",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Qué fruta es rica en potasio?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Peras",
+              "isCorrect": false
+            },
+            {
+              "text": "Duraznos",
+              "isCorrect": false
+            },
+            {
+              "text": "Banana",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Quién invento el Pilates?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "George Homs Pilates",
+              "isCorrect": false
+            },
+            {
+              "text": "Joseph Hubertus Pilates",
+              "isCorrect": true
+            },
+            {
+              "text": "Daniel Stuart Pilates",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Cuál es la comida más importante del día?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Desayuno",
+              "isCorrect": true
+            },
+            {
+              "text": "Almuerzo",
+              "isCorrect": false
+            },
+            {
+              "text": "Cena",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Qué vitamina te falta por no exponerse al sol?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Vitamina A",
+              "isCorrect": false
+            },
+            {
+              "text": "Vitamina B",
+              "isCorrect": false
+            },
+            {
+              "text": "Vitamina D",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Cuántas calorías debe comer una adulto por día?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1600 a 2000 calorías",
+              "isCorrect": false
+            },
+            {
+              "text": "1800 a 2500 calorías",
+              "isCorrect": true
+            },
+            {
+              "text": "2500 a 3000 calorías",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Cuantas horas debe dormir un bebe?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "14 a 18 horas",
+              "isCorrect": true
+            },
+            {
+              "text": "11 a 14 horas",
+              "isCorrect": false
+            },
+            {
+              "text": "10 a 13 horas",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Cuántos litros de agua debemos tomar por día?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1 litro",
+              "isCorrect": false
+            },
+            {
+              "text": "2 litros",
+              "isCorrect": true
+            },
+            {
+              "text": "3 litros",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Qué es el crossfit?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Un ejercicio",
+              "isCorrect": false
+            },
+            {
+              "text": "Un entrenamiento físico",
+              "isCorrect": true
+            },
+            {
+              "text": "Una máquina del gimnasio",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Cuáles son los beneficios de la vitamina B12?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Ayuda al cuerpo a absorber el calcio",
+              "isCorrect": false
+            },
+            {
+              "text": "Ayuda a evitar la caída de pelo",
+              "isCorrect": false
+            },
+            {
+              "text": "Ayuda a mantener la salud de la sangre",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cosmic",
+      "imgURL": "/img/categoria-cosmic.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuál de estos es un signo zodiacal de agua?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Leo",
+              "isCorrect": false
+            },
+            {
+              "text": "Escorpio",
+              "isCorrect": true
+            },
+            {
+              "text": "Géminis",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Los signos zodiacales de aire son...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Acuario, Géminis y Libra",
+              "isCorrect": true
+            },
+            {
+              "text": "Aries, Leo y Sagitario",
+              "isCorrect": false
+            },
+            {
+              "text": "Tauro, Virgo, Capricornio",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "En el zodiaco el símbolo de cáncer es...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Un pescado",
+              "isCorrect": false
+            },
+            {
+              "text": "Un pescado",
+              "isCorrect": false
+            },
+            {
+              "text": "Un cangrejo",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Cuántas casas hay en la astrología?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "10",
+              "isCorrect": false
+            },
+            {
+              "text": "11",
+              "isCorrect": false
+            },
+            {
+              "text": "12",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Qué representa la casa 2?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Amor",
+              "isCorrect": false
+            },
+            {
+              "text": "Posesiones",
+              "isCorrect": true
+            },
+            {
+              "text": "Vocación",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Qué signo representa el equilibrio?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Libra",
+              "isCorrect": true
+            },
+            {
+              "text": "Cáncer",
+              "isCorrect": false
+            },
+            {
+              "text": "Sagitario",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Cuál es el primer signo del zodíaco?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Aries",
+              "isCorrect": true
+            },
+            {
+              "text": "Capricornio",
+              "isCorrect": false
+            },
+            {
+              "text": "Acuario",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Qué signos tienen más empatía?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Sagitario, Aries, Leo",
+              "isCorrect": false
+            },
+            {
+              "text": "Escorpio, Cáncer, Piscis",
+              "isCorrect": true
+            },
+            {
+              "text": "Acuario, Libra, Geminis",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "En el zodíaco el símbolo de géminis es...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Una balanza",
+              "isCorrect": false
+            },
+            {
+              "text": "Gémelos",
+              "isCorrect": true
+            },
+            {
+              "text": "Dos flechas",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Qué representa la casa 11?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "El yo",
+              "isCorrect": false
+            },
+            {
+              "text": "La sexualidad",
+              "isCorrect": false
+            },
+            {
+              "text": "La sociedad",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
