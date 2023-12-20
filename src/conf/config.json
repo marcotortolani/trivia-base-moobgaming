@@ -1,5 +1,5 @@
 {
-  "last-updated": "06-12-23",
+  "last-updated": "20-12-23",
   "config": {
     "triesAllowedPerDay": 50,
     "pointsCorrect": 1000,
@@ -85,590 +85,196 @@
   },
   "categories": [
     {
-      "name": "Amor y Sexo",
-      "imgURL": "/img/categoria-amor-sexo.webp",
+      "name": "Música",
+      "imgURL": "/img/categoria-musica.webp",
       "bonus": false,
       "questions": [
         {
           "id": 1,
-          "title": "¿Cuál de las siguientes es una app de citas?",
+          "title": "¿Cómo se llama la canción que cantó el Rubius en el cierre del Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Cupid",
+              "text": "El tacho",
               "isCorrect": false
             },
             {
-              "text": "OkCupid",
+              "text": "La Heladera",
               "isCorrect": true
             },
             {
-              "text": "Cupido",
+              "text": "La papelera",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 2,
-          "title": "¿Qué día se celebra San Valentín?",
+          "title": "¿Qué banda musical cerró la última edición del Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "12 de febrero",
-              "isCorrect": false
-            },
-            {
-              "text": "13 de febrero",
-              "isCorrect": false
-            },
-            {
-              "text": "14 de febrero",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "title": "¿Por qué hay que usar preservativos?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Evitar embarazos",
-              "isCorrect": false
-            },
-            {
-              "text": "Evitar enfermedades sexuales",
-              "isCorrect": false
-            },
-            {
-              "text": "Ambas cosas",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "title": "¿Qué significa el poliamor?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Relación amorosa entre dos personas",
-              "isCorrect": false
-            },
-            {
-              "text": "Relación amorosa entre más de dos personas",
+              "text": "Ancud",
               "isCorrect": true
             },
             {
-              "text": "Relación amorosa con uno mismo",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 5,
-          "title": "¿Qué es el sexo tantrico?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Prácticas tabúes",
+              "text": "Magnus Mefisto",
               "isCorrect": false
             },
             {
-              "text": "Prácticas BDSM",
-              "isCorrect": false
-            },
-            {
-              "text": "Prácticas del tantra hindú",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 6,
-          "title": "¿Qué significa ser asexual?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "No tener atracción o deseo sexual",
-              "isCorrect": true
-            },
-            {
-              "text": "Tener mucha atracción o deseo sexual",
-              "isCorrect": false
-            },
-            {
-              "text": "Ninguna es correcta",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 7,
-          "title": "La práctica BDSM es...",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Juegos eróticos de rol basados en jerarquías de poder",
-              "isCorrect": true
-            },
-            {
-              "text": "Juegos eroticos basados en prácticas budistas",
-              "isCorrect": false
-            },
-            {
-              "text": "Juegos eróticos basados en el empoderamiento de la mujer",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 8,
-          "title": "La mejor forma de evitar enfermedades sexuales es con...",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "DIU",
-              "isCorrect": false
-            },
-            {
-              "text": "Preservativos",
-              "isCorrect": true
-            },
-            {
-              "text": "Pastillas",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 9,
-          "title": "¿Como se llaman las relaciones amorosas entre dos personas?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Monogamia",
-              "isCorrect": true
-            },
-            {
-              "text": "Monomia",
-              "isCorrect": false
-            },
-            {
-              "text": "Monoamor",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 10,
-          "title": "¿Dónde se originó el día de los enamorados?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "París",
-              "isCorrect": false
-            },
-            {
-              "text": "Roma",
-              "isCorrect": true
-            },
-            {
-              "text": "San Francisco",
-              "isCorrect": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Makeup",
-      "imgURL": "/img/categoria-makeup.webp",
-      "bonus": false,
-      "questions": [
-        {
-          "id": 1,
-          "title": "¿Para qué sirve el polvo o el spray fijador?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Para hacer que los productos se adhieran a la piel",
-              "isCorrect": true
-            },
-            {
-              "text": "Para darle a la piel brillo",
-              "isCorrect": false
-            },
-            {
-              "text": "Para secar la piel",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "title": "¿Quieres que se note mucho el color de labios que usas?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Brillo labial",
-              "isCorrect": false
-            },
-            {
-              "text": "Pintalabios",
-              "isCorrect": true
-            },
-            {
-              "text": "Bálsamo labial",
+              "text": "Acido Mc",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 3,
-          "title": "¿Dónde se usa normalmente el corrector?",
+          "title": "¿Quién fue el baterista de Vedito en el Club Media Fest Colombia?",
           "bonus": false,
           "answers": [
             {
-              "text": "Solamente en la frente",
+              "text": "Orni",
               "isCorrect": false
             },
             {
-              "text": "En todo el rostro",
-              "isCorrect": false
-            },
-            {
-              "text": "En lugares puntuales del rostro",
+              "text": "Circulito",
               "isCorrect": true
+            },
+            {
+              "text": "Kion",
+              "isCorrect": false
             }
           ]
         },
         {
           "id": 4,
-          "title": "¿Qué es un primer?",
+          "title": "¿Qué canción cantaron YellowMellow y Elvisa en el Club Media Fest Colombia?",
           "bonus": false,
           "answers": [
             {
-              "text": "Sirve para que dure más el maquillaje",
+              "text": "La piragua",
+              "isCorrect": false
+            },
+            {
+              "text": "Soy colombiano",
+              "isCorrect": false
+            },
+            {
+              "text": "La pollera colorá",
               "isCorrect": true
-            },
-            {
-              "text": "Sirve para fijar el maquillaje",
-              "isCorrect": false
-            },
-            {
-              "text": "Es un protector solar",
-              "isCorrect": false
             }
           ]
         },
         {
           "id": 5,
-          "title": "¿En qué parte del cuerpo es mejor probar el tono de la base?",
+          "title": "¿Junto a qué DJ cerró el Club Media Fest Chile 2015 el Rubius?",
           "bonus": false,
           "answers": [
             {
-              "text": "Muñeca",
-              "isCorrect": true
-            },
-            {
-              "text": "Cuello",
+              "text": "Tecno Andretix",
               "isCorrect": false
             },
             {
-              "text": "Frente",
+              "text": "Ignacio Buatti",
+              "isCorrect": true
+            },
+            {
+              "text": "One World",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 6,
-          "title": "¿Para qué sirve una Beauty Blender?",
+          "title": "¿Qué artista musical colombiano estuvo en el Club Media Fest Colombia?",
           "bonus": false,
           "answers": [
             {
-              "text": "Aplicar lápiz labial",
-              "isCorrect": false
-            },
-            {
-              "text": "Aplicar la base",
+              "text": "Martina la peligrosa",
               "isCorrect": true
             },
             {
-              "text": "Aplicar el delineador",
+              "text": "Shakira",
+              "isCorrect": false
+            },
+            {
+              "text": "La divaza",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 7,
-          "title": "¿Cuál de estos no es maquillaje?",
+          "title": "¿Qué canción estrenó por primera vez en sudamerica YellowMellow en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Corrector",
+              "text": "La canción picante",
               "isCorrect": false
             },
             {
-              "text": "Rubor",
+              "text": "Autotransplante de corazón",
               "isCorrect": false
             },
             {
-              "text": "Gel de cejas",
+              "text": "Phantom Limb",
               "isCorrect": true
             }
           ]
         },
         {
           "id": 8,
-          "title": "¿Cuándo debes aplicar la crema hidratante?",
+          "title": "¿Qué canción cerró todas las ediciones del Club Media Fest 2015?",
           "bonus": false,
           "answers": [
             {
-              "text": "Solo una vez al día",
-              "isCorrect": false
-            },
-            {
-              "text": "Después de aplicar tu maquillaje",
-              "isCorrect": false
-            },
-            {
-              "text": "Después de limpiar tu rostro",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 9,
-          "title": "¿Dónde se inventó el peine?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Egipto",
+              "text": "Sun is shining",
               "isCorrect": true
             },
             {
-              "text": "Italia",
+              "text": "Sky full of stars",
               "isCorrect": false
             },
             {
-              "text": "Grecia",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 10,
-          "title": "¿Dónde surgió el maquillaje?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Antiguo Egipto",
-              "isCorrect": true
-            },
-            {
-              "text": "Antigua Grecia",
-              "isCorrect": false
-            },
-            {
-              "text": "Antigua Roma",
-              "isCorrect": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Moda",
-      "imgURL": "img/categoria-moda.webp",
-      "bonus": false,
-      "questions": [
-        {
-          "id": 1,
-          "title": "¿Qué es una 'colección cápsula'?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Una colección de ropa deportiva",
-              "isCorrect": false
-            },
-            {
-              "text": "Una colección de diseñador",
-              "isCorrect": false
-            },
-            {
-              "text": "Una colección de prendas fácilmente combinables",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "title": "¿Quién popularizó la minifalda?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Mary Quant",
-              "isCorrect": true
-            },
-            {
-              "text": "Vivienne Westwood",
-              "isCorrect": false
-            },
-            {
-              "text": "Sonia Rykiel",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "title": "¿Quién es Anna Wintour?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Jefa de la edición de Elle",
-              "isCorrect": false
-            },
-            {
-              "text": "Jefa de la edición de Cosmopolitan",
-              "isCorrect": false
-            },
-            {
-              "text": "Jefa de la edición de Vogue",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "title": "¿Dónde se colocan las alpargatas?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Cabeza",
-              "isCorrect": false
-            },
-            {
-              "text": "Pies",
-              "isCorrect": true
-            },
-            {
-              "text": "Manos",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 5,
-          "title": "¿Cuál es el verdadero nombre de Coco Chanel?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Anette",
-              "isCorrect": false
-            },
-            {
-              "text": "Céline",
-              "isCorrect": false
-            },
-            {
-              "text": "Gabrielle",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 6,
-          "title": "¿Quiénes inventaron el jean?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Lévi Strauss y C. C. Hudson",
-              "isCorrect": false
-            },
-            {
-              "text": "Jacob Davis y Chuck Taylor",
-              "isCorrect": false
-            },
-            {
-              "text": "Levi Strauss y Jacob Davis",
-              "isCorrect": true
-            }
-          ]
-        },
-        {
-          "id": 7,
-          "title": "¿Para qué deporte fueron creadas las Converse?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Fútbol",
-              "isCorrect": false
-            },
-            {
-              "text": "Basquet",
-              "isCorrect": true
-            },
-            {
-              "text": "Atletismo",
-              "isCorrect": false
-            }
-          ]
-        },
-        {
-          "id": 8,
-          "title": "¿Qué es un stiletto?",
-          "bonus": false,
-          "answers": [
-            {
-              "text": "Un zapato",
-              "isCorrect": true
-            },
-            {
-              "text": "Una cartera",
-              "isCorrect": false
-            },
-            {
-              "text": "Una falda",
+              "text": "Livin la vida loca",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 9,
-          "title": "¿En qué año se celebró la primer semana de la moda?",
+          "title": "¿Qué banda argentina creo un tema especialmente para el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "1943",
+              "text": "Looking up",
               "isCorrect": true
             },
             {
-              "text": "1945",
+              "text": "Lio Ferro",
               "isCorrect": false
             },
             {
-              "text": "1947",
+              "text": "Julián Serrano",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 10,
-          "title": "¿Cómo se llama la moda de usar ropa superpuesta?",
+          "title": "¿En qué país debutó como cantante YellowMellow en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Trench",
+              "text": "Perú",
               "isCorrect": false
             },
             {
-              "text": "Oversized",
+              "text": "Argentina",
               "isCorrect": false
             },
             {
-              "text": "Layering",
+              "text": "Chile",
               "isCorrect": true
             }
           ]
@@ -676,196 +282,196 @@
       ]
     },
     {
-      "name": "Bienestar",
-      "imgURL": "/img/categoria-bienestar.webp",
+      "name": "Humor",
+      "imgURL": "/img/categoria-humor.webp",
       "bonus": false,
       "questions": [
         {
           "id": 1,
-          "title": "¿Cuál es el yoga que se relaciona con el ejercicio físico?",
+          "title": "¿Con qué dos Youtubers se presentó Celopan en el Club Media Fest Argentina 2016?",
           "bonus": false,
           "answers": [
             {
-              "text": "Raja yoga",
-              "isCorrect": false
-            },
-            {
-              "text": "Haṭha yoga",
+              "text": "JPelirrojo y Ro en la Red",
               "isCorrect": true
             },
             {
-              "text": "Bhakti yoga",
+              "text": "YellowMellow y Elvisa",
+              "isCorrect": false
+            },
+            {
+              "text": "AlexBy y StaXx",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 2,
-          "title": "¿Qué fruta es rica en potasio?",
+          "title": "¿Quién fue el conductor del Club Media Fest Chile 2015?",
           "bonus": false,
           "answers": [
             {
-              "text": "Peras",
+              "text": "David Montoya",
               "isCorrect": false
             },
             {
-              "text": "Duraznos",
+              "text": "David Montoya",
               "isCorrect": false
             },
             {
-              "text": "Banana",
+              "text": "Fabio Torres",
               "isCorrect": true
             }
           ]
         },
         {
           "id": 3,
-          "title": "¿Quién invento el Pilates?",
+          "title": "¿De qué se disfrazaron el Rubius y Luzu para su entrevista?",
           "bonus": false,
           "answers": [
             {
-              "text": "George Homs Pilates",
-              "isCorrect": false
-            },
-            {
-              "text": "Joseph Hubertus Pilates",
+              "text": "Pikachu",
               "isCorrect": true
             },
             {
-              "text": "Daniel Stuart Pilates",
+              "text": "Mangel",
+              "isCorrect": false
+            },
+            {
+              "text": "Uno del otro",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 4,
-          "title": "¿Cuál es la comida más importante del día?",
+          "title": "¿Qué gran Booktuber estuvo presente en la primera edición del Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Desayuno",
-              "isCorrect": true
-            },
-            {
-              "text": "Almuerzo",
+              "text": "Alberto Villalba",
               "isCorrect": false
             },
             {
-              "text": "Cena",
+              "text": "Fa Orozco",
+              "isCorrect": true
+            },
+            {
+              "text": "Raiza Revelles",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 5,
-          "title": "¿Qué vitamina te falta por no exponerse al sol?",
+          "title": "¿Cómo se llama el Rey del Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Vitamina A",
+              "text": "Cholis",
               "isCorrect": false
             },
             {
-              "text": "Vitamina B",
+              "text": "Chonis",
               "isCorrect": false
             },
             {
-              "text": "Vitamina D",
+              "text": "Chodis",
               "isCorrect": true
             }
           ]
         },
         {
           "id": 6,
-          "title": "¿Cuántas calorías debe comer una adulto por día?",
+          "title": "¿Cómo se llama el reto más famoso del Fernanfloo?",
           "bonus": false,
           "answers": [
             {
-              "text": "1600 a 2000 calorías",
+              "text": "El reto del twerking",
               "isCorrect": false
             },
             {
-              "text": "1800 a 2500 calorías",
+              "text": "El reto de la botella",
               "isCorrect": true
             },
             {
-              "text": "2500 a 3000 calorías",
+              "text": "El reto del chocolate",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 7,
-          "title": "¿Cuantas horas debe dormir un bebe?",
+          "title": "¿Cuál fue el Youtuber peruano más grande en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "14 a 18 horas",
+              "text": "Mox",
               "isCorrect": true
             },
             {
-              "text": "11 a 14 horas",
+              "text": "De Barrio",
               "isCorrect": false
             },
             {
-              "text": "10 a 13 horas",
+              "text": "EzraHoward",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 8,
-          "title": "¿Cuántos litros de agua debemos tomar por día?",
+          "title": "¿Con qué Youtuber subieron al escenario del Club Media Fest los Bajo Ningún Término?",
           "bonus": false,
           "answers": [
             {
-              "text": "1 litro",
-              "isCorrect": false
-            },
-            {
-              "text": "2 litros",
+              "text": "Ninguno",
               "isCorrect": true
             },
             {
-              "text": "3 litros",
+              "text": "Julián Serrano",
+              "isCorrect": false
+            },
+            {
+              "text": "Kevsho",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 9,
-          "title": "¿Qué es el crossfit?",
+          "title": "¿Qué músico estuvo como conductor en el último Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Un ejercicio",
+              "text": "Lio Ferro",
               "isCorrect": false
             },
             {
-              "text": "Un entrenamiento físico",
+              "text": "Magnus Mefisto",
               "isCorrect": true
             },
             {
-              "text": "Una máquina del gimnasio",
+              "text": "Shacoscu",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 10,
-          "title": "¿Cuáles son los beneficios de la vitamina B12?",
+          "title": "¿Qué show hizo Lucas Castel en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Ayuda al cuerpo a absorber el calcio",
+              "text": "Desfiló",
               "isCorrect": false
             },
             {
-              "text": "Ayuda a evitar la caída de pelo",
+              "text": "Hizo un gameplay",
               "isCorrect": false
             },
             {
-              "text": "Ayuda a mantener la salud de la sangre",
+              "text": "Bailó",
               "isCorrect": true
             }
           ]
@@ -873,197 +479,788 @@
       ]
     },
     {
-      "name": "Cosmic",
-      "imgURL": "/img/categoria-cosmic.webp",
+      "name": "Curiosidades",
+      "imgURL": "img/categoria-curiosidades.webp",
       "bonus": false,
       "questions": [
         {
           "id": 1,
-          "title": "¿Cuál de estos es un signo zodiacal de agua?",
+          "title": "¿Qué Youtuber mexicano participó del primer Club Media Fest, pero pocas personas se dieron cuenta?",
           "bonus": false,
           "answers": [
             {
-              "text": "Leo",
+              "text": "Werevertumorro",
               "isCorrect": false
             },
             {
-              "text": "Escorpio",
+              "text": "YosStop",
+              "isCorrect": false
+            },
+            {
+              "text": "Yuya",
               "isCorrect": true
-            },
-            {
-              "text": "Géminis",
-              "isCorrect": false
             }
           ]
         },
         {
           "id": 2,
-          "title": "Los signos zodiacales de aire son...",
+          "title": "¿Qué Youtuber se encontró con que alguien estaba en su habitación por equivocación en el hotel del Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Acuario, Géminis y Libra",
-              "isCorrect": true
-            },
-            {
-              "text": "Aries, Leo y Sagitario",
+              "text": "SrCheeto",
               "isCorrect": false
             },
             {
-              "text": "Tauro, Virgo, Capricornio",
+              "text": "Luzu",
+              "isCorrect": true
+            },
+            {
+              "text": "Kion",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 3,
-          "title": "En el zodiaco el símbolo de cáncer es...",
+          "title": "¿Qué Youtuber creo caos en el aeropuerto de Argentina en su primera vez en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Un pescado",
-              "isCorrect": false
-            },
-            {
-              "text": "Un pescado",
-              "isCorrect": false
-            },
-            {
-              "text": "Un cangrejo",
+              "text": "Rubius",
               "isCorrect": true
+            },
+            {
+              "text": "AlexBy",
+              "isCorrect": false
+            },
+            {
+              "text": "Dustin Luke",
+              "isCorrect": false
             }
           ]
         },
         {
           "id": 4,
-          "title": "¿Cuántas casas hay en la astrología?",
+          "title": "¿En qué edición del Club Media Fest Luzu y Lana fueron a saludar a los fans que estaban haciendo fila para entrar al show?",
           "bonus": false,
           "answers": [
             {
-              "text": "10",
+              "text": "Chile 2015",
               "isCorrect": false
             },
             {
-              "text": "11",
-              "isCorrect": false
-            },
-            {
-              "text": "12",
+              "text": "Argentina 2015, abril",
               "isCorrect": true
+            },
+            {
+              "text": "Perú",
+              "isCorrect": false
             }
           ]
         },
         {
           "id": 5,
-          "title": "¿Qué representa la casa 2?",
+          "title": "¿En qué edición del Club Media Fest se lastimó la rodilla Mangel?",
           "bonus": false,
           "answers": [
             {
-              "text": "Amor",
+              "text": "Chile 2015",
               "isCorrect": false
             },
             {
-              "text": "Posesiones",
+              "text": "Chile 2016",
+              "isCorrect": false
+            },
+            {
+              "text": "Argentina 2015, abril",
               "isCorrect": true
-            },
-            {
-              "text": "Vocación",
-              "isCorrect": false
             }
           ]
         },
         {
           "id": 6,
-          "title": "¿Qué signo representa el equilibrio?",
+          "title": "¿Qué Youtuber fue incorporado al show el día anterior al la segunda edición del Club Media Fest Argentina?",
           "bonus": false,
           "answers": [
             {
-              "text": "Libra",
+              "text": "AleXx Strecci",
               "isCorrect": true
             },
             {
-              "text": "Cáncer",
+              "text": "Dross",
               "isCorrect": false
             },
             {
-              "text": "Sagitario",
+              "text": "Juanpa Zurita",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 7,
-          "title": "¿Cuál es el primer signo del zodíaco?",
+          "title": "¿Qué banda hizo su debut mundial vivo en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Aries",
-              "isCorrect": true
-            },
-            {
-              "text": "Capricornio",
+              "text": "Freak Out",
               "isCorrect": false
             },
             {
-              "text": "Acuario",
+              "text": "Ancud",
+              "isCorrect": true
+            },
+            {
+              "text": "Magnus Mefisto",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 8,
-          "title": "¿Qué signos tienen más empatía?",
+          "title": "¿Qué Youtuber estaba escondido dentro de una papelera en el Club Media Fest?",
           "bonus": false,
           "answers": [
             {
-              "text": "Sagitario, Aries, Leo",
+              "text": "Mangel",
               "isCorrect": false
             },
             {
-              "text": "Escorpio, Cáncer, Piscis",
+              "text": "AlexBy",
               "isCorrect": true
             },
             {
-              "text": "Acuario, Libra, Geminis",
+              "text": "Vegetta",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 9,
-          "title": "En el zodíaco el símbolo de géminis es...",
+          "title": "¿Qué Youtuber nos mostró toda la historia de su infancia en el Club Media Fest Argentina?",
           "bonus": false,
           "answers": [
             {
-              "text": "Una balanza",
-              "isCorrect": false
-            },
-            {
-              "text": "Gémelos",
+              "text": "El pelado justiciero",
               "isCorrect": true
             },
             {
-              "text": "Dos flechas",
+              "text": "Julián Serrano",
+              "isCorrect": false
+            },
+            {
+              "text": "Daiana Hernández",
               "isCorrect": false
             }
           ]
         },
         {
           "id": 10,
-          "title": "¿Qué representa la casa 11?",
+          "title": "¿Qué Youtuber se quedó el la suite presidencial en la primera edición del Club Media Fest Chile?",
           "bonus": false,
           "answers": [
             {
-              "text": "El yo",
+              "text": "Daiana Hernández",
               "isCorrect": false
             },
             {
-              "text": "La sexualidad",
+              "text": "Alejo Igoa",
               "isCorrect": false
             },
             {
-              "text": "La sociedad",
+              "text": "La Divaza",
               "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lifestyle",
+      "imgURL": "/img/categoria-lifestyle.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Qué Youtuber Argentina hizo un desfile en el primer Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Dai Hernández",
+              "isCorrect": false
+            },
+            {
+              "text": "Ann Look",
+              "isCorrect": true
+            },
+            {
+              "text": "Prima Vikinga",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Qué gran Youtuber local participó de un panel de junto a Lana y María Cadepe en la edición peruana?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Whatthechic",
+              "isCorrect": true
+            },
+            {
+              "text": "Juli Berea",
+              "isCorrect": false
+            },
+            {
+              "text": "Ninguna",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Con qué material creo un vestuario Lina Menesses en el Club Media Fest Colombia?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Cartón",
+              "isCorrect": false
+            },
+            {
+              "text": "Papel",
+              "isCorrect": false
+            },
+            {
+              "text": "Bolsas de residuo",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Qué Youtuber participó de un reto de maquillaje en el Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "YellowMellow",
+              "isCorrect": false
+            },
+            {
+              "text": "Nataly Valencia",
+              "isCorrect": true
+            },
+            {
+              "text": "Martina la Peligrosa",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿De qué color era el vestido de Lana en el primer Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Amarillo",
+              "isCorrect": false
+            },
+            {
+              "text": "Negro",
+              "isCorrect": true
+            },
+            {
+              "text": "Azul",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Quiénes fueron las noteras del primer Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Prima Vikinga y Dai Hernandez",
+              "isCorrect": false
+            },
+            {
+              "text": "Yoana Marlen y Azu Makeup",
+              "isCorrect": false
+            },
+            {
+              "text": "Cecia Saia y Frutilla Picante",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Qué Youtuber Argentina de Makeup viajó para el Club Media Fest Chile 2016?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Nati Guida",
+              "isCorrect": false
+            },
+            {
+              "text": "Azu Makeup",
+              "isCorrect": true
+            },
+            {
+              "text": "Yoana Marlen",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿En qué edición del Club Media Fest desfiló Yoana Marlen?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Argentina 2015",
+              "isCorrect": true
+            },
+            {
+              "text": "Perú",
+              "isCorrect": false
+            },
+            {
+              "text": "Colombia",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿De qué hablaron Whatthechic y Ro en la Red en su panel en el fest de Perú?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "El humor en las redes sociales",
+              "isCorrect": false
+            },
+            {
+              "text": "La estética y la creación de contenido en Instagram y Snapchat",
+              "isCorrect": true
+            },
+            {
+              "text": "El fenómeno de los libros en la era digital",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Quién es la reina de los tutoriales que participó del Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "YellowMellow",
+              "isCorrect": false
+            },
+            {
+              "text": "Elvisa",
+              "isCorrect": false
+            },
+            {
+              "text": "María Cadepe",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Club Media Fest",
+      "imgURL": "/img/categoria-cmf.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Con qué Youtubers compitió Fernanfloo en Perú en el reto de la botella?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Mox y Xodaaaa",
+              "isCorrect": true
+            },
+            {
+              "text": "Luzu y Lana",
+              "isCorrect": false
+            },
+            {
+              "text": "AlexBy y StaXx",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Quiénes ganaron al pictionary en el Club Media Fest abril 2015?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Ribius y Luzu",
+              "isCorrect": false
+            },
+            {
+              "text": "Luzu y Lana",
+              "isCorrect": false
+            },
+            {
+              "text": "Lana y Mangel",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿En cuántos Club Media Fest actuaron juntas YellowMellow y Elvisa?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "4",
+              "isCorrect": true
+            },
+            {
+              "text": "3",
+              "isCorrect": false
+            },
+            {
+              "text": "Todos",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Con qué artistas compartió escenario Kevsho?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "La Divaza",
+              "isCorrect": false
+            },
+            {
+              "text": "JPelirrojo y Ro en la red",
+              "isCorrect": false
+            },
+            {
+              "text": "ElChuiucal, Ignacio Buiatti, Chino Castro",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Qué Youtubers masculinos desfilaron con ropa creada por Ann Look?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Gonza Fonseca y Julianero",
+              "isCorrect": true
+            },
+            {
+              "text": "Julián Serrano y Chino Castro",
+              "isCorrect": false
+            },
+            {
+              "text": "David Montoya y Xoda",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Que Youtubers fueron vestidos de traje en la primera edición del Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Magnus Mefisto y JPelirrojo",
+              "isCorrect": false
+            },
+            {
+              "text": "Vedito y Kion",
+              "isCorrect": true
+            },
+            {
+              "text": "Magnus Mefisto y JPelirrojo",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿En qué edición del Club Media Fest Luzu se presentó sin Lana?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Colombia",
+              "isCorrect": true
+            },
+            {
+              "text": "Perú",
+              "isCorrect": false
+            },
+            {
+              "text": "Argentina",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Quiénes fueron los conductores del primer Club Media Fest en Chile?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Romina Dinamita y Xodaaaa",
+              "isCorrect": false
+            },
+            {
+              "text": "Fabio Torres y Orni",
+              "isCorrect": true
+            },
+            {
+              "text": "Fabio Torres y el Chino Castro",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Quiénes se disfrazaron para un panel del Club Media Fest Colombia?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Luzu y Rubius",
+              "isCorrect": true
+            },
+            {
+              "text": "Luzu y Lana",
+              "isCorrect": false
+            },
+            {
+              "text": "Zorman y YellowMellow",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Quién ganó el Bottle Flip Challenge en Argentina?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Mox",
+              "isCorrect": false
+            },
+            {
+              "text": "Xodaaaa",
+              "isCorrect": false
+            },
+            {
+              "text": "ElChuiucal",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gamers",
+      "imgURL": "/img/categoria-gamers.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuál fue el primer gamer confirmado en la primera edición del Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Vegetta",
+              "isCorrect": false
+            },
+            {
+              "text": "Fernanfloo",
+              "isCorrect": false
+            },
+            {
+              "text": "El Rubius",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cuántos juegos ganó Fernanfloo en Club Media Fest Argentina 2016?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Ninguno",
+              "isCorrect": true
+            },
+            {
+              "text": "2",
+              "isCorrect": false
+            },
+            {
+              "text": "3",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿En qué edición del Club Media Fest estuvo por primera vez Vegetta777?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Colombia 2016",
+              "isCorrect": false
+            },
+            {
+              "text": "Chile 2015",
+              "isCorrect": true
+            },
+            {
+              "text": "Perú 2016",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Cuántas veces estuvo AlexBy en el Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "2",
+              "isCorrect": true
+            },
+            {
+              "text": "3",
+              "isCorrect": false
+            },
+            {
+              "text": "5",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Qué hizo Fernanfloo al entrar al escenario por primera vez en el Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Llorar",
+              "isCorrect": false
+            },
+            {
+              "text": "Vomitar",
+              "isCorrect": true
+            },
+            {
+              "text": "Tropezarse",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Qué Youtuber cantó una canción llamada 'Chica Gamer' en el Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Mangel",
+              "isCorrect": false
+            },
+            {
+              "text": "Zarcort",
+              "isCorrect": true
+            },
+            {
+              "text": "Lytos",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Qué gamer presentó a Vegetta, Willyrex AlexBy y StaXx?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "ByAbel",
+              "isCorrect": true
+            },
+            {
+              "text": "German Garmendia",
+              "isCorrect": false
+            },
+            {
+              "text": "Giianpa",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Qué duplas eligieron Willyrex, AleXby, Vegetta y StaXx para jugar en el Club Media Fest?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "AleXby Vegetta Vs StaXx Willyrex",
+              "isCorrect": false
+            },
+            {
+              "text": "AleXby, Willyrex Vs Vegetta y StaXx",
+              "isCorrect": false
+            },
+            {
+              "text": "AleXby StaXx Vs Willyrex Vegetta",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Quiénes hicieron un panel gamer en Chile?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Rubius y Mangel",
+              "isCorrect": false
+            },
+            {
+              "text": "Xodaaaa y Zarcort",
+              "isCorrect": true
+            },
+            {
+              "text": "AleXby StaXx Vs Willyrex Vegetta",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿En cuántos Club Media Fest participó Fernanfloo?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "2",
+              "isCorrect": false
+            },
+            {
+              "text": "3",
+              "isCorrect": true
+            },
+            {
+              "text": "7",
+              "isCorrect": false
             }
           ]
         }
