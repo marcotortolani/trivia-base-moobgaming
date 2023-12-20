@@ -1939,6 +1939,9 @@ body #inputNumCat {
   .spinner-wheel .pointer-container {
     top: 40%;
   }
+  .category .category-questions .cards-question .cards-answers .answer {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
   .category .panel-footer-container .points {
     width: 50%;
   }
@@ -1998,7 +2001,7 @@ body #inputNumCat {
   .category .category-questions .cards-question .cards-answers .answer {
     width: 100%;
     min-height: 35px;
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 3vw, 1rem);
   }
   .category .category-questions .cards-question .wrapper-lottie {
     height: 18vh;

@@ -2487,6 +2487,15 @@ body {
     }
   }
   .category {
+    .category-questions{
+      .cards-question{
+        .cards-answers{
+          .answer{
+            font-size: clamp(0.8rem, 3.5vw, 1rem);
+          }
+        }
+      }
+    }
     .panel-footer-container {
       .points {
         width: 50%;
@@ -2583,7 +2592,7 @@ body {
           .answer {
             width: 100%;
             min-height: 35px;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 3vw, 1rem);
           }
         }
 
