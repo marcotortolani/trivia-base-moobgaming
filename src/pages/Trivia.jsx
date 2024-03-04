@@ -1,22 +1,18 @@
-import { useContext, useState } from "preact/hooks";
+import { useContext, useState } from 'preact/hooks';
 //import useSound from "use-sound";
-import { ConfigContext } from "../ConfigProvider";
+import { ConfigContext } from '../ConfigProvider';
 
-import Lottie from "lottie-react";
-import goldenCongrats from "../assets/lottie_json/golden_congrats.json";
+import Lottie from 'lottie-react';
+import goldenCongrats from '../assets/lottie_json/golden_congrats.json';
 
-import SpinnerWheel from "../components/Trivia/SpinnerWheel";
-import PanelFooter from "../components/Trivia/PanelFooter";
-import Header from "../components/Trivia/Header";
+import SpinnerWheel from '../components/Trivia/SpinnerWheel';
+import PanelFooter from '../components/Trivia/PanelFooter';
+import Header from '../components/Trivia/Header';
 
 export default function Trivia() {
   const { points, images, imagesByLang, sounds, texts } =
     useContext(ConfigContext);
-  const { backgroundApp, idolGolden } = images;
-  const { bubbleStartMessage, bubbleDailyLimit } = imagesByLang;
-  const { congratsTriviaCompleted } = texts;
 
-  /* ------ */
   //const [mutePop] = useSound(muteButton);
   const [rouletteDisable, setRouletteDisable] = useState(false);
   const [triviaCompleted, setTriviaCompleted] = useState(false);
@@ -39,11 +35,11 @@ export default function Trivia() {
 
   return (
     <div className="app-trivia">
-      {backgroundApp && (
+      {images?.backgroundApp && (
         <div className="background-image-container">
           <img
             className="background-image"
-            src={backgroundApp}
+            src={images?.backgroundApp}
             alt="Image BackGround Trivia Maradona"
           />
         </div>
@@ -59,7 +55,7 @@ export default function Trivia() {
       {/* ---- Animation ---- */}
       {triviaCompleted && (
         <div className="pop-up-fireworks hid">
-          <h3 className="golden-congrats">{congratsTriviaCompleted}</h3>
+          <h3 className="golden-congrats">{texts?.congratsTriviaCompleted}</h3>
           <Lottie
             animationData={goldenCongrats}
             loop={true}
@@ -68,10 +64,10 @@ export default function Trivia() {
               height: 300,
             }}
           />
-          {idolGolden && (
+          {images?.idolGolden && (
             <img
               className="idol-golden"
-              src={idolGolden}
+              src={images?.idolGolden}
               alt="Image Idol Trivia Completed"
             />
           )}
@@ -81,14 +77,14 @@ export default function Trivia() {
 
       {/* {!points && (
         <div className="bubble-message-wrapper">
-          <img src={bubbleStartMessage} alt="Bubble Initial Message To Start" />
+          <img src={imagesByLang?.bubbleStartMessage} alt="Bubble Initial Message To Start" />
         </div>
       )} */}
 
       {/* {rouletteDisable && (
         <div className="bubble-daily-limit-wrapper">
           <img
-            src={bubbleDailyLimit}
+            src={imagesByLang?.bubbleDailyLimit}
             alt="Bubble Message Daily Limit Reached"
           />
         </div>

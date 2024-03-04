@@ -1,30 +1,30 @@
-import { useContext } from "preact/hooks";
-import { Link, useLocation } from "react-router-dom";
-import { ConfigContext } from "../../ConfigProvider";
+import { useContext } from 'preact/hooks';
+import { Link, useLocation } from 'react-router-dom';
+import { ConfigContext } from '../../ConfigProvider';
 
 export default function LogoHeader() {
   const { images, imagesByLang } = useContext(ConfigContext);
-  //const { idolImage, madeBy } = images;
-  const { logoHeader } = imagesByLang;
   const location = useLocation().pathname;
 
   return (
     <div className="logo-header">
-      {location.includes("category") || location.includes("question") ? (
+      {location.includes('category') || location.includes('question') ? (
         <>
           <div className="logo-img-wrapper">
             <Link to="/">
-              <img src={logoHeader} alt="Icon Logo LxLC Trivia" />
+              <img src={imagesByLang?.logoHeader} alt="Icon Logo LxLC Trivia" />
             </Link>
           </div>
 
-          {/* <div className="idol-container">
-            <img
-              className="idol-image"
-              src={idolImage}
-              alt="Image Diego Maradona Cartoon"
-            />
-          </div> */}
+          {images?.idolImage && (
+            <div className="idol-container">
+              <img
+                className="idol-image"
+                src={images?.idolImage}
+                alt="Image Diego Maradona Cartoon"
+              />
+            </div>
+          )}
         </>
       ) : (
         <>
@@ -32,12 +32,12 @@ export default function LogoHeader() {
             <Link to="/">
               <img
                 className="img-logo"
-                src={logoHeader}
+                src={imagesByLang?.logoHeader}
                 alt="Icon Logo Trivia Diego Maradona"
               />
               {/* <img
                 className="img-made-by"
-                src={madeBy}
+                src={images?.madeBy}
                 alt="Image Made By MediaMoob"
               /> */}
             </Link>

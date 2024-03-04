@@ -1,30 +1,24 @@
-import { useState, useEffect, useMemo, useContext } from "preact/hooks";
-import { useNavigate } from "react-router-dom";
-import { ConfigContext } from "../../ConfigProvider.jsx";
-import useSound from "use-sound";
+import { useState, useEffect, useMemo, useContext } from 'preact/hooks';
+import { useNavigate } from 'react-router-dom';
+import { ConfigContext } from '../../ConfigProvider.jsx';
+import useSound from 'use-sound';
 
 const DEGREE = 1800;
 const TIME_SPINNING = 3;
 let totalDegree;
 
 export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
-  const {
-    soundOn,
-    dataStored,
-    images,
-    categories,
-    sounds,
-    config,
-  } = useContext(ConfigContext);
+  const { soundOn, dataStored, images, categories, sounds, config } =
+    useContext(ConfigContext);
 
-  const { spinButton, pointerRoulette } = images;
-  const DATA_CATEGS = categories;
-  const { rouletteWheel } = sounds;
-  const TRIES_ALLOWED = config["triesAllowedPerDay"];
+  const DATA_CATEGS = categories ? categories : [];
+  const TRIES_ALLOWED = config ? config['triesAllowedPerDay'] : null;
   /*--------- */
-  const SECTIONS_WHEEL = useMemo(() => DATA_CATEGS.length, [categories]);
+  const SECTIONS_WHEEL = useMemo(() => DATA_CATEGS?.length, [categories]);
 
-  const [rouletteSound] = useSound(rouletteWheel, { soundEnabled: soundOn });
+  const [rouletteSound] = useSound(sounds?.rouletteWheel, {
+    soundEnabled: soundOn,
+  });
   const [catWheel, setCatWheel] = useState(0);
   const navigate = useNavigate();
 
@@ -63,7 +57,8 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
     //const cat = Math.floor(extraDegree / (360 / SECTIONS_WHEEL) + 1);
 
     /* nuevo calculo condiserando la ubicacion de la flecha/puntero */
-    const initialArrowPosDegrees = 0; // ubicación inicial de la flecha indicadora en grados
+    // ubicación inicial de la flecha indicadora en grados
+    const initialArrowPosDegrees = 0;
     const adjustedExtraDegree = (extraDegree + initialArrowPosDegrees) % 360;
     const cat = Math.floor(adjustedExtraDegree / (360 / SECTIONS_WHEEL)) + 1;
 
@@ -82,7 +77,7 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
   useEffect(() => {
     if (!catWheel) return;
     setTimeout(() => {
-      navigate("/category/" + catWheel);
+      navigate('/category/' + catWheel);
     }, TIME_SPINNING * 1000 + 500);
   }, [catWheel]);
 
@@ -107,8 +102,8 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
                   cat.questions.length ===
                     dataStored[index].questionsAnswered.length ||
                   dataStored[index].dateAnsweredToday.length === TRIES_ALLOWED
-                    ? "sec disabled"
-                    : "sec"
+                    ? 'sec disabled'
+                    : 'sec'
                 }
               >
                 <img src={cat.imgURL} alt={`Category Icon ${cat.name}`} />
@@ -133,17 +128,15 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
           <div id="spin" className="">
             <button disabled={spinDisable} id="inner-spin" onClick={handleSpin}>
               <img
-                className={spinDisable ? "disabled" : ""}
-                src={spinButton}
+                className={spinDisable ? 'disabled' : ''}
+                src={images?.spinButton}
                 alt="Image Spin Button"
               />
             </button>
           </div>
 
           <div className="ring">
-            {/* <div className="inner-ring"></div> */}
             <div className="center-ring"></div>
-            {/* <div className="outter-ring"></div> */}
             <div className="pointer-triangle"></div>
           </div>
 
@@ -154,7 +147,7 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
       {/* <div className="pointer-container">
         <img
           className="pointer-image"
-          src={pointerRoulette}
+          src={images?.pointerRoulette}
           alt="Image Diego Maradona Cartoon"
         />
       </div> */}

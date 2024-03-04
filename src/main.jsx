@@ -1,15 +1,26 @@
-import { render } from "preact";
-import { HashRouter } from "react-router-dom";
-import { App } from "./app";
-import "./index.css";
-import { ConfigProvider } from "./ConfigProvider";
+import { render } from 'preact';
+import { HashRouter } from 'react-router-dom';
+import { useDataConfig } from './helpers/useDataConfig';
+import { configEndpoint } from "./conf/configEndpoint";
+import { App } from './app';
+import { ConfigProvider } from './ConfigProvider';
+import { LoadingTrivia } from './components/LoadingTrivia';
+import './index.css';
 
-const application = (
-  <HashRouter>
-    <ConfigProvider>
-      <App />
-    </ConfigProvider>
-  </HashRouter>
-);
+function Application() {
+  const dataConfig = useDataConfig(configEndpoint);
 
-render(application, document.getElementById("app"));
+  return (
+    <HashRouter>
+      {dataConfig !== null ? (
+        <ConfigProvider dataConfig={dataConfig}>
+          <App />
+        </ConfigProvider>
+      ) : (
+        <LoadingTrivia />
+      )}
+    </HashRouter>
+  );
+}
+
+render(<Application />, document.getElementById('app'));

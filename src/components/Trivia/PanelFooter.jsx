@@ -1,13 +1,13 @@
-import { useContext, useState } from "preact/hooks";
-import { Link, useLocation } from "react-router-dom";
-import useSound from "use-sound";
-import { ConfigContext } from "../../ConfigProvider";
+import { useContext, useState } from 'preact/hooks';
+import { Link, useLocation } from 'react-router-dom';
+import useSound from 'use-sound';
+import { ConfigContext } from '../../ConfigProvider';
 
-import PointsDisplay from "./PointsDisplay";
-import QuestionsAnswered from "./QuestionsAnswered";
-import RewardsSlider from "./RewardsSlider";
+import PointsDisplay from './PointsDisplay';
+import QuestionsAnswered from './QuestionsAnswered';
+import RewardsSlider from './RewardsSlider';
 
-import { BackArrowIcon } from "../../utils/svgIcons";
+import { BackArrowIcon } from '../../utils/svgIcons';
 
 const PanelFooter = ({ cat }) => {
   const {
@@ -22,24 +22,19 @@ const PanelFooter = ({ cat }) => {
     categories,
   } = useContext(ConfigContext);
 
-  const { rewardsButton, termsButton, arrowsSlider } = images;
-  const { rewardsImages } = imagesByLang;
-  const { clickOpen, closePopup } = sounds;
-  const { termsURL } = links;
-  const DATA_CATEGS = categories;
-  const { terms, rewards } = texts;
+  const DATA_CATEGS = categories ? categories : [];
   /*----*/
-  const [clickButton] = useSound(clickOpen, { soundEnabled: soundOn });
-  const [closeRwd] = useSound(closePopup, { soundEnabled: soundOn });
+  const [clickButton] = useSound(sounds?.clickOpen, { soundEnabled: soundOn });
+  const [closeRwd] = useSound(sounds?.closePopup, { soundEnabled: soundOn });
   const [openRewards, setOpenRewards] = useState(false);
   const location = useLocation().pathname;
 
   function handleRewards(e) {
-    if (e.target.id.includes("open")) {
+    if (e.target.id.includes('open')) {
       setOpenRewards(true);
       clickButton();
     }
-    if (e.target.id.includes("close")) {
+    if (e.target.id.includes('close')) {
       setOpenRewards(false);
       closeRwd();
     }
@@ -47,10 +42,10 @@ const PanelFooter = ({ cat }) => {
 
   return (
     <div className="panel-footer-container">
-      {location.includes("category") || location.includes("question") ? (
+      {location.includes('category') || location.includes('question') ? (
         <>
           <div className="button-back">
-            <Link className="back-home" to={"/"} onClick={clickButton}>
+            <Link className="back-home" to={'/'} onClick={clickButton}>
               <BackArrowIcon />
             </Link>
           </div>
@@ -66,14 +61,14 @@ const PanelFooter = ({ cat }) => {
         <>
           <div className="wrapper-bases-rewards">
             <div className="bases">
-              <a href={termsURL} target="_blank" rel="noreferrer">
+              <a href={links?.termsURL} target="_blank" rel="noreferrer">
                 <img
                   onClick={clickButton}
-                  src={termsButton}
+                  src={images?.termsButton}
                   alt="Icon Button Terms"
                 />
               </a>
-              <h5 className="bases-tag">{terms}</h5>
+              <h5 className="bases-tag">{texts?.terms}</h5>
             </div>
 
             <PointsDisplay points={points} />
@@ -81,12 +76,12 @@ const PanelFooter = ({ cat }) => {
             <div className="rewards">
               <button onClick={(e) => handleRewards(e)} id="button-rewards">
                 <img
-                  src={rewardsButton}
+                  src={images?.rewardsButton}
                   alt="Icon Button Reward"
                   id="open-rewards"
                 />
               </button>
-              <h5 className="rewards-tag">{rewards}</h5>
+              <h5 className="rewards-tag">{texts?.rewards}</h5>
             </div>
           </div>
 
@@ -104,8 +99,8 @@ const PanelFooter = ({ cat }) => {
                 </div>
 
                 <RewardsSlider
-                  slidesImages={rewardsImages}
-                  arrowsSlider={arrowsSlider}
+                  slidesImages={imagesByLang?.rewardsImages}
+                  arrowsSlider={images?.arrowsSlider}
                 />
               </div>
             </div>
