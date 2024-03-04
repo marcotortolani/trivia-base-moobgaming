@@ -1,5 +1,5 @@
 
-# Trivia Club Media Fest
+# Trivia
 
 ## by Media Moob
 
