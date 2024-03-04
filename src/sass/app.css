@@ -172,6 +172,21 @@ body #inputNumCat {
     transform-origin: 100% 50%;
   }
 }
+.loading-trivia {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+}
+.loading-trivia .loading-text {
+  color: black;
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  animation: blinkCompleted 2s infinite reverse ease-in-out;
+  -webkit-animation: blinkCompleted 2s infinite reverse ease-in-out;
+}
+
 .app-trivia,
 .category {
   width: 100vw;
