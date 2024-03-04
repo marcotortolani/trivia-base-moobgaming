@@ -6,10 +6,7 @@ export function BackArrowIcon({ colorFill = "#000" }) {
       height="100%"
       version="1.1"
       id="Capa_1"
-      xmlns="http://www.w3.org/2000/svg"
-      //   xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 96.154 96.154"
-      //   xml:space="preserve"
     >
       <g>
         <path
