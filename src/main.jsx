@@ -16,7 +16,7 @@ const hash = urlParams.get('hash');
 function Application() {
   console.log('hash: ', hash);
   //const dataConfig = useDataConfig(configEndpoint);
-  const dataConfig = useDataConfig(configEndpoint + `/${hash}`);
+  const dataConfig = useDataConfig(configEndpoint + `${hash}`);
 
   return (
     <HashRouter>
