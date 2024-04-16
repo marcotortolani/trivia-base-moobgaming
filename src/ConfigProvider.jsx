@@ -1,29 +1,33 @@
-import { createContext } from 'preact';
-import { useEffect } from 'preact/hooks';
-import useLocalStorage from './helpers/useLocalStorage';
+import { createContext } from 'preact'
+import { useEffect } from 'preact/hooks'
+import useLocalStorage from './helpers/useLocalStorage'
 
-const lang = document.documentElement.lang;
+const lang = document.documentElement.lang
 
-const ConfigContext = createContext();
+const ConfigContext = createContext()
 
-const soundDefault = false;
-const pointsInitial = 0;
+const soundDefault = false
+const pointsInitial = 0
 
 const ConfigProvider = ({ children, dataConfig }) => {
-  const { config, colors, images, sounds, links, textsByLang, categories } = dataConfig;
-  const catDataInitial = categories.map(() => ({
+  const { config, colors, images, sounds, links, textsByLang, categories } =
+    dataConfig
+  const catDataInitial = dataConfig?.categories.map(() => ({
     questionsAnswered: [],
     dateAnsweredToday: [],
-  }));
-  const [soundOn, setSoundOn] = useLocalStorage('soundActive', soundDefault);
-  const [points, setPoints] = useLocalStorage('userPoints', pointsInitial);
+  }))
+  const [soundOn, setSoundOn] = useLocalStorage('soundActive', soundDefault)
+  const [points, setPoints] = useLocalStorage('userPoints', pointsInitial)
   const [dataStored, setDataStored] = useLocalStorage(
     'userData',
     catDataInitial
-  );
+  )
 
-  const texts = textsByLang[`${lang}`],
-    imagesByLang = images[`${lang}`];
+  let texts, imagesByLang
+  if (dataConfig) {
+    texts = textsByLang[`${lang}`]
+    imagesByLang = images[`${lang}`]
+  }
 
   const values = {
     soundOn,
@@ -40,7 +44,7 @@ const ConfigProvider = ({ children, dataConfig }) => {
     links,
     texts,
     categories,
-  };
+  }
 
   useEffect(() => {
     const dataLS = dataStored.map((cat) => ({
@@ -48,13 +52,13 @@ const ConfigProvider = ({ children, dataConfig }) => {
       dateAnsweredToday: cat.dateAnsweredToday.filter(
         (ans) => ans === new Date().getDate()
       ),
-    }));
-    setDataStored(dataLS);
-  }, []);
+    }))
+    setDataStored(dataLS)
+  }, [])
 
   return (
     <ConfigContext.Provider value={values}>{children}</ConfigContext.Provider>
-  );
-};
+  )
+}
 
-export { ConfigContext, ConfigProvider };
+export { ConfigContext, ConfigProvider }

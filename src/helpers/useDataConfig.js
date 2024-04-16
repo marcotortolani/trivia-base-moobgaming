@@ -1,12 +1,18 @@
-import { useState, useEffect } from 'preact/hooks';
-import { getDataConfig } from '../services/getDataConfig';
+import { useState, useEffect } from 'preact/hooks'
+import { getDataConfig } from '../services/getDataConfig'
 
 export function useDataConfig(endpoint) {
-  const [dataConfig, setDataConfig] = useState(null);
+  const [dataConfig, setDataConfig] = useState(null)
 
   useEffect(() => {
-    getDataConfig(endpoint).then((res) => setDataConfig(res));
-  }, []);
+    getDataConfig(endpoint).then((res) => {
+      if (res) {
+        setDataConfig(res.triviaData)
+      } else {
+        setDataConfig(null)
+      }
+    })
+  }, [])
 
-  return dataConfig;
+  return { dataConfig }
 }

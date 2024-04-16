@@ -1,5 +1,5 @@
 {
-  "last-updated": "04-03-24",
+  "last-updated": "16-04-24",
   "config": {
     "triesAllowedPerDay": 50,
     "pointsCorrect": 1000,
@@ -62,9 +62,6 @@
       "left": "/img/left-golden-arrow.webp",
       "right": "/img/right-golden-arrow.webp"
     },
-    "idolImage": "",
-    "idolCatCompleted": "",
-    "idolGolden": "",
     "backgroundPoints": "/img/barra-puntos.webp"
   },
   "sounds": {

@@ -7,7 +7,7 @@ import PanelFooter from '../components/Trivia/PanelFooter'
 import Header from '../components/Trivia/Header'
 
 export default function Trivia() {
-  const { points, colors, images, imagesByLang, sounds, texts } =
+  const { colors, images, texts } =
     useContext(ConfigContext)
 
   const [rouletteDisable, setRouletteDisable] = useState(false)
@@ -58,13 +58,6 @@ export default function Trivia() {
               height: 300,
             }}
           />
-          {images?.idolGolden && (
-            <img
-              className="idol-golden"
-              src={images?.idolGolden}
-              alt="Image Idol Trivia Completed"
-            />
-          )}
         </div>
       )}
       {/* ---- Animation ---- */}

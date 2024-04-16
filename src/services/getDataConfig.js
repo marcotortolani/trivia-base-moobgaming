@@ -1,10 +1,18 @@
 export async function getDataConfig(endpoint) {
-  const res = await fetch(endpoint, {
-    mode: 'cors',
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  const data = await res.json();
+  let data, res
+  try {
+    res = await fetch(endpoint, {
+      mode: 'cors',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    })
+  } catch (err) {
+    console.log('Fetch Error')
+    console.log(err)
+    data = null
+  } finally {
+    data = await res.json()
+  }
 
-  return data;
+  return data
 }
