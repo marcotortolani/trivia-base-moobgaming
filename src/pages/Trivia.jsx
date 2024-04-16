@@ -1,40 +1,31 @@
-import { useContext, useState } from 'preact/hooks';
-//import useSound from "use-sound";
-import { ConfigContext } from '../ConfigProvider';
-
-import Lottie from 'lottie-react';
-import goldenCongrats from '../assets/lottie_json/golden_congrats.json';
-
-import SpinnerWheel from '../components/Trivia/SpinnerWheel';
-import PanelFooter from '../components/Trivia/PanelFooter';
-import Header from '../components/Trivia/Header';
+import { useContext, useState } from 'preact/hooks'
+import { ConfigContext } from '../ConfigProvider'
+import Lottie from 'lottie-react'
+import goldenCongrats from '../assets/lottie_json/golden_congrats.json'
+import SpinnerWheel from '../components/Trivia/SpinnerWheel'
+import PanelFooter from '../components/Trivia/PanelFooter'
+import Header from '../components/Trivia/Header'
 
 export default function Trivia() {
-  const { points, images, imagesByLang, sounds, texts } =
-    useContext(ConfigContext);
+  const { points, colors, images, imagesByLang, sounds, texts } =
+    useContext(ConfigContext)
 
-  //const [mutePop] = useSound(muteButton);
-  const [rouletteDisable, setRouletteDisable] = useState(false);
-  const [triviaCompleted, setTriviaCompleted] = useState(false);
+  const [rouletteDisable, setRouletteDisable] = useState(false)
+  const [triviaCompleted, setTriviaCompleted] = useState(false)
 
   function handleSpinDisable(spinDisable) {
-    setRouletteDisable(spinDisable);
+    setRouletteDisable(spinDisable)
   }
 
   function handleTriviaCompleted(triviaDisable) {
-    setTriviaCompleted(triviaDisable);
+    setTriviaCompleted(triviaDisable)
   }
 
-  // function handleSound() {
-  //   // let context = new AudioContext();
-  //   const contextAudio = new AudioContext();
-  //   contextAudio.resume();
-  //   mutePop();
-  //   setSoundOn(!soundOn);
-  // }
-
   return (
-    <div className="app-trivia">
+    <div
+      className="app-trivia"
+      style={{ backgroundColor: colors?.background, color: colors?.text }}
+    >
       {images?.backgroundApp && (
         <div className="background-image-container">
           <img
@@ -54,7 +45,10 @@ export default function Trivia() {
 
       {/* ---- Animation ---- */}
       {triviaCompleted && (
-        <div className="pop-up-fireworks hid">
+        <div
+          className="pop-up-fireworks hid"
+          style={{ backgroundColor: colors?.backgroundCongrats }}
+        >
           <h3 className="golden-congrats">{texts?.congratsTriviaCompleted}</h3>
           <Lottie
             animationData={goldenCongrats}
@@ -74,23 +68,7 @@ export default function Trivia() {
         </div>
       )}
       {/* ---- Animation ---- */}
-
-      {/* {!points && (
-        <div className="bubble-message-wrapper">
-          <img src={imagesByLang?.bubbleStartMessage} alt="Bubble Initial Message To Start" />
-        </div>
-      )} */}
-
-      {/* {rouletteDisable && (
-        <div className="bubble-daily-limit-wrapper">
-          <img
-            src={imagesByLang?.bubbleDailyLimit}
-            alt="Bubble Message Daily Limit Reached"
-          />
-        </div>
-      )} */}
-
       <PanelFooter />
     </div>
-  );
+  )
 }

@@ -1,26 +1,26 @@
-import { useState, useEffect, useMemo, useContext } from 'preact/hooks';
-import { useNavigate } from 'react-router-dom';
-import { ConfigContext } from '../../ConfigProvider.jsx';
-import useSound from 'use-sound';
+import { useState, useEffect, useMemo, useContext } from 'preact/hooks'
+import { useNavigate } from 'react-router-dom'
+import { ConfigContext } from '../../ConfigProvider.jsx'
+import useSound from 'use-sound'
 
-const DEGREE = 1800;
-const TIME_SPINNING = 3;
-let totalDegree;
+const DEGREE = 1800
+const TIME_SPINNING = 3
+let totalDegree
 
 export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
-  const { soundOn, dataStored, images, categories, sounds, config } =
-    useContext(ConfigContext);
+  const { soundOn, dataStored, colors, images, categories, sounds, config } =
+    useContext(ConfigContext)
 
-  const DATA_CATEGS = categories ? categories : [];
-  const TRIES_ALLOWED = config ? config['triesAllowedPerDay'] : null;
+  const DATA_CATEGS = categories ? categories : []
+  const TRIES_ALLOWED = config ? config['triesAllowedPerDay'] : null
   /*--------- */
-  const SECTIONS_WHEEL = useMemo(() => DATA_CATEGS?.length, [categories]);
+  const SECTIONS_WHEEL = useMemo(() => DATA_CATEGS?.length, [categories])
 
   const [rouletteSound] = useSound(sounds?.rouletteWheel, {
     soundEnabled: soundOn,
-  });
-  const [catWheel, setCatWheel] = useState(0);
-  const navigate = useNavigate();
+  })
+  const [catWheel, setCatWheel] = useState(0)
+  const navigate = useNavigate()
 
   // deshabilita el boton SPIN si se completaron
   // todas las categorias y/o alcanzo el limite diario
@@ -32,11 +32,11 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
           dataStored[index].dateAnsweredToday.length === TRIES_ALLOWED
       ),
     [dataStored]
-  );
+  )
 
   useEffect(() => {
-    onSpinDisable(spinDisable);
-  }, [spinDisable]);
+    onSpinDisable(spinDisable)
+  }, [spinDisable])
 
   const triviaCompleted = useMemo(
     () =>
@@ -45,41 +45,41 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
           cat.questions.length === dataStored[index].questionsAnswered.length
       ),
     [dataStored]
-  );
+  )
 
   useEffect(() => {
-    onTriviaCompleted(triviaCompleted);
-  }, [triviaCompleted]);
+    onTriviaCompleted(triviaCompleted)
+  }, [triviaCompleted])
 
   const handleSpin = () => {
-    const extraDegree = Math.floor(Math.random() * (360 - 1) + 1);
-    totalDegree = DEGREE + extraDegree;
+    const extraDegree = Math.floor(Math.random() * (360 - 1) + 1)
+    totalDegree = DEGREE + extraDegree
     //const cat = Math.floor(extraDegree / (360 / SECTIONS_WHEEL) + 1);
 
     /* nuevo calculo condiserando la ubicacion de la flecha/puntero */
     // ubicación inicial de la flecha indicadora en grados
-    const initialArrowPosDegrees = 0;
-    const adjustedExtraDegree = (extraDegree + initialArrowPosDegrees) % 360;
-    const cat = Math.floor(adjustedExtraDegree / (360 / SECTIONS_WHEEL)) + 1;
+    const initialArrowPosDegrees = 0
+    const adjustedExtraDegree = (extraDegree + initialArrowPosDegrees) % 360
+    const cat = Math.floor(adjustedExtraDegree / (360 / SECTIONS_WHEEL)) + 1
 
     if (
       dataStored[cat - 1].questionsAnswered.length ===
         DATA_CATEGS[cat - 1].questions.length ||
       dataStored[cat - 1].dateAnsweredToday.length === TRIES_ALLOWED
     ) {
-      return handleSpin();
+      return handleSpin()
     }
 
-    rouletteSound();
-    setCatWheel(cat);
-  };
+    rouletteSound()
+    setCatWheel(cat)
+  }
 
   useEffect(() => {
-    if (!catWheel) return;
+    if (!catWheel) return
     setTimeout(() => {
-      navigate('/category/' + catWheel);
-    }, TIME_SPINNING * 1000 + 500);
-  }, [catWheel]);
+      navigate('/category/' + catWheel)
+    }, TIME_SPINNING * 1000 + 500)
+  }, [catWheel])
 
   return (
     <div className="spinner-wheel">
@@ -105,28 +105,22 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
                     ? 'sec disabled'
                     : 'sec'
                 }
+                style={{
+                  backgroundColor: colors?.rouletteSection[index],
+                }}
               >
                 <img src={cat.imgURL} alt={`Category Icon ${cat.name}`} />
               </li>
             ))}
           </ul>
 
-          <svg height="0" width="0">
-            <defs>
-              <clipPath clipPathUnits="objectBoundingBox" id="sector">
-                <path
-                  fill="none"
-                  stroke="#111"
-                  stroke-width="1"
-                  class="sector"
-                  d="M0.5,0.5 l0.5,0 A0.5,0.5 0 0,0 0.75,.066987298 z"
-                ></path>
-              </clipPath>
-            </defs>
-          </svg>
-
           <div id="spin" className="">
-            <button disabled={spinDisable} id="inner-spin" onClick={handleSpin}>
+            <button
+              disabled={spinDisable}
+              id="inner-spin"
+              onClick={handleSpin}
+              style={{ backgroundColor: colors?.wheel }}
+            >
               <img
                 className={spinDisable ? 'disabled' : ''}
                 src={images?.spinButton}
@@ -136,21 +130,19 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
           </div>
 
           <div className="ring">
-            <div className="center-ring"></div>
-            <div className="pointer-triangle"></div>
+            <div
+              className="center-ring"
+              style={{ borderColor: colors?.wheel }}
+            ></div>
+            <div
+              className="pointer-triangle"
+              style={{ backgroundColor: colors?.wheel }}
+            ></div>
           </div>
 
           <div id="shine"></div>
         </div>
       </div>
-
-      {/* <div className="pointer-container">
-        <img
-          className="pointer-image"
-          src={images?.pointerRoulette}
-          alt="Image Diego Maradona Cartoon"
-        />
-      </div> */}
     </div>
-  );
+  )
 }

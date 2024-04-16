@@ -1,30 +1,31 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom'
 import {
   useState,
   useEffect,
   useCallback,
   useMemo,
   useContext,
-} from "preact/hooks";
+} from 'preact/hooks'
 
-import useSound from "use-sound";
-import { ConfigContext } from "../ConfigProvider";
+import useSound from 'use-sound'
+import { ConfigContext } from '../ConfigProvider'
 
-import Lottie from "lottie-react";
-import bonusTag from "../assets/lottie_json/ticket-bonus.json";
-import stopAlert from "../assets/lottie_json/stop_alert.json";
-import silverCongrats from "../assets/lottie_json/silver_congrats.json";
+import Lottie from 'lottie-react'
+import bonusTag from '../assets/lottie_json/ticket-bonus.json'
+import stopAlert from '../assets/lottie_json/stop_alert.json'
+import silverCongrats from '../assets/lottie_json/silver_congrats.json'
 
-import LogoHeader from "../components/Trivia/LogoHeader";
-import PanelFooter from "../components/Trivia/PanelFooter";
+import LogoHeader from '../components/Trivia/LogoHeader'
+import PanelFooter from '../components/Trivia/PanelFooter'
 
-const indexInitial = 0;
+const indexInitial = 0
 
 export default function Question() {
   const {
     soundOn,
     dataStored,
     setDataStored,
+    colors,
     points,
     setPoints,
     images,
@@ -32,39 +33,39 @@ export default function Question() {
     categories,
     config,
     sounds,
-  } = useContext(ConfigContext);
-  const { backgroundApp, idolCatCompleted } = images;
+  } = useContext(ConfigContext)
+  const { backgroundApp, idolCatCompleted } = images
   const {
     categoryTitle,
     dailyLimit,
     categoryCompleted,
     correctAnswer,
     wrongAnswer,
-  } = texts;
-  const DATA_CATEGS = categories;
-  const POINTS_CORRECT = config["pointsCorrect"];
-  const POINTS_WRONG = config["pointsWrong"];
-  const POINTS_BONUS = config["pointsBonus"];
-  const TRIES_ALLOWED = config["triesAllowedPerDay"];
-  const { correctAnswerSound, wrongAnswerSound } = sounds;
+  } = texts
+  const DATA_CATEGS = categories
+  const POINTS_CORRECT = config['pointsCorrect']
+  const POINTS_WRONG = config['pointsWrong']
+  const POINTS_BONUS = config['pointsBonus']
+  const TRIES_ALLOWED = config['triesAllowedPerDay']
+  const { correctAnswerSound, wrongAnswerSound } = sounds
   /*----- */
-  let { cat } = useParams();
+  let { cat } = useParams()
   const [correctAnswSound] = useSound(correctAnswerSound, {
     soundEnabled: soundOn,
-  });
+  })
   const [wrongAnswSound] = useSound(wrongAnswerSound, {
     soundEnabled: soundOn,
-  });
+  })
 
-  const navigate = useNavigate();
-  const questions = useMemo(() => DATA_CATEGS[cat - 1].questions, [cat]);
-  const catBonus = useMemo(() => DATA_CATEGS[cat - 1].bonus, [cat]);
+  const navigate = useNavigate()
+  const questions = useMemo(() => DATA_CATEGS[cat - 1].questions, [cat])
+  const catBonus = useMemo(() => DATA_CATEGS[cat - 1].bonus, [cat])
 
-  const [indexQuestion, setIndexQuestion] = useState(indexInitial);
-  const [slideQuestion, setSlideQuestion] = useState(false);
-  const [isDisable, setIsDisable] = useState(false);
+  const [indexQuestion, setIndexQuestion] = useState(indexInitial)
+  const [slideQuestion, setSlideQuestion] = useState(false)
+  const [isDisable, setIsDisable] = useState(false)
 
-  const [animation, setAnimation] = useState("");
+  const [animation, setAnimation] = useState('')
   // Posible Animation States:
   // 1. "limitReached" - Daily Limit of Tries Reached
   // 2. "catCompleted" - Category Completed
@@ -72,32 +73,32 @@ export default function Question() {
   const answerDefault = questions[indexQuestion].answers.map((answer) => ({
     ...answer,
     isClicked: false,
-  }));
-  const [answersClicked, setAnswersClicked] = useState(answerDefault);
+  }))
+  const [answersClicked, setAnswersClicked] = useState(answerDefault)
 
   const hasBonus = useMemo(
     () => questions[indexQuestion].bonus || catBonus,
     [catBonus, indexQuestion, questions]
-  );
+  )
 
   useEffect(() => {
-    const index = dataStored[cat - 1].questionsAnswered.length;
-    setIndexQuestion(index);
-  }, []);
+    const index = dataStored[cat - 1].questionsAnswered.length
+    setIndexQuestion(index)
+  }, [])
 
   useEffect(() => {
-    if (!indexQuestion) return;
-    setSlideQuestion(false);
-    setAnswersClicked(answerDefault);
-    setIsDisable(false);
-  }, [indexQuestion]);
+    if (!indexQuestion) return
+    setSlideQuestion(false)
+    setAnswersClicked(answerDefault)
+    setIsDisable(false)
+  }, [indexQuestion])
 
   const handleAnswer = useCallback(
     ({ answer }) => {
-      const contextAudio = new AudioContext();
-      const answerClicked = answer;
-      let newPoints;
-      setIsDisable(true);
+      const contextAudio = new AudioContext()
+      const answerClicked = answer
+      let newPoints
+      setIsDisable(true)
 
       // let context = new AudioContext();
       //contextAudio.resume().then(console.log("hola"));
@@ -105,81 +106,82 @@ export default function Question() {
 
       if (answerClicked.isCorrect) {
         //correctAnswer();
-        contextAudio.resume().then(correctAnswSound());
+        contextAudio.resume().then(correctAnswSound())
         if (hasBonus) {
-          newPoints = points + POINTS_CORRECT + POINTS_BONUS;
+          newPoints = points + POINTS_CORRECT + POINTS_BONUS
         } else {
-          newPoints = points + POINTS_CORRECT;
+          newPoints = points + POINTS_CORRECT
         }
       } else {
         //wrongAnswer();
-        contextAudio.resume().then(wrongAnswSound());
-        newPoints = points + POINTS_WRONG;
+        contextAudio.resume().then(wrongAnswSound())
+        newPoints = points + POINTS_WRONG
       }
 
-      setPoints(newPoints);
+      setPoints(newPoints)
 
       const answerClickTrue = answersClicked.map((ans) => {
         if (ans === answerClicked) {
-          return { ...ans, isClicked: true };
+          return { ...ans, isClicked: true }
         }
-        return ans;
-      });
-      setAnswersClicked(answerClickTrue);
+        return ans
+      })
+      setAnswersClicked(answerClickTrue)
 
-      handleQuestionsAnswered();
+      handleQuestionsAnswered()
     },
     [answersClicked, hasBonus, points]
-  );
+  )
 
   function handleQuestionsAnswered() {
-    const newData = dataStored;
-    newData[cat - 1].questionsAnswered.push(indexQuestion);
-    newData[cat - 1].dateAnsweredToday.push(new Date().getDate());
-    setDataStored(newData);
+    const newData = dataStored
+    newData[cat - 1].questionsAnswered.push(indexQuestion)
+    newData[cat - 1].dateAnsweredToday.push(new Date().getDate())
+    setDataStored(newData)
 
     if (
       dataStored[cat - 1].questionsAnswered.length === questions.length ||
       dataStored[cat - 1].dateAnsweredToday.length === TRIES_ALLOWED
     ) {
       setTimeout(() => {
-        setSlideQuestion(true);
-      }, 1500);
+        setSlideQuestion(true)
+      }, 1500)
       // Questions completed in this Category
       if (dataStored[cat - 1].questionsAnswered.length === questions.length) {
         setTimeout(() => {
-          setAnimation("catCompleted");
-        }, 1500);
+          setAnimation('catCompleted')
+        }, 1500)
       } else {
         // Daily Limit reached
         setTimeout(() => {
-          setAnimation("limitReached");
-        }, 1500);
+          setAnimation('limitReached')
+        }, 1500)
       }
     } else {
       setTimeout(() => {
-        setSlideQuestion(true);
+        setSlideQuestion(true)
         setTimeout(() => {
-          setIndexQuestion((indexQuestion) => indexQuestion + 1);
-        }, 500);
-      }, 1500);
+          setIndexQuestion((indexQuestion) => indexQuestion + 1)
+        }, 500)
+      }, 1500)
     }
   }
 
   useEffect(() => {
-    if (animation === "catCompleted" || animation === "limitReached") {
+    if (animation === 'catCompleted' || animation === 'limitReached') {
       setTimeout(() => {
-        navigate("/");
-      }, 4000);
+        navigate('/')
+      }, 4000)
     }
-  }, [animation]);
+  }, [animation])
 
   const CardQuestion = useCallback(() => {
-    //const questions = DATA_CATEGS[cat - 1].questions;
     return (
       <>
-        <div className="title-question">
-          <h3 className="title">{questions[indexQuestion].title}</h3>
+        <div className="title-question" style={{ borderColor: colors?.text }}>
+          <h3 className="title" style={{ color: colors?.text }}>
+            {questions[indexQuestion].title}
+          </h3>
           {hasBonus && (
             <div className="wrapper-lottie">
               <Lottie
@@ -200,9 +202,15 @@ export default function Question() {
             <li key={answer.text}>
               {answer.isClicked ? (
                 <button
-                  className={`answer ${answer.isCorrect ? "correct" : "wrong"}`}
+                  className={`answer ${answer.isCorrect ? 'correct' : 'wrong'}`}
                   onClick={() => handleAnswer({ answer })}
                   disabled={isDisable}
+                  style={{
+                    color: colors?.text,
+                    backgroundColor: answer.isCorrect
+                      ? colors?.correct
+                      : colors?.wrong,
+                  }}
                 >
                   {answer.isCorrect
                     ? hasBonus
@@ -215,6 +223,10 @@ export default function Question() {
                   className="answer"
                   onClick={() => handleAnswer({ answer })}
                   disabled={isDisable}
+                  style={{
+                    color: colors?.text,
+                    background: colors?.answerBtnGradient,
+                  }}
                 >
                   {answer.text}
                 </button>
@@ -223,11 +235,11 @@ export default function Question() {
           ))}
         </ul>
       </>
-    );
-  }, [cat, indexQuestion, hasBonus, answersClicked, isDisable]);
+    )
+  }, [cat, indexQuestion, hasBonus, answersClicked, isDisable])
 
   return (
-    <div className="category">
+    <div className="category" style={{ backgroundColor: colors?.background }}>
       {backgroundApp && (
         <div className="background-image-container">
           <img
@@ -250,14 +262,16 @@ export default function Question() {
           </div>
 
           <div className="title">
-            <h2>{categoryTitle}</h2>
-            <h3 className="category-name">{DATA_CATEGS[cat - 1].name}</h3>
+            <h2 style={{ color: colors?.text2 }}>{categoryTitle}</h2>
+            <h3 className="category-name" style={{ color: colors?.text }}>
+              {DATA_CATEGS[cat - 1].name}
+            </h3>
           </div>
         </div>
 
         <div
           className={`cards-question ${
-            slideQuestion ? "show-side-right" : "show-side-left"
+            slideQuestion ? 'show-side-right' : 'show-side-left'
           }`}
         >
           <CardQuestion />
@@ -265,8 +279,11 @@ export default function Question() {
       </div>
 
       {/* ---- Animations ---- */}
-      {animation === "catCompleted" && (
-        <div className="title-congrats">
+      {animation === 'catCompleted' && (
+        <div
+          className="title-congrats"
+          style={{ backgroundColor: colors?.backgroundCongrats }}
+        >
           <h3 className="silver-congrats">{categoryCompleted}</h3>
           <Lottie
             animationData={silverCongrats}
@@ -286,7 +303,7 @@ export default function Question() {
         </div>
       )}
 
-      {animation === "limitReached" && (
+      {animation === 'limitReached' && (
         <div className="pop-up-limit-answers">
           <Lottie
             className="lottie-stop"
@@ -300,5 +317,5 @@ export default function Question() {
 
       <PanelFooter cat={cat} />
     </div>
-  );
+  )
 }

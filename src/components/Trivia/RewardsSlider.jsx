@@ -1,19 +1,19 @@
-import { useState } from "preact/hooks";
+import { useState } from 'preact/hooks'
 
-export default function RewardsSlider({ slidesImages, arrowsSlider }) {
-  const [slide, setSlide] = useState(0);
+export default function RewardsSlider({ slidesImages, arrowsSlider, colors }) {
+  const [slide, setSlide] = useState(0)
 
   function handleLeftSlide() {
-    setSlide(slide === 0 ? 0 : slide - 1);
+    setSlide(slide === 0 ? 0 : slide - 1)
   }
   function handleRightSlide() {
     setSlide(
       slide === slidesImages.length - 1 ? slidesImages.length - 1 : slide + 1
-    );
+    )
   }
 
   function handleIndicator(index) {
-    setSlide(index);
+    setSlide(index)
   }
 
   return (
@@ -24,6 +24,10 @@ export default function RewardsSlider({ slidesImages, arrowsSlider }) {
           type="button"
           onClick={handleLeftSlide}
           disabled={slide === 0 ? true : false}
+          style={{
+            backgroundColor:
+              slide === 0 ? colors?.disable : colors?.primaryLight,
+          }}
         >
           <img src={arrowsSlider.left} alt="Left Golden Arrow" />
         </button>
@@ -34,14 +38,14 @@ export default function RewardsSlider({ slidesImages, arrowsSlider }) {
           <div
             className={
               slide === index
-                ? "wrapper-image"
-                : "wrapper-image wrapper-image-hidden"
+                ? 'wrapper-image'
+                : 'wrapper-image wrapper-image-hidden'
             }
             key={`wrapper-image-${index}`}
           >
             <img src={image.src} alt={image.name} key={`image-${index}`} />
           </div>
-        );
+        )
       })}
       {slidesImages.length > 1 && (
         <button
@@ -49,6 +53,12 @@ export default function RewardsSlider({ slidesImages, arrowsSlider }) {
           type="button"
           onClick={handleRightSlide}
           disabled={slide === slidesImages.length - 1 ? true : false}
+          style={{
+            backgroundColor:
+              slide === slidesImages.length - 1
+                ? colors?.disable
+                : colors?.primaryLight,
+          }}
         >
           <img src={arrowsSlider.right} alt="Right Golden Arrow" />
         </button>
@@ -58,17 +68,19 @@ export default function RewardsSlider({ slidesImages, arrowsSlider }) {
           {slidesImages.map((_, index) => {
             return (
               <button
-                onClick={() => handleIndicator(index)}
-                className={
-                  slide === index ? "indicator" : "indicator indicator-inactive"
-                }
-                type="button"
                 key={index}
+                type="button"
+                onClick={() => handleIndicator(index)}
+                className="indicator"
+                style={{
+                  backgroundColor:
+                    slide === index ? colors?.primaryLight : colors?.disable,
+                }}
               ></button>
-            );
+            )
           })}
         </span>
       )}
     </div>
-  );
+  )
 }

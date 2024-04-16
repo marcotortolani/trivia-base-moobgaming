@@ -1,18 +1,18 @@
-import { useContext, useState } from 'preact/hooks';
-import { Link, useLocation } from 'react-router-dom';
-import useSound from 'use-sound';
-import { ConfigContext } from '../../ConfigProvider';
+import { useContext, useState } from 'preact/hooks'
+import { Link, useLocation } from 'react-router-dom'
+import useSound from 'use-sound'
+import { ConfigContext } from '../../ConfigProvider'
+import PointsDisplay from './PointsDisplay'
+import QuestionsAnswered from './QuestionsAnswered'
+import RewardsSlider from './RewardsSlider'
 
-import PointsDisplay from './PointsDisplay';
-import QuestionsAnswered from './QuestionsAnswered';
-import RewardsSlider from './RewardsSlider';
-
-import { BackArrowIcon } from '../../utils/svgIcons';
+import { BackArrowIcon } from '../../utils/svgIcons'
 
 const PanelFooter = ({ cat }) => {
   const {
     dataStored,
     soundOn,
+    colors,
     points,
     images,
     imagesByLang,
@@ -20,23 +20,23 @@ const PanelFooter = ({ cat }) => {
     links,
     texts,
     categories,
-  } = useContext(ConfigContext);
+  } = useContext(ConfigContext)
 
-  const DATA_CATEGS = categories ? categories : [];
+  const DATA_CATEGS = categories ? categories : []
   /*----*/
-  const [clickButton] = useSound(sounds?.clickOpen, { soundEnabled: soundOn });
-  const [closeRwd] = useSound(sounds?.closePopup, { soundEnabled: soundOn });
-  const [openRewards, setOpenRewards] = useState(false);
-  const location = useLocation().pathname;
+  const [clickButton] = useSound(sounds?.clickOpen, { soundEnabled: soundOn })
+  const [closeRwd] = useSound(sounds?.closePopup, { soundEnabled: soundOn })
+  const [openRewards, setOpenRewards] = useState(false)
+  const location = useLocation().pathname
 
   function handleRewards(e) {
     if (e.target.id.includes('open')) {
-      setOpenRewards(true);
-      clickButton();
+      setOpenRewards(true)
+      clickButton()
     }
     if (e.target.id.includes('close')) {
-      setOpenRewards(false);
-      closeRwd();
+      setOpenRewards(false)
+      closeRwd()
     }
   }
 
@@ -46,20 +46,28 @@ const PanelFooter = ({ cat }) => {
         <>
           <div className="button-back">
             <Link className="back-home" to={'/'} onClick={clickButton}>
-              <BackArrowIcon />
+              <BackArrowIcon colorFill={colors?.primary} />
             </Link>
           </div>
 
-          <PointsDisplay points={points} />
+          <PointsDisplay
+            points={points}
+            textColor={colors?.text}
+            img={images?.backgroundPoints}
+          />
 
           <QuestionsAnswered
             questionsAnswered={dataStored[cat - 1].questionsAnswered.length}
             catQuestionsTotal={DATA_CATEGS[cat - 1].questions.length}
+            textColor={colors?.text}
           />
         </>
       ) : (
         <>
-          <div className="wrapper-bases-rewards">
+          <div
+            className="wrapper-bases-rewards"
+            style={{ color: colors?.text }}
+          >
             <div className="bases">
               <a href={links?.termsURL} target="_blank" rel="noreferrer">
                 <img
@@ -71,7 +79,11 @@ const PanelFooter = ({ cat }) => {
               <h5 className="bases-tag">{texts?.terms}</h5>
             </div>
 
-            <PointsDisplay points={points} />
+            <PointsDisplay
+              points={points}
+              textColor={colors?.text}
+              img={images?.backgroundPoints}
+            />
 
             <div className="rewards">
               <button onClick={(e) => handleRewards(e)} id="button-rewards">
@@ -87,12 +99,19 @@ const PanelFooter = ({ cat }) => {
 
           {openRewards && (
             <div className="wrapper-pop-up">
-              <div className="pop-up-rewards">
+              <div
+                className="pop-up-rewards"
+                style={{ backgroundColor: colors?.backgroundRewards }}
+              >
                 <div className="wrapper-button">
                   <button
                     onClick={(e) => handleRewards(e)}
                     className="close-rewards"
                     id="close-rewards"
+                    style={{
+                      backgroundColor: colors?.primary,
+                      color: colors?.text,
+                    }}
                   >
                     &#10005;
                   </button>
@@ -101,6 +120,7 @@ const PanelFooter = ({ cat }) => {
                 <RewardsSlider
                   slidesImages={imagesByLang?.rewardsImages}
                   arrowsSlider={images?.arrowsSlider}
+                  colors={colors}
                 />
               </div>
             </div>
@@ -108,7 +128,7 @@ const PanelFooter = ({ cat }) => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default PanelFooter;
+export default PanelFooter

@@ -7,12 +7,43 @@
     "pointsBonus": 1000
   },
   "URLImagesHost": "",
+  "colors": {
+    "background": "#220B24",
+    "backgroundCongrats": "#07121bf2",
+    "backgroundRewards": "#FFF",
+    "disable": "#989898",
+    "wrong": "#ef1f1f",
+    "correct": "#35a333",
+    "title": "#C46253",
+    "text": "#FAFAFA",
+    "text2": "#bd7145",
+    "primary": "#912F68",
+    "primaryLight": "#b04483",
+    "rouletteSection": [
+      "#451C73",
+      "#C9617C",
+      "#2C215D",
+      "#EED664",
+      "#5B1B5A",
+      "#D07541",
+      "#fff",
+      "#aaa"
+    ],
+    "wheel": "#912F68",
+    "nextBtnGradient": "linear-gradient(180deg, #5e3092 50%, #864dc6 100%)",
+    "answerBtnGradient": "linear-gradient(180deg, #912F68 50%, #b04483 100%)",
+    "gradientImageCategory": "linear-gradient(180deg,rgb(61, 151, 236)  30%, #9b224a 100%)"
+  },
   "images": {
     "es": {
       "logoHeader": "/img/logo.webp",
       "bubbleStartMessage": "",
       "bubbleDailyLimit": "",
       "rewardsImages": [
+        {
+          "src": "/img/premios-01.webp",
+          "name": "prize"
+        },
         {
           "src": "/img/premios-01.webp",
           "name": "prize"
