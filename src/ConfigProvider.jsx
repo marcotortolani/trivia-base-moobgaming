@@ -10,7 +10,7 @@ const soundDefault = false;
 const pointsInitial = 0;
 
 const ConfigProvider = ({ children, dataConfig }) => {
-  const { config, images, sounds, links, textsByLang, categories } = dataConfig;
+  const { config, colors, images, sounds, links, textsByLang, categories } = dataConfig;
   const catDataInitial = categories.map(() => ({
     questionsAnswered: [],
     dateAnsweredToday: [],
@@ -33,6 +33,7 @@ const ConfigProvider = ({ children, dataConfig }) => {
     dataStored,
     setDataStored,
     config,
+    colors,
     images,
     imagesByLang,
     sounds,
