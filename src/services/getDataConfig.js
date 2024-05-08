@@ -11,7 +11,6 @@ export async function getDataConfig(endpoint) {
     console.log(err)
     data = null
   } finally {
-    console.log(res.json());
     data = await res.json()
   }
 
