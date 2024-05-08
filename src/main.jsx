@@ -1,11 +1,15 @@
 import { render } from 'preact'
 import { HashRouter } from 'react-router-dom'
 import { useDataConfig } from './helpers/useDataConfig'
-import { configEndpoint } from './conf/configEndpoint'
+import useLocalStorage from './helpers/useLocalStorage'
+import { configTrivia } from './conf/configEndpoints'
 import { App } from './app'
 import { ConfigProvider } from './ConfigProvider'
-import { LoadingTrivia } from './components/LoadingTrivia'
-import './index.css'
+import { Loading } from './components/Loading'
+import UserRegister from './components/UserRegister'
+import './sass/app.css'
+
+//import dataConfig from './conf/config.json'
 
 const hash01 = 'c4ca4238a0b923820dcc509a6f75849b'
 const hash02 = 'c81e728d9d4c2f636f067f89cc14862c'
@@ -13,12 +17,47 @@ const hash02 = 'c81e728d9d4c2f636f067f89cc14862c'
 const urlParams = new URLSearchParams(window.location.search)
 const hash = urlParams.get('hash')
 
+const userConfigInitial = {
+  id: 0,
+  username: '',
+  msisdn: '',
+  password: '',
+}
+
 function Application() {
+  const [userConfig, setUserConfig] = useLocalStorage(
+    'userConfig',
+    userConfigInitial
+  )
   console.log('hash: ', hash)
+  //const { dataConfig } = useDataConfig(configTrivia + `${hash}`)
+  // const { dataConfig } = useDataConfig(
+  //   'https://9dc1-186-158-228-16.ngrok-free.app/api/v1/getTrivia/' + `${hash}`
+  // )
 
-  const { dataConfig } = useDataConfig(configEndpoint + `${hash}`)
+  const dataConfig = fetchEndpointAle()
 
-  if (dataConfig) {
+  async function fetchEndpointAle() {
+    return fetch(
+      'https://9dc1-186-158-228-16.ngrok-free.app/api/v1/getTrivia/356a192b7913b04c54574d18c28d46e6395428ab',
+      {
+        method: 'GET',
+        mode: 'cors',
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch(() => {
+        throw 'Error'
+      })
+  }
+
+  // userConfig.id : 0 -> User Non Registered
+  // userConfig.id : 1 -> User Registered without hash ID
+  // userConfig.id : true && userConfig.id !== 1 -> User Registered with hash ID
+  if (!userConfig.id) return <UserRegister setUserConfig={setUserConfig} />
+
+  if (dataConfig)
     return (
       <HashRouter>
         <ConfigProvider dataConfig={dataConfig}>
@@ -26,9 +65,8 @@ function Application() {
         </ConfigProvider>
       </HashRouter>
     )
-  } else {
-    return <LoadingTrivia />
-  }
+
+  return <Loading />
 }
 
 render(<Application />, document.getElementById('app'))

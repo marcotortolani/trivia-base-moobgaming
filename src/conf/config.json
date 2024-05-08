@@ -1,5 +1,9 @@
 {
-  "last-updated": "16-04-24",
+  "last-updated": "2024-04-16",
+  "validPeriod": {
+    "start-date": "2024-04-16 00:00:00",
+    "end-date": "2024-05-16 00:00:00"
+  },
   "config": {
     "triesAllowedPerDay": 50,
     "pointsCorrect": 1000,
@@ -40,10 +44,6 @@
       "bubbleStartMessage": "",
       "bubbleDailyLimit": "",
       "rewardsImages": [
-        {
-          "src": "/img/premios-01.webp",
-          "name": "prize"
-        },
         {
           "src": "/img/premios-01.webp",
           "name": "prize"

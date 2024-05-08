@@ -232,6 +232,62 @@ body {
   }
 }
 
+//! User Register
+.user-register {
+  width: 100vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  h2{
+    font-weight: 500;
+  }
+
+  input {
+    height: 2.5rem;
+    border: 1px solid black;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -moz-border-radius: 0.6rem;
+    -ms-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+  }
+
+  .signin-form {
+    width: 90%;
+    max-width: 450px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #b8b8b8;
+
+    .field {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        width: 70%;
+        padding: 0.6rem;
+      }
+    }
+
+    .submit {
+      width: 100%;
+      margin: auto;
+    }
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+  }
+}
+
 .app-trivia,
 .category {
   width: 100vw;
@@ -792,7 +848,7 @@ body {
       -moz-transform: translateY(10px);
       -ms-transform: translateY(10px);
       -o-transform: translateY(10px);
-}
+    }
   }
 }
 
@@ -1925,6 +1981,48 @@ body {
 @media screen and (max-width: 450px) {
   body {
     border-radius: 0;
+  }
+  .user-register {
+    width: 100vw;
+    margin-top: 2vh;
+    height: 100vh;
+    overflow: hidden;
+    padding: 2rem 0;
+
+    input {
+      height: 2.5rem;
+      border: 1px solid black;
+      border-radius: 0.6rem;
+      -webkit-border-radius: 0.6rem;
+      -moz-border-radius: 0.6rem;
+      -ms-border-radius: 0.6rem;
+      -o-border-radius: 0.6rem;
+    }
+
+    .signin-form {
+      width: 95%;
+      padding: 1.5rem;
+      gap: 1rem;
+      background-color: #9b9b9b;
+      .field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        input {
+          width: 100%;
+        }
+      }
+
+      .submit {
+        margin-top: 1rem;
+      }
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+    }
   }
   .app-trivia {
     #wrapper {

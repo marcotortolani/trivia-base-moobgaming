@@ -185,6 +185,55 @@ body #inputNumCat {
   -webkit-animation: blinkCompleted 2s infinite reverse ease-in-out;
 }
 
+.user-register {
+  width: 100vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.user-register h2 {
+  font-weight: 500;
+}
+.user-register input {
+  height: 2.5rem;
+  border: 1px solid black;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+}
+.user-register .signin-form {
+  width: 90%;
+  max-width: 450px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #b8b8b8;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+.user-register .signin-form .field {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-register .signin-form .field input {
+  width: 70%;
+  padding: 0.6rem;
+}
+.user-register .signin-form .submit {
+  width: 100%;
+  margin: auto;
+}
+
 .app-trivia,
 .category {
   width: 100vw;
@@ -1694,6 +1743,44 @@ body #inputNumCat {
 @media screen and (max-width: 450px) {
   body {
     border-radius: 0;
+  }
+  .user-register {
+    width: 100vw;
+    margin-top: 2vh;
+    height: 100vh;
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+  .user-register input {
+    height: 2.5rem;
+    border: 1px solid black;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -moz-border-radius: 0.6rem;
+    -ms-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+  }
+  .user-register .signin-form {
+    width: 95%;
+    padding: 1.5rem;
+    gap: 1rem;
+    background-color: #9b9b9b;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+  }
+  .user-register .signin-form .field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .user-register .signin-form .field input {
+    width: 100%;
+  }
+  .user-register .signin-form .submit {
+    margin-top: 1rem;
   }
   .app-trivia #wrapper #wheel {
     transform: scale(1.6);
