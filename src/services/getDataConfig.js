@@ -3,7 +3,7 @@ export async function getDataConfig(endpoint) {
   console.log(endpoint)
   try {
     res = await fetch(endpoint, {
-      mode: 'no-cors',
+      mode: 'cors',
       redirect: 'follow',
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
