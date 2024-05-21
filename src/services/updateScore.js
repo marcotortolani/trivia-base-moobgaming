@@ -1,8 +1,8 @@
 import { updateScoreEndpoint } from '../conf/configEndpoints'
 
-export async function updateScore({ userID, gameID, scoreTotal }) {
-  const userID = 'c0760cab7aec4a8359010b0da4b9237bacccdf19'
-  const gameID = 'da4b9237bacccdf19c0760cab7aec4a8359010b0'
+export async function updateScore({ userHash, gameHash, scoreTotal }) {
+  const userHash = 'c0760cab7aec4a8359010b0da4b9237bacccdf19'
+  const gameHash = 'da4b9237bacccdf19c0760cab7aec4a8359010b0'
   const scoreTotal = 50
 
   const requestOptions = {
@@ -11,7 +11,7 @@ export async function updateScore({ userID, gameID, scoreTotal }) {
   }
 
   fetch(
-    `${updateScoreEndpoint}?user=${userID}&game=${gameID}&score=${scoreTotal}`,
+    `${updateScoreEndpoint}?userhash=${userHash}&gamehash=${gameHash}&score=${scoreTotal}`,
     requestOptions
   )
     .then((response) => response.json())

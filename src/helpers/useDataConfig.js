@@ -7,7 +7,7 @@ export function useDataConfig(endpoint) {
   useEffect(() => {
     getDataConfig(endpoint).then((res) => {
       if (res) {
-        setDataConfig(res.triviaData)
+        setDataConfig(res)
       } else {
         setDataConfig(null)
       }
