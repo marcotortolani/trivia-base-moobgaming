@@ -1,13 +1,16 @@
 export async function getDataConfig(endpoint) {
   let data, res
-  console.log(endpoint)
+
+  const endpoint2 = 'https://jsonplaceholder.typicode.com/todos/1'
+
   try {
     res = await fetch(endpoint, {
-      mode: 'no-cors',
-      redirect: 'follow',
+      mode: 'cors',
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     })
+    data = await res.json()
+    console.log(data)
   } catch (err) {
     console.log('Fetch Error')
     console.log(err)
@@ -15,7 +18,6 @@ export async function getDataConfig(endpoint) {
   } finally {
     console.log(res)
     data = await res.json()
-    console.log(data)
   }
 
   console.log(data)
