@@ -5,12 +5,14 @@ export async function getDataConfig(endpoint) {
 
   try {
     res = await fetch(endpoint, {
-      mode: 'cors',
+      mode: 'no-cors',
       method: 'GET',
+      redirect: 'follow',
       headers: { 'Content-Type': 'application/json' },
     })
-    data = await res.json()
-    console.log(data)
+    // data = await res.json()
+    // console.log(data)
+    console.log(res)
   } catch (err) {
     console.log('Fetch Error')
     console.log(err)
