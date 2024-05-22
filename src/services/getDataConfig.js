@@ -5,7 +5,7 @@ export async function getDataConfig(endpoint) {
 
   try {
     res = await fetch(endpoint, {
-      mode: 'no-cors',
+      mode: 'cors',
       method: 'GET',
       redirect: 'follow',
       headers: { 'Content-Type': 'application/json' },
