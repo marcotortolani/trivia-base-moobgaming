@@ -170,19 +170,113 @@ body #inputNumCat {
     transform-origin: 100% 50%;
   }
 }
+@keyframes loader {
+  0% {
+    inset: 0 35px 35px 0;
+  }
+  12.5% {
+    inset: 0 35px 0 0;
+  }
+  25% {
+    inset: 35px 35px 0 0;
+  }
+  37.5% {
+    inset: 35px 0 0 0;
+  }
+  50% {
+    inset: 35px 0 0 35px;
+  }
+  62.5% {
+    inset: 0 0 0 35px;
+  }
+  75% {
+    inset: 0 0 35px 35px;
+  }
+  87.5% {
+    inset: 0 0 35px 0;
+  }
+  100% {
+    inset: 0 35px 35px 0;
+  }
+}
 .loading-trivia {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: cadetblue;
+  background-color: rgb(72, 125, 127);
 }
-.loading-trivia .loading-text {
-  color: black;
-  font-size: clamp(2rem, 6vw, 2.5rem);
-  animation: blinkCompleted 2s infinite reverse ease-in-out;
-  -webkit-animation: blinkCompleted 2s infinite reverse ease-in-out;
+.loading-trivia .loader {
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loading-trivia .loader:before,
+.loading-trivia .loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset #fff;
+  animation: loader 2.5s infinite;
+  -webkit-animation: loader 2.5s infinite;
+}
+.loading-trivia .loader:after {
+  animation-delay: -1.25s;
+}
+
+.upcoming-advise,
+.ended-advise {
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.upcoming-advise .logo,
+.ended-advise .logo {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  position: absolute;
+  top: 2rem;
+}
+.upcoming-advise .icon-image,
+.ended-advise .icon-image {
+  width: 40%;
+  max-width: 200px;
+}
+.upcoming-advise .title,
+.ended-advise .title {
+  width: 90%;
+  max-width: 400px;
+  margin-top: 2rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-style: italic;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  line-height: 120%;
+}
+.upcoming-advise .title span,
+.ended-advise .title span {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
+.upcoming-advise .text,
+.ended-advise .text {
+  width: 80%;
+  max-width: 500px;
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  text-transform: uppercase;
+  text-align: center;
+}
+.upcoming-advise .text span,
+.ended-advise .text span {
+  text-transform: lowercase;
 }
 
 .user-register {
