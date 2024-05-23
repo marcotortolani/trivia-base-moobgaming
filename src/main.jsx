@@ -10,8 +10,8 @@ import './sass/app.css'
 
 //import dataConfig from './conf/config.json'
 
-const hash01 = 'c4ca4238a0b923820dcc509a6f75849b'
-const hash02 = 'c81e728d9d4c2f636f067f89cc14862c'
+const gameHash = '356a192b7913b04c54574d18c28d46e6395428ab'
+const userHash = '7055eced15538bfb7c0754574d18f8a5b28fc5d0'
 
 const urlParams = new URLSearchParams(window.location.search)
 
@@ -37,9 +37,9 @@ function Application() {
 
   console.log('Data Config: ', dataConfig)
 
-  // userConfig.id : 0 -> User Non Registered
-  // userConfig.id : 1 -> User Registered without hash ID
-  // userConfig.id : true && userConfig.id !== 1 -> User Registered with hash ID
+  // dataConfig.userData.userId : 0 -> User Non Registered
+  // dataConfig.userData.userId : 1 -> User Registered without hash ID
+  // dataConfig.userData.userId : true && userConfig.id !== 1 -> User Registered with hash ID
   // if (!userConfig.id) return <UserRegister setUserConfig={setUserConfig} />
 
   if (dataConfig)
