@@ -2,16 +2,20 @@ export async function getDataConfig(endpoint) {
   let data, res
 
   const endpoint2 = 'https://jsonplaceholder.typicode.com/todos/1'
+  const endpoint3 = 'https://torto.free.beeceptor.com/getTrivia'
+  const endpoint4 =
+    'https://api.mockfly.dev/mocks/f7f91f94-0a4a-4098-9a8a-92a2625285c9/getTrivia'
 
   try {
-    res = await fetch(endpoint, {
+    res = await fetch(endpoint4, {
       mode: 'cors',
       method: 'GET',
       redirect: 'follow',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     })
-    // data = await res.json()
-    // console.log(data)
     console.log(res)
   } catch (err) {
     console.log('Fetch Error')
