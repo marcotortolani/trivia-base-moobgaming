@@ -5,13 +5,17 @@ export function useDataConfig(endpoint) {
   const [dataConfig, setDataConfig] = useState(null)
 
   useEffect(() => {
-    getDataConfig(endpoint).then((res) => {
-      if (res) {
-        setDataConfig(res)
-      } else {
-        setDataConfig(null)
-      }
+
+    fetch(endpoint, {
+      method: 'GET',
+      redirect: 'follow',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
+      .then((res) => res.json())
+      .then((res) => setDataConfig(res))
+      .catch((error) => console.error(error))
   }, [])
 
   return { dataConfig }
