@@ -7,12 +7,12 @@ export async function getDataConfig(endpoint) {
     'https://api.mockfly.dev/mocks/f7f91f94-0a4a-4098-9a8a-92a2625285c9/getTrivia'
 
   try {
-    res = await fetch(endpoint4, {
-      mode: 'cors',
+    res = await fetch(endpoint, {
+      mode: 'no-cors',
       method: 'GET',
-      redirect: 'follow',
+      // redirect: 'follow',
       headers: {
-        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },
     })
@@ -23,7 +23,8 @@ export async function getDataConfig(endpoint) {
     data = null
   } finally {
     console.log(res)
-    data = await res.json()
+    if (res.ok && res.type !== 'opaque') data = await res.json()
+    data = false
   }
 
   console.log(data)

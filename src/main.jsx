@@ -30,7 +30,8 @@ function Application() {
   const gameHash = urlParams.get('gamehash')
   const userHash = urlParams.get('userhash')
 
-  console.log('hash: ', gameHash)
+  console.log('gamehash: ', gameHash)
+  console.log('userhash: ', userHash)
   const { dataConfig } = useDataConfig(
     configTrivia + `${gameHash}` + `/${userHash}`
   )
@@ -41,6 +42,9 @@ function Application() {
   // dataConfig.userData.userId : 1 -> User Registered without hash ID
   // dataConfig.userData.userId : true && userConfig.id !== 1 -> User Registered with hash ID
   // if (!userConfig.id) return <UserRegister setUserConfig={setUserConfig} />
+
+  if (dataConfig === null)
+    return <Loading message="No hay datos. El Juego o Usuario no existe" />
 
   if (dataConfig)
     return (
