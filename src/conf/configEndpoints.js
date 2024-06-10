@@ -5,7 +5,7 @@
 //   'https://raw.githubusercontent.com/marcotortolani/config-trivia-base/main/conf/config.json';
 
 const hash = 'c4ca4238a0b923820dcc509a6f75849b'
-const endpointBase = 'https://test.api.gaming.moob.club/api/v1/'
+const endpointBase = 'http://test.api.gaming.moob.club/api/v1/'
 
 export const configTrivia = endpointBase + 'getTrivia/'
 export const updateScoreEndpoint = endpointBase + 'updatescore'
