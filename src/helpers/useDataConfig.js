@@ -1,22 +1,43 @@
 import { useState, useEffect } from 'preact/hooks'
-import { getDataConfig } from '../services/getDataConfig'
+
+const endpoint2 =
+  'https://api.mockfly.dev/mocks/f7f91f94-0a4a-4098-9a8a-92a2625285c9/getTrivia'
 
 export function useDataConfig(endpoint) {
-  const [dataConfig, setDataConfig] = useState(null)
+  const [dataConfig, setDataConfig] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-
-    fetch(endpoint, {
-      method: 'GET',
-      redirect: 'follow',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => setDataConfig(res))
-      .catch((error) => console.error(error))
+    getDataConfig(endpoint)
   }, [])
 
-  return { dataConfig }
+  const getDataConfig = async (endpoint) => {
+    try {
+      const res = await fetch(endpoint, {
+        method: 'GET',
+        redirect: 'follow',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!res.ok) {
+        const errorData = await res.json()
+        return setError(errorData.error)
+      }
+
+      const data = await res.json()
+      setDataConfig(data)
+      setError(null)
+    } catch (err) {
+      console.error(err)
+      setError(err)
+      setDataConfig(null)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return { isLoading, error, dataConfig }
 }

@@ -6,6 +6,7 @@ import { configTrivia } from './conf/configEndpoints'
 import { App } from './app'
 import { ConfigProvider } from './ConfigProvider'
 import { Loading } from './components/Loading'
+import { Error } from './components/Error'
 import './sass/app.css'
 
 //import dataConfig from './conf/config.json'
@@ -32,21 +33,25 @@ function Application() {
 
   console.log('gamehash: ', gameHash)
   console.log('userhash: ', userHash)
-  const { dataConfig } = useDataConfig(
+  const { isLoading, error, dataConfig } = useDataConfig(
     configTrivia + `${gameHash}` + `/${userHash}`
   )
-
-  console.log('Data Config: ', dataConfig)
 
   // dataConfig.userData.userId : 0 -> User Non Registered
   // dataConfig.userData.userId : 1 -> User Registered without hash ID
   // dataConfig.userData.userId : true && userConfig.id !== 1 -> User Registered with hash ID
   // if (!userConfig.id) return <UserRegister setUserConfig={setUserConfig} />
 
-  if (dataConfig === null)
-    return <Loading message="No hay datos. El Juego o Usuario no existe" />
+  if (isLoading) return <Loading />
 
-  if (dataConfig)
+  if (dataConfig === null || error)
+    return (
+      <Error
+        message={error ? error : 'Error: No hay datos. El Juego o Usuario no existe'}
+      />
+    )
+
+  if (!isLoading && dataConfig) {
     return (
       <HashRouter>
         <ConfigProvider dataConfig={dataConfig}>
@@ -54,8 +59,7 @@ function Application() {
         </ConfigProvider>
       </HashRouter>
     )
-
-  return <Loading />
+  }
 }
 
 render(<Application />, document.getElementById('app'))
