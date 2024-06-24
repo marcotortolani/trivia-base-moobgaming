@@ -42,7 +42,7 @@ export default function Category() {
 
       <div class="category-chosen">
         <div class="title">
-          <h2 style={{ color: colors?.text2 }}>{categoryTitle}</h2>
+          <h2 style={{ color: colors?.title }}>{categoryTitle}</h2>
           <h3 class="category-name" style={{ color: colors?.text }}>
             {DATA_CATEGS[cat - 1].name}
           </h3>
