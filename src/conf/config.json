@@ -24,9 +24,9 @@
     "disable": "#989898",
     "wrong": "#ef1f1f",
     "correct": "#35a333",
-    "title": "#C46253",
+    "title": "#bd7145",
     "text": "#FAFAFA",
-    "text2": "#bd7145",
+    "text2": "",
     "primary": "#912F68",
     "primaryLight": "#b04483",
     "rouletteSection": [
@@ -41,8 +41,7 @@
     ],
     "wheel": "#912F68",
     "nextBtnGradient": "linear-gradient(180deg, #5e3092 50%, #864dc6 100%)",
-    "answerBtnGradient": "linear-gradient(180deg, #912F68 50%, #b04483 100%)",
-    "gradientImageCategory": "linear-gradient(180deg,rgb(61, 151, 236)  30%, #9b224a 100%)"
+    "answerBtnGradient": "linear-gradient(180deg, #912F68 50%, #b04483 100%)"
   },
   "images": {
     "es": {
@@ -121,6 +120,7 @@
   },
   "categories": [
     {
+      "id": 1,
       "name": "Música",
       "imgURL": "/img/categoria-musica.webp",
       "bonus": false,
@@ -318,6 +318,7 @@
       ]
     },
     {
+      "id": 2,
       "name": "Humor",
       "imgURL": "/img/categoria-humor.webp",
       "bonus": false,
@@ -515,6 +516,7 @@
       ]
     },
     {
+      "id": 3,
       "name": "Curiosidades",
       "imgURL": "img/categoria-curiosidades.webp",
       "bonus": false,
@@ -712,6 +714,7 @@
       ]
     },
     {
+      "id": 4,
       "name": "Lifestyle",
       "imgURL": "/img/categoria-lifestyle.webp",
       "bonus": false,
@@ -909,6 +912,7 @@
       ]
     },
     {
+      "id": 5,
       "name": "Club Media Fest",
       "imgURL": "/img/categoria-cmf.webp",
       "bonus": false,
@@ -1106,6 +1110,7 @@
       ]
     },
     {
+      "id": 6,
       "name": "Gamers",
       "imgURL": "/img/categoria-gamers.webp",
       "bonus": false,
