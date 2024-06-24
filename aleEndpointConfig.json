@@ -41,8 +41,7 @@
     ],
     "wheel": "#912F68",
     "nextBtnGradient": "linear-gradient(180deg, #5e3092 50%, #864dc6 100%)",
-    "answerBtnGradient": "linear-gradient(180deg, #912F68 50%, #b04483 100%)",
-    "gradientImageCategory": "linear-gradient(180deg,rgb(61, 151, 236)  30%, #9b224a 100%)"
+    "answerBtnGradient": "linear-gradient(180deg, #912F68 50%, #b04483 100%)"
   },
   "images": {
     "es": {
