@@ -40,6 +40,22 @@ body #inputNumCat {
   bottom: 150px;
 }
 
+@keyframes showUserMenu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hideUserMenu {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes catIcon {
   0%, 100% {
     transform: translateX(0%);
@@ -402,11 +418,12 @@ body #inputNumCat {
   align-items: center;
 }
 .app-trivia .header {
-  z-index: 20;
+  z-index: 30;
   width: 100vw;
   max-width: 600px;
   position: absolute;
-  top: 2vh;
+  top: 0;
+  padding-top: 2vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -417,7 +434,7 @@ body #inputNumCat {
   align-items: center;
   justify-content: center;
 }
-.app-trivia .header .home-icon a {
+.app-trivia .header .home-icon button {
   width: 100%;
   min-width: 20px;
   max-width: 40px;
@@ -427,12 +444,126 @@ body #inputNumCat {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
+  border: none;
 }
-.app-trivia .header .home-icon a img {
+.app-trivia .header .home-icon button img {
   width: auto;
   height: 100%;
   min-height: 20px;
   max-height: 40px;
+}
+.app-trivia .header .user-menu-container {
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 250ms linear;
+  -webkit-transition: all 250ms linear;
+  -moz-transition: all 250ms linear;
+  -ms-transition: all 250ms linear;
+  -o-transition: all 250ms linear;
+}
+.app-trivia .header .user-menu-container .side-menu {
+  position: relative;
+  width: 90%;
+  min-width: 260px;
+  height: 90%;
+  background-color: #000;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.app-trivia .header .user-menu-container .side-menu .header {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-bottom: 2px solid;
+}
+.app-trivia .header .user-menu-container .side-menu .header h4 {
+  text-transform: uppercase;
+}
+.app-trivia .header .user-menu-container .side-menu .header img {
+  width: 40%;
+  min-width: 120px;
+}
+.app-trivia .header .user-menu-container .side-menu .header .button-close {
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.app-trivia .header .user-menu-container .side-menu .main {
+  padding: 0.5rem 1rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .user-profile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .user-profile .user-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app-trivia .header .user-menu-container .side-menu .main .user-profile .user-data .user-initials {
+  width: 12vw;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 7vw, 1.6rem);
+  font-weight: bold;
+  border-radius: 10rem;
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  -ms-border-radius: 10rem;
+  -o-border-radius: 10rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .user-profile .user-data .user-name {
+  font-size: clamp(0.6rem, 5vw, 1.2rem);
+}
+.app-trivia .header .user-menu-container .side-menu .main .user-profile .user-points-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app-trivia .header .user-menu-container .side-menu .main .user-profile .user-points-container .user-points {
+  padding: 3px 10px;
+  font-size: clamp(0.8rem, 6vw, 1.4rem);
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+}
+.app-trivia .header .show-user-menu {
+  opacity: 1;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+}
+.app-trivia .header .hide-user-menu {
+  opacity: 0.5;
+  transform: translateX(-150%);
+  -webkit-transform: translateX(-150%);
+  -moz-transform: translateX(-150%);
+  -ms-transform: translateX(-150%);
+  -o-transform: translateX(-150%);
 }
 .app-trivia .header .logo-header {
   z-index: 20;
