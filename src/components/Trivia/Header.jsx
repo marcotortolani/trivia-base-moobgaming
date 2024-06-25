@@ -1,13 +1,15 @@
-import { useContext } from 'preact/hooks'
+import { useContext, useState } from 'preact/hooks'
 import useSound from 'use-sound'
 import { ConfigContext } from '../../ConfigProvider'
 
 import LogoHeader from './LogoHeader'
 import { HomeIcon, SoundActiveIcon, SoundMuteIcon } from '../../utils/svgIcons'
+import UserMenu from '../UserMenu'
 
 export default function Header() {
   const { soundOn, setSoundOn, colors, sounds } = useContext(ConfigContext)
   const [mutePop] = useSound(sounds?.muteButton)
+  const [showMenu, setShowMenu] = useState(false)
 
   function handleSound() {
     const contextAudio = new AudioContext()
@@ -18,10 +20,12 @@ export default function Header() {
   return (
     <header className="header">
       <div className="home-icon">
-        <a href="" target="_self">
+        <button onClick={() => setShowMenu(true)}>
           <HomeIcon colorStroke={colors?.primary} />
-        </a>
+        </button>
       </div>
+
+      <UserMenu showMenu={showMenu} onClose={() => setShowMenu(false)} />
 
       <LogoHeader />
 
