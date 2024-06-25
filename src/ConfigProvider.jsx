@@ -11,6 +11,7 @@ const pointsInitial = 0
 
 const ConfigProvider = ({ children, dataConfig }) => {
   const {
+    userData,
     validPeriod,
     config,
     colors,
@@ -44,6 +45,7 @@ const ConfigProvider = ({ children, dataConfig }) => {
     setPoints,
     dataStored,
     setDataStored,
+    userData,
     validPeriod,
     config,
     colors,
