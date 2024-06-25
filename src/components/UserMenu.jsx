@@ -13,11 +13,12 @@ export default function UserMenu({ showMenu, onClose }) {
     imagesByLang,
     categories,
   } = useContext(ConfigContext)
-  console.log(dataStored)
-  console.log(userData)
   console.log(colors)
+  console.log(categories)
 
   const userInitials = getUserInitials(userData.userName)
+  const totalProgress = getTotalProgress(dataStored)
+  const totalQuestions = getTotalQuestions(categories)
 
   function getUserInitials(userName) {
     let userInitials
@@ -29,6 +30,16 @@ export default function UserMenu({ showMenu, onClose }) {
     }
 
     return userInitials
+  }
+
+  function getTotalProgress(dataStored) {
+    return Object.values(dataStored).reduce((sum, day) => {
+      return sum + day.questionsAnswered.length
+    }, 0)
+  }
+
+  function getTotalQuestions(categories) {
+    return categories.reduce((sum, cat) => sum + cat.questions.length, 0)
   }
 
   return (
@@ -77,8 +88,71 @@ export default function UserMenu({ showMenu, onClose }) {
               </div>
             </div>
           </div>
+          <div className="user-progress">
+            <span>Progreso:</span>
+            <ul className="categories-progress">
+              {categories.map((cat, i) => (
+                <li key={cat.id} className="category-progress">
+                  <span>
+                    {i + 1} - {cat.name}
+                  </span>
+                  <ProgressBar
+                    progress={dataStored[cat.id].questionsAnswered.length}
+                    total={cat.questions.length}
+                    colors={colors}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className="total-progress">
+              Progreso Total: {totalProgress} de {totalQuestions}
+            </div>
+          </div>
+
+          <div className="answers-points">
+            <span>Puntos por respuesta:</span>
+            <div
+              className="answer"
+              style={{ backgroundColor: colors?.correct }}
+            >
+              Correcta: <span>{config.pointsCorrect}</span>
+            </div>
+            <div className="answer" style={{ backgroundColor: colors?.wrong }}>
+              Incorrecta: <span>{config.pointsWrong}</span>
+            </div>
+            <div className="answer" style={{backgroundColor:colors?.correct}}>
+              Bonus: +<span>{config.pointsBonus}</span>
+            </div>
+          </div>
+
+          <div className=""></div>
         </div>
       </div>
+    </div>
+  )
+}
+
+const ProgressBar = ({ progress, total, colors }) => {
+  return (
+    <div className="progress-bar-container">
+      <span className="number">0</span>
+
+      <div className="bar-container">
+        <div
+          className="bar"
+          style={{
+            background: colors?.correct,
+            width: `${(progress / total) * 100}%`,
+          }}
+        >
+          {(progress / total) * 100 >= 10 ? (
+            <span className="actual-progress">
+              {progress < total ? progress : 'Completada'}
+            </span>
+          ) : null}
+        </div>
+      </div>
+      <span className="number">{total}</span>
     </div>
   )
 }

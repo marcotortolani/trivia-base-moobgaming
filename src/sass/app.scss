@@ -555,7 +555,7 @@ body {
             -ms-border-radius: 5px;
             -o-border-radius: 5px;
           }
-          border-bottom: 2px solid ;
+          border-bottom: 2px solid;
         }
         .main {
           padding: 0.5rem 1rem;
@@ -605,6 +605,89 @@ body {
                 -o-border-radius: 0.6rem;
               }
             }
+          }
+
+          .user-progress {
+            width: 100%;
+            margin: 1rem 0;
+
+            //background-color: black;
+
+            .categories-progress {
+              width: 100%;
+              .category-progress {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                //background-color: red;
+
+                .progress-bar-container {
+                  position: relative;
+                  width: 50%;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+
+                  .number {
+                    font-weight: 300;
+                    font-size: 0.8rem;
+                  }
+
+                  .bar-container {
+                    width: 70%;
+                    height: 1.2rem;
+                    padding: 1px;
+                    background-color: white;
+
+                    .bar {
+                      width: 10%;
+                      height: 100%;
+                      position: relative;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+
+                      .actual-progress {
+                        font-size: 0.9rem;
+                        line-height: 0.8rem;
+                        color: #000;
+                      }
+                      border-radius: 3rem;
+                      -webkit-border-radius: 3rem;
+                      -moz-border-radius: 3rem;
+                      -ms-border-radius: 3rem;
+                      -o-border-radius: 3rem;
+                    }
+                    border-radius: 3rem;
+                    -webkit-border-radius: 3rem;
+                    -moz-border-radius: 3rem;
+                    -ms-border-radius: 3rem;
+                    -o-border-radius: 3rem;
+                  }
+                }
+              }
+            }
+          }
+
+          .answers-points {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .answer {
+              width: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 6px;
+              -webkit-border-radius: 6px;
+              -moz-border-radius: 6px;
+              -ms-border-radius: 6px;
+              -o-border-radius: 6px;
+}
           }
         }
         border-top-right-radius: 20px;

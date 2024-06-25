@@ -11,7 +11,7 @@
     "endDate": "2025-02-28 09:56:37"
   },
   "config": {
-    "triesAllowedPerDay": 2,
+    "triesAllowedPerDay": 20,
     "pointsCorrect": 1000,
     "pointsWrong": 500,
     "pointsBonus": 1000
@@ -1018,7 +1018,7 @@
           "bonus": false,
           "answers": [
             {
-              "text": "Magnus Mefisto y JPelirrojo",
+              "text": "Magnus Mefisto y La Divaza",
               "isCorrect": false
             },
             {
