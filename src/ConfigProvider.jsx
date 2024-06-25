@@ -33,7 +33,10 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
   }, {})
 
   const [soundOn, setSoundOn] = useLocalStorage('soundActive', soundDefault)
-  const [points, setPoints] = useLocalStorage('userPoints', pointsInitial)
+  const [points, setPoints] = useLocalStorage(
+    `userPoints-${hash}`,
+    pointsInitial
+  )
   const [dataStored, setDataStored] = useLocalStorage(
     `userCatData-${hash}`,
     catDataConfig
