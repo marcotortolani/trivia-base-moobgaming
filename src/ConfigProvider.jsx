@@ -9,7 +9,7 @@ const ConfigContext = createContext()
 const soundDefault = false
 const pointsInitial = 0
 
-const ConfigProvider = ({ children, dataConfig }) => {
+const ConfigProvider = ({ children, dataConfig, hash }) => {
   const {
     userData,
     validPeriod,
@@ -21,22 +21,26 @@ const ConfigProvider = ({ children, dataConfig }) => {
     textsByLang,
     categories,
   } = dataConfig
-  const catDataInitial = dataConfig?.categories.map(() => ({
-    questionsAnswered: [],
-    dateAnsweredToday: [],
-  }))
+
+  console.log(hash)
+
+  const catDataConfig = dataConfig?.categories.reduce((acc, category) => {
+    acc[category.id] = {
+      questionsAnswered: [],
+      dateAnsweredToday: [],
+    }
+    return acc
+  }, {})
+
   const [soundOn, setSoundOn] = useLocalStorage('soundActive', soundDefault)
   const [points, setPoints] = useLocalStorage('userPoints', pointsInitial)
   const [dataStored, setDataStored] = useLocalStorage(
-    'userData',
-    catDataInitial
+    `userCatData-${hash}`,
+    catDataConfig
   )
 
-  let texts, imagesByLang
-  if (dataConfig) {
-    texts = textsByLang[`${lang}`]
+  let texts = textsByLang[`${lang}`],
     imagesByLang = images[`${lang}`]
-  }
 
   const values = {
     soundOn,
@@ -57,14 +61,36 @@ const ConfigProvider = ({ children, dataConfig }) => {
     categories,
   }
 
+  const updateDataStored = () => {
+    // clean date answered
+    const newDataStored = Object.entries(dataStored).reduce(
+      (acc, [id, cat]) => {
+        acc[id] = {
+          ...cat,
+          dateAnsweredToday: cat.dateAnsweredToday.filter(
+            (ans) => ans === new Date().getDate()
+          ),
+        }
+        return acc
+      },
+      {}
+    )
+
+    // update categories if is necessary
+    Object.entries(catDataConfig).forEach(([id]) => {
+      if (!newDataStored.hasOwnProperty(id)) {
+        newDataStored[id] = {
+          questionsAnswered: [],
+          dateAnsweredToday: [],
+        }
+      }
+    })
+
+    setDataStored(newDataStored)
+  }
+
   useEffect(() => {
-    const dataLS = dataStored.map((cat) => ({
-      ...cat,
-      dateAnsweredToday: cat.dateAnsweredToday.filter(
-        (ans) => ans === new Date().getDate()
-      ),
-    }))
-    setDataStored(dataLS)
+    updateDataStored()
   }, [])
 
   return (

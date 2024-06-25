@@ -18,20 +18,20 @@ const userHash = '7055eced15538bfb7c0754574d18f8a5b28fc5d0'
 
 const urlParams = new URLSearchParams(window.location.search)
 
-const userConfigInitial = {
-  id: 0,
-  username: '',
-  msisdn: '',
-  password: '',
-}
+// const userConfigInitial = {
+//   id: 0,
+//   username: '',
+//   msisdn: '',
+//   password: '',
+// }
 
 function Application() {
-  const [userConfig, setUserConfig] = useLocalStorage(
-    'userConfig',
-    userConfigInitial
-  )
-  const gameHash = urlParams.get('gamehash')
-  const userHash = urlParams.get('userhash')
+  // const [userConfig, setUserConfig] = useLocalStorage(
+  //   'userConfig',
+  //   userConfigInitial
+  // )
+  const gameHash = urlParams.get('gamehash') || 1
+  const userHash = urlParams.get('userhash') || 1
 
   console.log('gamehash: ', gameHash)
   console.log('userhash: ', userHash)
@@ -61,7 +61,10 @@ function Application() {
   if (!isLoading && dataConfig) {
     return (
       <HashRouter>
-        <ConfigProvider dataConfig={dataConfig}>
+        <ConfigProvider
+          dataConfig={dataConfig}
+          hash={`${gameHash}-${userHash}`}
+        >
           <App />
         </ConfigProvider>
       </HashRouter>

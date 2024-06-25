@@ -7,16 +7,16 @@ import LogoHeader from '../components/Trivia/LogoHeader'
 import PanelFooter from '../components/Trivia/PanelFooter'
 
 export default function Category() {
+  const navigate = useNavigate()
+  let { cat } = useParams()
   const { soundOn, colors, images, texts, categories, sounds } =
     useContext(ConfigContext)
   const { categoryTitle, buttonStart } = texts
   const { backgroundApp } = images
   const { startButton } = sounds
   const DATA_CATEGS = categories
+  const catSelected = DATA_CATEGS.find((categ) => categ.id === parseInt(cat))
 
-  /*------ */
-  const navigate = useNavigate()
-  let { cat } = useParams()
   const [startButtonSound] = useSound(startButton, {
     soundEnabled: soundOn,
   })
@@ -44,15 +44,12 @@ export default function Category() {
         <div class="title">
           <h2 style={{ color: colors?.title }}>{categoryTitle}</h2>
           <h3 class="category-name" style={{ color: colors?.text }}>
-            {DATA_CATEGS[cat - 1].name}
+            {catSelected?.name}
           </h3>
         </div>
 
         <div class="category-image" id="cat-image">
-          <img
-            src={DATA_CATEGS[cat - 1].imgURL}
-            alt="Image - Category Selected"
-          />
+          <img src={catSelected?.imgURL} alt="Image - Category Selected" />
         </div>
         <button
           onClick={handleClick}

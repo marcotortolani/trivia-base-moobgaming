@@ -5,14 +5,14 @@ import useSound from 'use-sound'
 
 const DEGREE = 1800
 const TIME_SPINNING = 3
-let totalDegree
+//let totalDegree
 
 export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
   const { soundOn, dataStored, colors, images, categories, sounds, config } =
     useContext(ConfigContext)
 
   const DATA_CATEGS = categories ? categories : []
-  const TRIES_ALLOWED = config ? config['triesAllowedPerDay'] : null
+  const TRIES_ALLOWED = config ? config.triesAllowedPerDay : null
   /*--------- */
   const SECTIONS_WHEEL = useMemo(() => DATA_CATEGS?.length, [categories])
 
@@ -20,6 +20,7 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
     soundEnabled: soundOn,
   })
   const [catWheel, setCatWheel] = useState(0)
+  const [totalDegree, setTotalDegree] = useState(DEGREE)
   const navigate = useNavigate()
 
   // deshabilita el boton SPIN si se completaron
@@ -27,45 +28,41 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
   const spinDisable = useMemo(
     () =>
       DATA_CATEGS.every(
-        (cat, index) =>
-          cat.questions.length === dataStored[index].questionsAnswered.length ||
-          dataStored[index].dateAnsweredToday.length === TRIES_ALLOWED
+        (cat) =>
+          cat.questions.length ===
+            dataStored[cat.id].questionsAnswered.length ||
+          dataStored[cat.id].dateAnsweredToday.length === TRIES_ALLOWED
       ),
     [dataStored]
   )
-
-  useEffect(() => {
-    onSpinDisable(spinDisable)
-  }, [spinDisable])
+  onSpinDisable(spinDisable)
 
   const triviaCompleted = useMemo(
     () =>
       DATA_CATEGS.every(
-        (cat, index) =>
-          cat.questions.length === dataStored[index].questionsAnswered.length
+        (cat) =>
+          cat.questions.length === dataStored[cat.id].questionsAnswered.length
       ),
     [dataStored]
   )
-
-  useEffect(() => {
-    onTriviaCompleted(triviaCompleted)
-  }, [triviaCompleted])
+  onTriviaCompleted(triviaCompleted)
 
   const handleSpin = () => {
     const extraDegree = Math.floor(Math.random() * (360 - 1) + 1)
-    totalDegree = DEGREE + extraDegree
-    //const cat = Math.floor(extraDegree / (360 / SECTIONS_WHEEL) + 1);
+    const totalDegree = DEGREE + extraDegree
+    setTotalDegree(totalDegree)
 
     /* nuevo calculo condiserando la ubicacion de la flecha/puntero */
     // ubicación inicial de la flecha indicadora en grados
     const initialArrowPosDegrees = 0
     const adjustedExtraDegree = (extraDegree + initialArrowPosDegrees) % 360
     const cat = Math.floor(adjustedExtraDegree / (360 / SECTIONS_WHEEL)) + 1
+    const catSelected = DATA_CATEGS[cat - 1]
 
     if (
-      dataStored[cat - 1].questionsAnswered.length ===
-        DATA_CATEGS[cat - 1].questions.length ||
-      dataStored[cat - 1].dateAnsweredToday.length === TRIES_ALLOWED
+      dataStored[catSelected.id].questionsAnswered.length ===
+        catSelected.questions.length ||
+      dataStored[catSelected.id].dateAnsweredToday.length === TRIES_ALLOWED
     ) {
       return handleSpin()
     }
@@ -77,7 +74,7 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
   useEffect(() => {
     if (!catWheel) return
     setTimeout(() => {
-      navigate('/category/' + catWheel)
+      navigate('/category/' + DATA_CATEGS[catWheel - 1].id)
     }, TIME_SPINNING * 1000 + 500)
   }, [catWheel])
 
@@ -96,53 +93,71 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
             }
           >
             {DATA_CATEGS.map((cat, index) => (
-              <li
-                key={cat.name}
-                className={
-                  cat.questions.length ===
-                    dataStored[index].questionsAnswered.length ||
-                  dataStored[index].dateAnsweredToday.length === TRIES_ALLOWED
-                    ? 'sec disabled'
-                    : 'sec'
-                }
-                style={{
-                  backgroundColor: colors?.rouletteSection[index],
-                }}
-              >
-                <img src={cat.imgURL} alt={`Category Icon ${cat.name}`} />
-              </li>
+              <CategorySection
+                key={cat.id}
+                cat={cat}
+                dataStored={dataStored}
+                triesAllowed={TRIES_ALLOWED}
+                backgroundColor={colors?.rouletteSection[index]}
+              />
             ))}
           </ul>
 
-          <div id="spin" className="">
-            <button
-              disabled={spinDisable}
-              id="inner-spin"
-              onClick={handleSpin}
-              style={{ backgroundColor: colors?.wheel }}
-            >
-              <img
-                className={spinDisable ? 'disabled' : ''}
-                src={images?.spinButton}
-                alt="Image Spin Button"
-              />
-            </button>
-          </div>
+          <SpinnerButton
+            disabled={spinDisable}
+            onSpin={handleSpin}
+            color={colors?.wheel}
+            image={images?.spinButton}
+          />
 
-          <div className="ring">
-            <div
-              className="center-ring"
-              style={{ borderColor: colors?.wheel }}
-            ></div>
-            <div
-              className="pointer-triangle"
-              style={{ backgroundColor: colors?.wheel }}
-            ></div>
-          </div>
-
-          <div id="shine"></div>
+          <WheelRing color={colors?.wheel} />
         </div>
       </div>
     </div>
   )
 }
+
+const CategorySection = ({
+  cat,
+  dataStored,
+  triesAllowed,
+  backgroundColor,
+}) => {
+  const sectionDisabled =
+    cat.questions.length === dataStored[cat.id].questionsAnswered.length ||
+    dataStored[cat.id].dateAnsweredToday.length === triesAllowed
+  return (
+    <li
+      className={sectionDisabled ? 'sec disabled' : 'sec'}
+      style={{
+        backgroundColor: backgroundColor,
+      }}
+    >
+      <img src={cat.imgURL} alt={`Category Icon ${cat.name}`} />
+    </li>
+  )
+}
+
+const SpinnerButton = ({ disabled, onSpin, color, image }) => (
+  <div id="spin">
+    <button
+      id="inner-spin"
+      disabled={disabled}
+      onClick={onSpin}
+      style={{ backgroundColor: color }}
+    >
+      <img
+        className={disabled ? 'disabled' : ''}
+        src={image}
+        alt="Image Spin Button"
+      />
+    </button>
+  </div>
+)
+
+const WheelRing = ({ color }) => (
+  <div className="ring">
+    <div className="center-ring" style={{ borderColor: color }}></div>
+    <div className="pointer-triangle" style={{ backgroundColor: color }}></div>
+  </div>
+)

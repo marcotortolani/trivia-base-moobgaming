@@ -29,6 +29,10 @@ const PanelFooter = ({ cat }) => {
   const [openRewards, setOpenRewards] = useState(false)
   const location = useLocation().pathname
 
+  const questionsAnswered = dataStored[parseInt(cat)]?.questionsAnswered.length
+  const totalQuestions = DATA_CATEGS.find((categ) => categ.id === parseInt(cat))?.questions.length
+
+
   function handleRewards(e) {
     if (e.target.id.includes('open')) {
       setOpenRewards(true)
@@ -57,8 +61,8 @@ const PanelFooter = ({ cat }) => {
           />
 
           <QuestionsAnswered
-            questionsAnswered={dataStored[cat - 1].questionsAnswered.length}
-            catQuestionsTotal={DATA_CATEGS[cat - 1].questions.length}
+            questionsAnswered={questionsAnswered}
+            catQuestionsTotal={totalQuestions}
             textColor={colors?.text}
           />
         </>

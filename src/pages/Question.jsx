@@ -12,11 +12,11 @@ import { ConfigContext } from '../ConfigProvider'
 
 import Lottie from 'lottie-react'
 import bonusTag from '../assets/lottie_json/ticket-bonus.json'
-import stopAlert from '../assets/lottie_json/stop_alert.json'
 import silverCongrats from '../assets/lottie_json/silver_congrats.json'
 
 import LogoHeader from '../components/Trivia/LogoHeader'
 import PanelFooter from '../components/Trivia/PanelFooter'
+import DailyLimit from '../components/DailyLimit'
 
 const indexInitial = 0
 
@@ -42,7 +42,6 @@ export default function Question() {
     correctAnswer,
     wrongAnswer,
   } = texts
-  const DATA_CATEGS = categories
   const POINTS_CORRECT = config['pointsCorrect']
   const POINTS_WRONG = config['pointsWrong']
   const POINTS_BONUS = config['pointsBonus']
@@ -56,10 +55,14 @@ export default function Question() {
   const [wrongAnswSound] = useSound(wrongAnswerSound, {
     soundEnabled: soundOn,
   })
+  const catSelected = useMemo(
+    () => categories.find((categ) => categ.id === parseInt(cat)),
+    [cat]
+  )
 
   const navigate = useNavigate()
-  const questions = useMemo(() => DATA_CATEGS[cat - 1].questions, [cat])
-  const catBonus = useMemo(() => DATA_CATEGS[cat - 1].bonus, [cat])
+  const questions = catSelected?.questions
+  const catBonus = catSelected?.bonus
 
   const [indexQuestion, setIndexQuestion] = useState(indexInitial)
   const [slideQuestion, setSlideQuestion] = useState(false)
@@ -82,7 +85,7 @@ export default function Question() {
   )
 
   useEffect(() => {
-    const index = dataStored[cat - 1].questionsAnswered.length
+    const index = dataStored[parseInt(cat)].questionsAnswered.length
     setIndexQuestion(index)
   }, [])
 
@@ -135,19 +138,21 @@ export default function Question() {
 
   function handleQuestionsAnswered() {
     const newData = dataStored
-    newData[cat - 1].questionsAnswered.push(indexQuestion)
-    newData[cat - 1].dateAnsweredToday.push(new Date().getDate())
+    newData[cat].questionsAnswered.push(indexQuestion)
+    newData[cat].dateAnsweredToday.push(new Date().getDate())
     setDataStored(newData)
 
     if (
-      dataStored[cat - 1].questionsAnswered.length === questions.length ||
-      dataStored[cat - 1].dateAnsweredToday.length === TRIES_ALLOWED
+      dataStored[parseInt(cat)].questionsAnswered.length === questions.length ||
+      dataStored[parseInt(cat)].dateAnsweredToday.length === TRIES_ALLOWED
     ) {
       setTimeout(() => {
         setSlideQuestion(true)
       }, 1500)
       // Questions completed in this Category
-      if (dataStored[cat - 1].questionsAnswered.length === questions.length) {
+      if (
+        dataStored[parseInt(cat)].questionsAnswered.length === questions.length
+      ) {
         setTimeout(() => {
           setAnimation('catCompleted')
         }, 1500)
@@ -255,16 +260,13 @@ export default function Question() {
       <div className="category-questions">
         <div className="category-chosen">
           <div className="category-image" id="cat-image">
-            <img
-              src={DATA_CATEGS[cat - 1].imgURL}
-              alt="Image - Category Selected"
-            />
+            <img src={catSelected?.imgURL} alt="Image - Category Selected" />
           </div>
 
           <div className="title">
             <h2 style={{ color: colors?.title }}>{categoryTitle}</h2>
             <h3 className="category-name" style={{ color: colors?.text }}>
-              {DATA_CATEGS[cat - 1].name}
+              {catSelected?.name}
             </h3>
           </div>
         </div>
@@ -303,16 +305,8 @@ export default function Question() {
         </div>
       )}
 
-      {animation === 'limitReached' && (
-        <div className="pop-up-limit-answers">
-          <Lottie
-            className="lottie-stop"
-            animationData={stopAlert}
-            loop={true}
-          />
-          <h3 className="title-limit-answers">{dailyLimit}</h3>
-        </div>
-      )}
+      {animation === 'limitReached' && <DailyLimit text={dailyLimit} />}
+
       {/* ---- Animations ---- */}
 
       <PanelFooter cat={cat} />
