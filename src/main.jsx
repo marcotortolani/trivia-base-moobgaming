@@ -44,6 +44,9 @@ function Application() {
 
   if (isLoading) return <Loading />
 
+  if (userHash === null || userHash === 'null')
+    return <Error message="Usuario no válido" />
+
   if (dataConfig === null || error)
     return (
       <Error
