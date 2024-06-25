@@ -11,7 +11,7 @@
     "endDate": "2025-02-28 09:56:37"
   },
   "config": {
-    "triesAllowedPerDay": 50,
+    "triesAllowedPerDay": 2,
     "pointsCorrect": 1000,
     "pointsWrong": 500,
     "pointsBonus": 1000
@@ -352,7 +352,7 @@
               "isCorrect": false
             },
             {
-              "text": "David Montoya",
+              "text": "David Montalva",
               "isCorrect": false
             },
             {
