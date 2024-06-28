@@ -28,6 +28,8 @@ export default function Question() {
     colors,
     points,
     setPoints,
+    answersType,
+    setAnswersType,
     images,
     texts,
     categories,
@@ -103,24 +105,30 @@ export default function Question() {
       let newPoints
       setIsDisable(true)
 
-      // let context = new AudioContext();
-      //contextAudio.resume().then(console.log("hola"));
-      //console.log(contextAudio.resume());
-
       if (answerClicked.isCorrect) {
-        //correctAnswer();
+        //correctAnswer
         contextAudio.resume().then(correctAnswSound())
         if (hasBonus) {
           newPoints = points + POINTS_CORRECT + POINTS_BONUS
+          let newAnswer = answersType
+          newAnswer = { ...newAnswer, bonus: newAnswer.bonus + 1 }
+          setAnswersType(newAnswer)
         } else {
           newPoints = points + POINTS_CORRECT
+          let newAnswer = answersType
+          newAnswer = { ...newAnswer, correct: newAnswer.correct + 1 }
+          setAnswersType(newAnswer)
         }
       } else {
-        //wrongAnswer();
+        //wrongAnswer
         contextAudio.resume().then(wrongAnswSound())
         newPoints = points + POINTS_WRONG
+        let newAnswer = answersType
+        newAnswer = { ...newAnswer, incorrect: newAnswer.incorrect + 1 }
+        setAnswersType(newAnswer)
       }
 
+      // updateScore
       setPoints(newPoints)
 
       const answerClickTrue = answersClicked.map((ans) => {

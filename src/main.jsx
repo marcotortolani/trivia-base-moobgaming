@@ -9,9 +9,9 @@ import { Loading } from './components/Loading'
 import { Error } from './components/Error'
 import './sass/app.css'
 
-// import dataConfig from './conf/config.json'
-// const isLoading = false,
-//   error = false
+import dataConfig from './conf/config.json'
+const isLoading = false,
+  error = false
 
 const gameHash = '356a192b7913b04c54574d18c28d46e6395428ab'
 const userHash = '7055eced15538bfb7c0754574d18f8a5b28fc5d0'
@@ -35,11 +35,11 @@ function Application() {
 
   console.log('gamehash: ', gameHash)
   console.log('userhash: ', userHash)
-  const { isLoading, error, dataConfig } = useDataConfig(
-    configTrivia + `${gameHash}` + `/${userHash}`
-  )
+  // const { isLoading, error, dataConfig } = useDataConfig(
+  //   configTrivia + `${gameHash}` + `/${userHash}`
+  // )
 
-  console.log(dataConfig.categories);
+  console.log(dataConfig.colors)
   // dataConfig.userData.userId : 0 -> User Non Registered
   // dataConfig.userData.userId : 1 -> User Registered without hash ID
   // dataConfig.userData.userId : true && userConfig.id !== 1 -> User Registered with hash ID

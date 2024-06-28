@@ -1,9 +1,12 @@
 import { useContext, useState } from 'preact/hooks'
 import { ConfigContext } from '../ConfigProvider'
 
+import { DonutChart } from './DonutChart'
+
 export default function UserMenu({ showMenu, onClose }) {
   const {
     points,
+    answersType,
     dataStored,
     userData,
     validPeriod,
@@ -13,8 +16,6 @@ export default function UserMenu({ showMenu, onClose }) {
     imagesByLang,
     categories,
   } = useContext(ConfigContext)
-  console.log(colors)
-  console.log(categories)
 
   const userInitials = getUserInitials(userData.userName)
   const totalProgress = getTotalProgress(dataStored)
@@ -48,7 +49,10 @@ export default function UserMenu({ showMenu, onClose }) {
         showMenu ? 'show-user-menu' : 'hide-user-menu'
       }`}
     >
-      <div className="side-menu " style={{ backgroundColor: colors?.primary }}>
+      <div
+        className={`side-menu `}
+        style={{ backgroundColor: colors?.primary }}
+      >
         <div className="header" style={{ borderColor: colors?.text }}>
           <h4 style={{ color: colors?.text }}>Menu de usuario</h4>
           <img src={imagesByLang?.logoHeader} alt="Logo Product" />
@@ -115,13 +119,37 @@ export default function UserMenu({ showMenu, onClose }) {
               className="answer"
               style={{ backgroundColor: colors?.correct }}
             >
-              Correcta: <span>{config.pointsCorrect}</span>
+              <span className="label">Correcta</span>
+              <span>{config.pointsCorrect}</span>
             </div>
             <div className="answer" style={{ backgroundColor: colors?.wrong }}>
-              Incorrecta: <span>{config.pointsWrong}</span>
+              <span className="label">Incorrecta</span>
+              <span>{config.pointsWrong}</span>
             </div>
-            <div className="answer" style={{backgroundColor:colors?.correct}}>
-              Bonus: +<span>{config.pointsBonus}</span>
+            <div
+              className="answer"
+              style={{ backgroundColor: colors?.correct }}
+            >
+              <span className="label">Bonus</span>
+              <span>{config.pointsBonus}</span>
+            </div>
+          </div>
+
+          <div className="answers-type">
+            <div className="donuts-chart-container">
+              <span>Índice de aciertos:</span>
+              <DonutChart
+                answers={answersType}
+                colorCorrect={colors.correct}
+                colorWrong={colors.wrong}
+              />
+            </div>
+            <div className="answers-type-detail">
+              <span>Correctas: {answersType.correct}</span>
+              <span>Incorrectas: {answersType.incorrect}</span>
+              {answersType.bonus >= 0 && (
+                <span>Con Bonus: {answersType.bonus}</span>
+              )}
             </div>
           </div>
 

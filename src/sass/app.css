@@ -455,14 +455,16 @@ body #inputNumCat {
 }
 .app-trivia .header .user-menu-container {
   z-index: 5000;
+  position: absolute;
   left: 0;
   top: 0;
-  position: absolute;
   width: 100vw;
+  max-width: 600px;
   height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: start;
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 250ms linear;
   -webkit-transition: all 250ms linear;
@@ -472,7 +474,8 @@ body #inputNumCat {
 }
 .app-trivia .header .user-menu-container .side-menu {
   position: relative;
-  width: 90%;
+  left: 0;
+  width: 96%;
   min-width: 260px;
   height: 90%;
   background-color: #000;
@@ -504,7 +507,12 @@ body #inputNumCat {
   -o-border-radius: 5px;
 }
 .app-trivia .header .user-menu-container .side-menu .main {
-  padding: 0.5rem 1rem;
+  height: 90%;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1rem;
 }
 .app-trivia .header .user-menu-container .side-menu .main .user-profile {
   width: 100%;
@@ -520,6 +528,7 @@ body #inputNumCat {
 }
 .app-trivia .header .user-menu-container .side-menu .main .user-profile .user-data .user-initials {
   width: 12vw;
+  max-width: 100px;
   aspect-ratio: 1/1;
   display: flex;
   align-items: center;
@@ -551,7 +560,6 @@ body #inputNumCat {
 }
 .app-trivia .header .user-menu-container .side-menu .main .user-progress {
   width: 100%;
-  margin: 1rem 0;
 }
 .app-trivia .header .user-menu-container .side-menu .main .user-progress .categories-progress {
   width: 100%;
@@ -605,12 +613,12 @@ body #inputNumCat {
 .app-trivia .header .user-menu-container .side-menu .main .answers-points {
   width: 100%;
   display: flex;
-  flex-direction: column;
   gap: 0.5rem;
 }
 .app-trivia .header .user-menu-container .side-menu .main .answers-points .answer {
-  width: 50%;
+  width: 30%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
@@ -618,6 +626,61 @@ body #inputNumCat {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-points .answer .label {
+  font-size: 0.8rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .donuts-chart-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .donuts-chart-container span {
+  margin: 0;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .donuts-chart-container .donut-chart {
+  width: 200px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.75);
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  -o-transform: scale(0.75);
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .donuts-chart-container .donut-chart svg {
+  position: absolute;
+  transform: scale(0.5) translateX(0px);
+  -webkit-transform: scale(0.5) translateX(0px);
+  -moz-transform: scale(0.5) translateX(0px);
+  -ms-transform: scale(0.5) translateX(0px);
+  -o-transform: scale(0.5) translateX(0px);
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .donuts-chart-container .donut-chart .value {
+  position: relative;
+  z-index: 500;
+  color: white;
+  font-size: 1.7rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .answers-type-detail {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-type .answers-type-detail span {
+  font-size: 1rem;
 }
 .app-trivia .header .show-user-menu {
   opacity: 1;
@@ -628,12 +691,12 @@ body #inputNumCat {
   -o-transform: translateX(0);
 }
 .app-trivia .header .hide-user-menu {
-  opacity: 0.5;
-  transform: translateX(-150%);
-  -webkit-transform: translateX(-150%);
-  -moz-transform: translateX(-150%);
-  -ms-transform: translateX(-150%);
-  -o-transform: translateX(-150%);
+  opacity: 0;
+  transform: translateX(-200%);
+  -webkit-transform: translateX(-200%);
+  -moz-transform: translateX(-200%);
+  -ms-transform: translateX(-200%);
+  -o-transform: translateX(-200%);
 }
 .app-trivia .header .logo-header {
   z-index: 20;

@@ -8,6 +8,7 @@ const ConfigContext = createContext()
 
 const soundDefault = false
 const pointsInitial = 0
+const answersTypeInitial = { correct: 0, incorrect: 0, bonus: 0 }
 
 const ConfigProvider = ({ children, dataConfig, hash }) => {
   const {
@@ -22,8 +23,6 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     categories,
   } = dataConfig
 
-  console.log(hash)
-
   const catDataConfig = dataConfig?.categories.reduce((acc, category) => {
     acc[category.id] = {
       questionsAnswered: [],
@@ -32,10 +31,17 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     return acc
   }, {})
 
-  const [soundOn, setSoundOn] = useLocalStorage('soundActive', soundDefault)
+  const [soundOn, setSoundOn] = useLocalStorage(
+    `soundActive-${hash}`,
+    soundDefault
+  )
   const [points, setPoints] = useLocalStorage(
     `userPoints-${hash}`,
     pointsInitial
+  )
+  const [answersType, setAnswersType] = useLocalStorage(
+    `userAnswers-${hash}`,
+    answersTypeInitial
   )
   const [dataStored, setDataStored] = useLocalStorage(
     `userCatData-${hash}`,
@@ -50,6 +56,8 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     setSoundOn,
     points,
     setPoints,
+    answersType,
+    setAnswersType,
     dataStored,
     setDataStored,
     userData,
