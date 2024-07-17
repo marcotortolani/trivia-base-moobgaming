@@ -476,7 +476,7 @@ body {
   align-items: center;
 
   .header {
-    z-index: 30;
+    z-index: 25;
     width: 100vw;
     max-width: 600px;
     position: absolute;
@@ -517,7 +517,7 @@ body {
     }
 
     .user-menu-container {
-      z-index: 5000;
+      z-index: 900000000;
       position: absolute;
       left: 0;
       top: 0;
@@ -1021,7 +1021,7 @@ body {
   }
 
   .panel-footer-container {
-    z-index: 20;
+    z-index: 24;
     width: 100vw;
     min-width: 240px;
     max-width: 600px;
@@ -1037,7 +1037,7 @@ body {
     align-items: center;
 
     .wrapper-bases-rewards {
-      z-index: 200;
+      z-index: 2000;
       width: 100%;
       height: 100%;
       display: flex;
@@ -1073,7 +1073,7 @@ body {
           background-color: transparent;
           border: none;
 
-          &:hover{
+          &:hover {
             cursor: pointer;
           }
         }
@@ -1161,164 +1161,162 @@ body {
         font-size: 1.5rem;
       }
     }
-    .wrapper-pop-up {
-      z-index: 8000;
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      bottom: 0;
+  }
+}
+
+.wrapper-pop-up {
+  z-index: 900000;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  .pop-up-rewards {
+    z-index: 200000;
+    width: 90vw;
+    max-width: 380px;
+    height: 60%;
+    min-height: 300px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 10px #000;
+
+    .wrapper-button {
+      z-index: 200000;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: flex-end;
+
+      .close-rewards {
+        width: 30px;
+        height: 30px;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
+        padding-bottom: 3px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-family: 'fontTrivia';
+        font-size: 1.3rem;
+        font-weight: 600;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        border-radius: 50%;
+      }
+    }
+
+    .wrapper-slider {
+      z-index: 80000000;
+      width: 100%;
+      max-width: 600px;
+      max-width: 900px;
+      height: 90%;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.75);
-      .pop-up-rewards {
-        z-index: 20000;
-        width: 90vw;
-        max-width: 380px;
-        height: 60%;
-        min-height: 300px;
-        max-height: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 5px 5px 10px #000;
 
-        .wrapper-button {
-          z-index: 200000;
+      .wrapper-image {
+        width: 100%;
+        max-width: 580px;
+        height: 80%;
+        margin: 20px 0;
+
+        img {
+          object-fit: contain;
           width: 100%;
-          height: 40px;
-          display: flex;
-          justify-content: flex-end;
-
-          .close-rewards {
-            width: 30px;
-            height: 30px;
-            margin-top: 0.5rem;
-            margin-right: 0.5rem;
-            padding-bottom: 3px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            font-family: 'fontTrivia';
-            font-size: 1.3rem;
-            font-weight: 600;
-
-            &:hover {
-              cursor: pointer;
-            }
-            border-radius: 50%;
-            box-shadow: 0px 0px 5px #5a5a5a;
-            transition: all 250ms ease-in-out;
-            -webkit-transition: all 250ms ease-in-out;
-            -moz-transition: all 250ms ease-in-out;
-            -ms-transition: all 250ms ease-in-out;
-            -o-transition: all 250ms ease-in-out;
-          }
+          min-width: 220px;
+          height: 100%;
+          min-height: 220px;
         }
+      }
 
-        .wrapper-slider {
-          z-index: 80000000;
-          width: 100%;
-          max-width: 600px;
-          max-width: 900px;
-          height: 90%;
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+      .wrapper-image-hidden {
+        display: none;
+      }
 
-          .wrapper-image {
-            width: 100%;
-            max-width: 580px;
-            height: 80%;
-            margin: 20px 0;
-
-            img {
-              object-fit: contain;
-              width: 100%;
-              min-width: 220px;
-              height: 100%;
-              min-height: 220px;
-            }
-          }
-
-          .wrapper-image-hidden {
+      .arrow-container {
+        position: absolute;
+        width: 25px;
+        height: 40px;
+        border: none;
+        border-radius: 26px;
+        cursor: pointer;
+        &:disabled {
+          box-shadow: 0px 0px 3px #a9a9a9;
+          img {
             display: none;
           }
 
-          .arrow-container {
-            position: absolute;
-            width: 25px;
-            height: 40px;
-            border: none;
-            border-radius: 26px;
-            cursor: pointer;
-            &:disabled {
-              box-shadow: 0px 0px 3px #a9a9a9;
-              img {
-                display: none;
-              }
-
-              &:hover {
-                cursor: default;
-              }
-            }
-
-            &:hover {
-              cursor: pointer;
-            }
-            img {
-              width: 100%;
-              height: auto;
-            }
-            box-shadow: 0px 0px 5px #666666;
-            transition: all 250ms ease-in-out;
-            -webkit-transition: all 250ms ease-in-out;
-            -moz-transition: all 250ms ease-in-out;
-            -ms-transition: all 250ms ease-in-out;
-            -o-transition: all 250ms ease-in-out;
-          }
-          .left-arrow {
-            left: 1rem;
-          }
-          .right-arrow {
-            right: 1rem;
-          }
-          .indicators-container {
-            display: flex;
-            position: absolute;
-            bottom: 1rem;
-            .indicator {
-              height: 0.7rem;
-              width: 0.7rem;
-              border: none;
-              outline: none;
-              box-shadow: 0px 0px 2px #555;
-              margin: 0 0.5rem;
-              cursor: pointer;
-
-              border-radius: 100%;
-              -webkit-border-radius: 100%;
-              -moz-border-radius: 100%;
-              -ms-border-radius: 100%;
-              -o-border-radius: 100%;
-            }
+          &:hover {
+            cursor: default;
           }
         }
-        border-radius: 26px;
-        -webkit-border-radius: 26px;
-        -moz-border-radius: 26px;
-        -ms-border-radius: 26px;
-        -o-border-radius: 26px;
+
+        &:hover {
+          cursor: pointer;
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+        box-shadow: 0px 0px 5px #666666;
+        transition: all 250ms ease-in-out;
+        -webkit-transition: all 250ms ease-in-out;
+        -moz-transition: all 250ms ease-in-out;
+        -ms-transition: all 250ms ease-in-out;
+        -o-transition: all 250ms ease-in-out;
       }
-      transform: translateY(10px);
-      -webkit-transform: translateY(10px);
-      -moz-transform: translateY(10px);
-      -ms-transform: translateY(10px);
-      -o-transform: translateY(10px);
+      .left-arrow {
+        left: 1rem;
+      }
+      .right-arrow {
+        right: 1rem;
+      }
+      .indicators-container {
+        display: flex;
+        position: absolute;
+        bottom: 1rem;
+        .indicator {
+          height: 0.7rem;
+          width: 0.7rem;
+          border: none;
+          outline: none;
+          box-shadow: 0px 0px 2px #555;
+          margin: 0 0.5rem;
+          cursor: pointer;
+
+          border-radius: 100%;
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          -o-border-radius: 100%;
+        }
+      }
     }
+    border-radius: 26px;
+    -webkit-border-radius: 26px;
+    -moz-border-radius: 26px;
+    -ms-border-radius: 26px;
+    -o-border-radius: 26px;
   }
+  transform: translateY(10px);
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  -o-transform: translateY(10px);
 }
 
 //! Spinner Wheel
