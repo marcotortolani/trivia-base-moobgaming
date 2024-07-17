@@ -1,0 +1,1114 @@
+{
+  "lastUpdated": "2024-04-16",
+  "userData": {
+    "userId": "user1",
+    "userName": "",
+    "userMSISDN": "123456",
+    "userPoints": "35",
+    "userAvatar": "/img/mario-bros-1.webp"
+  },
+  "validPeriod": {
+    "startDate": "2024-02-28 09:56:37",
+    "endDate": "2025-02-28 09:56:37"
+  },
+  "config": {
+    "triesAllowedPerDay": 200,
+    "pointsCorrect": 1000,
+    "pointsWrong": 500,
+    "pointsBonus": 1000
+  },
+  "URLImagesHost": "",
+  "colors": {
+    "background": "#000000",
+    "backgroundCongrats": "#07121BF2",
+    "backgroundRewards": "#FFF",
+    "disable": "#989898",
+    "wrong": "#ef1f1f",
+    "correct": "#35a333",
+    "title": "#9d2b67",
+    "text": "#FAFAFA",
+    "text2": "",
+    "primary": "#9d2b67",
+    "primaryLight": "#c93c87",
+    "rouletteSection": [
+      "#8daaa5",
+      "#9d2b67",
+      "#8daaa5",
+      "#9d2b67",
+      "#000000",
+      "#9d2b67",
+      "#8daaa5",
+      "#000000"
+    ],
+    "wheel": "#325667",
+    "nextBtnGradient": "linear-gradient(180deg, #9d2b67 50%, #691c45 100%)",
+    "answerBtnGradient": "linear-gradient(180deg, #536ea9 50%, #3a4f7c 100%)"
+  },
+  "images": {
+    "es": {
+      "logoHeader": "/img/logo.webp",
+      "bubbleStartMessage": "",
+      "bubbleDailyLimit": "",
+      "rewardsImages": [
+        {
+          "src": "/img/premios-01.webp",
+          "name": "prize"
+        }
+      ]
+    },
+    "madeBy": "img/by-memoob.webp",
+    "backgroundApp": "",
+    "iconSoundActive": "/img/sound_active_icon.webp",
+    "iconSoundMute": "/img/sound_mute_icon.webp",
+    "spinButton": "/img/girar-icon.webp",
+    "pointerRoulette": "",
+    "rewardsButton": "/img/premios-icon.webp",
+    "termsButton": "/img/bases-icon.webp",
+    "arrowsSlider": {
+      "left": "/img/left-golden-arrow.webp",
+      "right": "/img/right-golden-arrow.webp"
+    },
+    "backgroundPoints": "/img/barra-puntos.webp",
+    "triviaUpcoming": "/img/trivia-proximamente.webp",
+    "triviaEnded": "/img/trivia-finalizada.webp"
+  },
+  "sounds": {
+    "muteButton": "/sound/pop-click.mp3",
+    "clickOpen": "/sound/arcade-pop.mp3",
+    "closePopup": "/sound/popup-close-minimize.mp3",
+    "startButton": "/sound/button_sound.mp3",
+    "rouletteWheel": "/sound/roulette_wheel.mp3",
+    "correctAnswerSound": "/sound/correct_answer.mp3",
+    "wrongAnswerSound": "/sound/wrong_answer.mp3"
+  },
+  "links": {
+    "termsURL": ""
+  },
+  "textsByLang": {
+    "es": {
+      "terms": "Bases",
+      "rewards": "Premios",
+      "categoryTitle": "Categoría",
+      "buttonStart": "Comenzar",
+      "dailyLimit": "Alcanzaste el límite diario para esta categoría",
+      "categoryCompleted": "¡Felicidades! ¡Completaste toda esta categoría!",
+      "congratsTriviaCompleted": "¡Felicidades! ¡Completaste toda la trivia!",
+      "correctAnswer": "Correcta",
+      "wrongAnswer": "Incorrecta"
+    },
+    "en": {
+      "terms": "T&C",
+      "rewards": "Prizes",
+      "categoryTitle": "Category",
+      "buttonStart": "Start",
+      "dailyLimit": "You reached the daily limit for this category",
+      "categoryCompleted": "Congratulations! You completed this entire category!",
+      "congratsTriviaCompleted": "Congratulations! You completed the Quiz!",
+      "correctAnswer": "Correct",
+      "wrongAnswer": "Incorrect"
+    },
+    "pt": {
+      "terms": "T&C",
+      "rewards": "Premios",
+      "categoryTitle": "Categoria",
+      "buttonStart": "Começar",
+      "dailyLimit": "Atingiste o limite diário de respostas nestas categorias",
+      "categoryCompleted": "Parabéns! Completaste toda nesta categoria!",
+      "congratsTriviaCompleted": "Parabéns! Completaste todo o desafio!",
+      "correctAnswer": "Correcta",
+      "wrongAnswer": "Incorrecta"
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Gamers",
+      "imgURL": "/img/categoria-gamers.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿A qué equipo de Esports pertenece el gamer Jeanki?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Krü",
+              "isCorrect": false
+            },
+            {
+              "text": "Leviatán",
+              "isCorrect": false
+            },
+            {
+              "text": "Naguará",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Qué gamer acompaña a Jeanki en el equipo Naguará?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Yolo",
+              "isCorrect": false
+            },
+            {
+              "text": "Punicher",
+              "isCorrect": true
+            },
+            {
+              "text": "BarcaGamer",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Cuál es la nacionalidad del gamer Jeanki?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Venezuela",
+              "isCorrect": true
+            },
+            {
+              "text": "Colombia",
+              "isCorrect": false
+            },
+            {
+              "text": "México",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Con qué juego se hizo conocido Jeanki?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Fortnite",
+              "isCorrect": false
+            },
+            {
+              "text": "Free Fire",
+              "isCorrect": true
+            },
+            {
+              "text": "Minecraft",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Sobre qué tratan los últimos videos que Jeanki subió a su canal de YouTube?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "FC Mobile",
+              "isCorrect": true
+            },
+            {
+              "text": "EA Sports FC24",
+              "isCorrect": false
+            },
+            {
+              "text": "eFootball",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿A qué equipo quiere ingresar Jeanki gracias a la ayuda de Team Gamers?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Porcinos FC",
+              "isCorrect": false
+            },
+            {
+              "text": "Los Chamos FC",
+              "isCorrect": true
+            },
+            {
+              "text": "Rayados FC",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Cómo se llama el gamer venezolano que suele acompañar a Jeanki en sus videos?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Dojo Play",
+              "isCorrect": false
+            },
+            {
+              "text": "Eloy TocaBlock",
+              "isCorrect": false
+            },
+            {
+              "text": "TheHectorino",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Cuántos seguidores tiene Jeanki en su canal de YouTube?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "3 millones",
+              "isCorrect": false
+            },
+            {
+              "text": "5 millones",
+              "isCorrect": true
+            },
+            {
+              "text": "7 millones",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Qué contenido exclusivo creó Jeanki para Team Gamers?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Un video con tips",
+              "isCorrect": false
+            },
+            {
+              "text": "Un streaming",
+              "isCorrect": false
+            },
+            {
+              "text": "Una entrevista",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿En qué año nació Jeanki?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1998",
+              "isCorrect": false
+            },
+            {
+              "text": "2000",
+              "isCorrect": true
+            },
+            {
+              "text": "2002",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tecno",
+      "imgURL": "/img/categoria-tecno.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿De dónde viene la empresa Huawei?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Taiwán",
+              "isCorrect": false
+            },
+            {
+              "text": "China",
+              "isCorrect": true
+            },
+            {
+              "text": "Japón",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿De qué país proviene la empresa Sony?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Corea del Sur",
+              "isCorrect": false
+            },
+            {
+              "text": "Japón",
+              "isCorrect": true
+            },
+            {
+              "text": "Estados Unidos",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Cuál es la versión sucesora del sistema operativo Windows 8?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Windows 10",
+              "isCorrect": true
+            },
+            {
+              "text": "Windows 12",
+              "isCorrect": false
+            },
+            {
+              "text": "Windows 9",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Samsung es una empresa de tecnología proveniente de Asia... ¿de qué país es?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Corea del Sur",
+              "isCorrect": true
+            },
+            {
+              "text": "China",
+              "isCorrect": false
+            },
+            {
+              "text": "Japón",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Spotify es una aplicación de...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Series y películas",
+              "isCorrect": false
+            },
+            {
+              "text": "Música",
+              "isCorrect": true
+            },
+            {
+              "text": "Lectura",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "El primer iPhone salió en al año...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "2007",
+              "isCorrect": true
+            },
+            {
+              "text": "2006",
+              "isCorrect": false
+            },
+            {
+              "text": "2010",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿En qué año fue fundado Facebook?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1985",
+              "isCorrect": false
+            },
+            {
+              "text": "1999",
+              "isCorrect": false
+            },
+            {
+              "text": "2004",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Cuál de estos servicios de streaming NO existe?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Netflix",
+              "isCorrect": false
+            },
+            {
+              "text": "Nickelodeon",
+              "isCorrect": true
+            },
+            {
+              "text": "Disney+",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "El sistema operativo Windows fue creado por...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Microsoft",
+              "isCorrect": true
+            },
+            {
+              "text": "IBM",
+              "isCorrect": false
+            },
+            {
+              "text": "Linux",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Qué significa la tecla Ctrl en los teclados de computadora?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Central",
+              "isCorrect": false
+            },
+            {
+              "text": "Control",
+              "isCorrect": true
+            },
+            {
+              "text": "Code L",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Retro",
+      "imgURL": "/img/categoria-retro.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Qué año salió el Atari 2600?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1982",
+              "isCorrect": true
+            },
+            {
+              "text": "1983",
+              "isCorrect": false
+            },
+            {
+              "text": "1984",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cuál de estas consolas fue creada por SEGA?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Super Nintendo",
+              "isCorrect": false
+            },
+            {
+              "text": "PlayStation",
+              "isCorrect": false
+            },
+            {
+              "text": "Mega Drive",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Cuál fue la primera consola de videojuegos portátil?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Game Boy",
+              "isCorrect": true
+            },
+            {
+              "text": "Atari Lynx",
+              "isCorrect": false
+            },
+            {
+              "text": "PSP",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Qué consola utilizó cartuchos en vez de discos para sus juegos?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "PlayStation",
+              "isCorrect": false
+            },
+            {
+              "text": "Xbox",
+              "isCorrect": false
+            },
+            {
+              "text": "Nintendo 64",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Cuál fue la consola más vendida de todos los tiempos?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "PlayStation 2",
+              "isCorrect": true
+            },
+            {
+              "text": "Xbox 360",
+              "isCorrect": false
+            },
+            {
+              "text": "Nintendo Switch",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿En qué año se lanzó la consola PlayStation original?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "1993",
+              "isCorrect": false
+            },
+            {
+              "text": "1994",
+              "isCorrect": true
+            },
+            {
+              "text": "1995",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Cuál de estas consolas pertenece a la familia de Nintendo?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Dreamcast",
+              "isCorrect": false
+            },
+            {
+              "text": "GameCube",
+              "isCorrect": true
+            },
+            {
+              "text": "Genesis",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "¿Qué compañía desarrolló la consola Atari 2600?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Atari",
+              "isCorrect": true
+            },
+            {
+              "text": "Nintendo",
+              "isCorrect": false
+            },
+            {
+              "text": "SEGA",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "¿Qué consola tenía el eslogan 'It's thinking'?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "PlayStation",
+              "isCorrect": false
+            },
+            {
+              "text": "Dreamcast",
+              "isCorrect": true
+            },
+            {
+              "text": "Game Boy",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Cuál fue la primera consola de videojuegos con gráficos 16-bit?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Super Nintendo",
+              "isCorrect": true
+            },
+            {
+              "text": "NES",
+              "isCorrect": false
+            },
+            {
+              "text": "Atari 7800",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Personajes",
+      "imgURL": "/img/categoria-personajes.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuál es la vestimenta icónica de Mario?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Chaqueta Negra",
+              "isCorrect": false
+            },
+            {
+              "text": "Remera Verde",
+              "isCorrect": false
+            },
+            {
+              "text": "Overol Azul",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo se llama la princesa del Reino Champiñón?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Daisy",
+              "isCorrect": false
+            },
+            {
+              "text": "Peach",
+              "isCorrect": true
+            },
+            {
+              "text": "Rosalina",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿De qué color es el dinosaurio que ayuda a Mario y Luigi?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Rojo",
+              "isCorrect": false
+            },
+            {
+              "text": "Azul",
+              "isCorrect": false
+            },
+            {
+              "text": "Verde",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Quién es el principal antagonista de Mario?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Bowser",
+              "isCorrect": true
+            },
+            {
+              "text": "Goomba",
+              "isCorrect": false
+            },
+            {
+              "text": "Bill Bala",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿Cuál de los siguientes es un secuaz de Bowser?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Wario",
+              "isCorrect": false
+            },
+            {
+              "text": "Koopa Troopa",
+              "isCorrect": true
+            },
+            {
+              "text": "Toad",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Quién es el compañero de aventuras de Wario?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Luigi",
+              "isCorrect": false
+            },
+            {
+              "text": "Bowser",
+              "isCorrect": false
+            },
+            {
+              "text": "Warluigi",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "La princesa Peach tiene una hermana llamada...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Daisy",
+              "isCorrect": true
+            },
+            {
+              "text": "Rosalina",
+              "isCorrect": false
+            },
+            {
+              "text": "Olivia",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "El villano Bowser es cuidado por un hechicero llamado...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Kammy",
+              "isCorrect": false
+            },
+            {
+              "text": "Kamelia",
+              "isCorrect": false
+            },
+            {
+              "text": "Kamek",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "El Rey Boo tiene los ojos de color...",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Azules",
+              "isCorrect": false
+            },
+            {
+              "text": "Morados",
+              "isCorrect": true
+            },
+            {
+              "text": "Rosas",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "¿Quién es el champiñón fiel defensor de la princesa Peach?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Yoshi",
+              "isCorrect": false
+            },
+            {
+              "text": "Koopas",
+              "isCorrect": false
+            },
+            {
+              "text": "Toad",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Juegos",
+      "imgURL": "/img/categoria-juegos.webp",
+      "bonus": false,
+      "questions": [
+        {
+          "id": 1,
+          "title": "¿Cuáles son las monedas utilizadas en Stumble Guys?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Fichas y Gemas",
+              "isCorrect": true
+            },
+            {
+              "text": "Oro",
+              "isCorrect": false
+            },
+            {
+              "text": "Diamantes",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "¿Cuántos emotes especiales están disponibles en Stumble Guys?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "3",
+              "isCorrect": false
+            },
+            {
+              "text": "4",
+              "isCorrect": true
+            },
+            {
+              "text": "5",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "¿Cuál es el precio de una tirada para obtener un aspecto raro o mejor en Stumble Guys?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "90 gemas",
+              "isCorrect": true
+            },
+            {
+              "text": "120 gemas",
+              "isCorrect": false
+            },
+            {
+              "text": "250 gemas",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "¿Cuál es la rareza más baja en Stumble Guys?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Legendarios",
+              "isCorrect": false
+            },
+            {
+              "text": "Comunes",
+              "isCorrect": true
+            },
+            {
+              "text": "Míticos",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "¿En qué juego de Nintendo aparece un fontanero famoso?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "PacMan",
+              "isCorrect": false
+            },
+            {
+              "text": "The Legend of Zelda",
+              "isCorrect": false
+            },
+            {
+              "text": "Mario Bros",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "¿Cómo se llama la princesa que Mario debe rescatar en los juegos de Nintendo?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Princesa Leia",
+              "isCorrect": false
+            },
+            {
+              "text": "Princesa Peach",
+              "isCorrect": true
+            },
+            {
+              "text": "Princesa Diana",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "¿Qué inspiró a Satoshi Tajiri para crear Pokémon?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Una colección de insectos",
+              "isCorrect": true
+            },
+            {
+              "text": "Un juguete de la infancia",
+              "isCorrect": false
+            },
+            {
+              "text": "Manga y Animé",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "En 'Call of Duty: Black Ops', ¿en qué guerra real está ambientado el juego?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Guerra fría",
+              "isCorrect": true
+            },
+            {
+              "text": "Segunda Guerra Mundial",
+              "isCorrect": false
+            },
+            {
+              "text": "Guerra de Vietnam",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "En Fallout 4, ¿con quién te encuentras en la parada Red Rocket?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "Enclave",
+              "isCorrect": false
+            },
+            {
+              "text": "Albóndiga",
+              "isCorrect": true
+            },
+            {
+              "text": "Hermandad de Acero",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "En qué entrega de Fallout debes encontrar a tu padre?",
+          "bonus": false,
+          "answers": [
+            {
+              "text": "2",
+              "isCorrect": false
+            },
+            {
+              "text": "3",
+              "isCorrect": true
+            },
+            {
+              "text": "4",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
