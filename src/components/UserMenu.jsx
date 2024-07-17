@@ -2,7 +2,11 @@ import { useContext } from 'preact/hooks'
 import { ConfigContext } from '../ConfigProvider'
 
 import { DonutChart } from './DonutChart'
-import { CloseIcon } from '../utils/svgIcons'
+import { CloseIcon, EditIcon } from '../utils/svgIcons'
+
+import correctIcon from '/src/assets/img/correct-icon.webp'
+import incorrectIcon from '/src/assets/img/incorrect-icon.webp'
+import bonusIcon from '/src/assets/img/bonus-icon.webp'
 
 export default function UserMenu({ showMenu, onClose }) {
   const {
@@ -58,10 +62,7 @@ export default function UserMenu({ showMenu, onClose }) {
         <div className="header" style={{ borderColor: colors?.text }}>
           <h4 style={{ color: colors?.text }}>Menu de usuario</h4>
           <img src={imagesByLang?.logoHeader} alt="Logo Product" />
-          <button
-            className="button-close"
-            onClick={onClose}
-          >
+          <button className="button-close" onClick={onClose}>
             <CloseIcon colorFill={colors?.text} />
           </button>
         </div>
@@ -88,12 +89,12 @@ export default function UserMenu({ showMenu, onClose }) {
               )}
               <span className="user-name">{userName ? userName : userId}</span>
             </div>
+
             <div className="user-points-container">
               <div
                 className="user-points"
                 style={{
-                  backgroundColor: colors?.text,
-                  color: colors?.primary,
+                  color: colors?.text,
                 }}
               >
                 {points}
@@ -101,16 +102,16 @@ export default function UserMenu({ showMenu, onClose }) {
               <span>Puntos</span>
             </div>
           </div>
+
           <div className="user-progress" style={{ backgroundColor: '#0005' }}>
             <h4 className="title" style={{ color: colors?.text }}>
-              Progreso por categoría:
+              Progreso por categoría
             </h4>
+
             <ul className="categories-progress">
               {categories.map((cat, i) => (
                 <li key={cat.id} className="category-progress">
-                  <span>
-                    {i + 1} - {cat.name}
-                  </span>
+                  <span className="category-name">{cat.name}</span>
                   <ProgressBar
                     progress={dataStored[cat.id].questionsAnswered.length}
                     total={cat.questions.length}
@@ -120,9 +121,7 @@ export default function UserMenu({ showMenu, onClose }) {
               ))}
             </ul>
             <div className="total-progress">
-              <h5 className="title" style={{ color: colors?.text }}>
-                Progreso Total:
-              </h5>
+              <h5 className="title">Progreso Total</h5>
               <ProgressBar
                 progress={totalProgress}
                 total={totalQuestions}
@@ -134,7 +133,7 @@ export default function UserMenu({ showMenu, onClose }) {
           <div className="answers-type">
             <div className="donuts-chart-container">
               <h4 className="title" style={{ color: colors?.text }}>
-                Índice de aciertos:
+                Índice de aciertos
               </h4>
               <DonutChart
                 answers={answersType}
@@ -143,33 +142,62 @@ export default function UserMenu({ showMenu, onClose }) {
               />
             </div>
             <div className="answers-type-detail">
-              <span>Correctas: {answersType.correct}</span>
-              <span>Incorrectas: {answersType.incorrect}</span>
-              {answersType.bonus >= 0 && (
-                <span>Con Bonus: {answersType.bonus}</span>
-              )}
+              <div className="answer-type">
+                <img
+                  className="image-icon"
+                  src={correctIcon}
+                  alt="Image Correct Icon"
+                />
+                <span className="detail">Correctas: {answersType.correct}</span>
+              </div>
+              <div className="answer-type">
+                <img
+                  className="image-icon"
+                  src={incorrectIcon}
+                  alt="Image Correct Icon"
+                />
+                <span className="detail">
+                  Incorrectas: {answersType.incorrect}
+                </span>
+              </div>
+              <div className="answer-type">
+                <img
+                  className="image-icon"
+                  src={bonusIcon}
+                  alt="Image Correct Icon"
+                />
+                <span className="detail">Bonus: {answersType.bonus}</span>
+              </div>
             </div>
           </div>
 
           <div className="answers-points">
-            <span>Puntos por respuesta:</span>
-            <div
-              className="answer"
-              style={{ backgroundColor: colors?.correct }}
-            >
-              <span className="label">Correcta</span>
-              <span>{config.pointsCorrect}</span>
+            <h4 className="title">Puntos por respuesta</h4>
+            <div className="answer">
+              <img
+                className="image-icon"
+                src={correctIcon}
+                alt="Image Correct Icon"
+              />
+              <span className="number">{config.pointsCorrect}</span>
             </div>
-            <div className="answer" style={{ backgroundColor: colors?.wrong }}>
-              <span className="label">Incorrecta</span>
-              <span>{config.pointsWrong}</span>
+            <div className="answer">
+              <img
+                className="image-icon"
+                src={incorrectIcon}
+                alt="Image Incorrect Icon"
+              />
+              <span className="number">{config.pointsWrong}</span>
             </div>
-            <div
-              className="answer"
-              style={{ backgroundColor: colors?.correct }}
-            >
-              <span className="label">Bonus</span>
-              <span>{config.pointsBonus}</span>
+            <div className="answer">
+              <img
+                className="image-icon"
+                src={bonusIcon}
+                alt="Image Bonus Icon"
+              />
+              <span className="number">
+                {config.pointsCorrect + config.pointsBonus}
+              </span>
             </div>
           </div>
           <div className=""></div>
@@ -188,13 +216,12 @@ const ProgressBar = ({ progress, total, colors }) => {
         <div
           className="bar"
           style={{
-            background: colors?.correct,
             width: `${(progress / total) * 100}%`,
           }}
         >
           {(progress / total) * 100 >= 10 ? (
-            <span className="actual-progress">
-              {progress < total ? progress : 'Completada'}
+            <span className="actual-progress" style={{ color: colors?.text }}>
+              {progress < total ? progress : 'Completo'}
             </span>
           ) : null}
         </div>

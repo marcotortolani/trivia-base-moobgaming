@@ -3,26 +3,17 @@ import * as d3 from 'd3'
 
 const MARGIN = 1
 
-const colors = [
-  '#e0ac2b',
-  '#e85252',
-  '#6689c6',
-  '#9a6fb0',
-  '#a53253',
-  '#69b3a2',
-]
-
 export const dataInitial = [
-  { name: 'correct', value: 80, color: '#69b3a2' },
-  { name: 'incorrect', value: 20, color: '#e85252' },
+  { name: 'correct', value: 80, color: '' },
+  { name: 'incorrect', value: 20, color: '' },
 ]
 
 export const DonutChart = ({
   answers,
   colorCorrect,
   colorWrong,
-  width = 200,
-  height = 200,
+  width = 170,
+  height = 170,
 }) => {
   const [data, setData] = useState(dataInitial)
 
@@ -64,7 +55,7 @@ export const DonutChart = ({
   }, [])
 
   return (
-    <div className=" donut-chart" style={{ width: width, height: height / 2 }}>
+    <div className=" donut-chart" style={{ width: width/2, height: height / 2 }}>
       <svg width={width} height={height}>
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           {arcs.map((arc, i) => {
