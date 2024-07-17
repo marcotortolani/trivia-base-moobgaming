@@ -4,9 +4,9 @@ import { ConfigContext } from '../ConfigProvider'
 import { DonutChart } from './DonutChart'
 import { CloseIcon, EditIcon } from '../utils/svgIcons'
 
-import correctIcon from '/src/assets/img/correct-icon.webp'
-import incorrectIcon from '/src/assets/img/incorrect-icon.webp'
-import bonusIcon from '/src/assets/img/bonus-icon.webp'
+import correctIcon from '/img/correct-icon.webp'
+import incorrectIcon from '/img/incorrect-icon.webp'
+import bonusIcon from '/img/bonus-icon.webp'
 
 export default function UserMenu({ showMenu, onClose }) {
   const {
