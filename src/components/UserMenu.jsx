@@ -1,4 +1,4 @@
-import { useContext, useState } from 'preact/hooks'
+import { useContext, useState, useEffect, useRef } from 'preact/hooks'
 import { ConfigContext } from '../ConfigProvider'
 
 import { DonutChart } from './DonutChart'
@@ -23,6 +23,7 @@ export default function UserMenu({ showMenu, onClose }) {
     categories,
   } = useContext(ConfigContext)
   const [showAvatars, setShowAvatars] = useState(false)
+  const modalRef = useRef(null)
   const { userName, userId, userAvatar } = userDataStored
 
   const totalProgress = getTotalProgress(dataStored)
@@ -43,9 +44,29 @@ export default function UserMenu({ showMenu, onClose }) {
     setShowAvatars(false)
   }
 
+  function handleCloseAvatars(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    setShowAvatars(false)
+  }
+
   function handleAvatarSelected(avatar) {
     setUserDataStored({ ...userDataStored, userAvatar: avatar })
   }
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        handleCloseMenu()
+      }
+    }
+    if (showMenu) {
+      document.addEventListener('click', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [showMenu, onClose])
 
   return (
     <div
@@ -54,6 +75,7 @@ export default function UserMenu({ showMenu, onClose }) {
       }`}
     >
       <div
+        ref={modalRef}
         className={`side-menu `}
         style={{ backgroundColor: colors?.primary }}
       >
@@ -204,15 +226,15 @@ export default function UserMenu({ showMenu, onClose }) {
           </div>
 
           {showAvatars && (
-            <div className="avatars-selection-container">
+            <div
+              className="avatars-selection-container"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div
                 className="avatars-grid-container"
                 style={{ backgroundColor: colors?.backgroundRewards }}
               >
-                <button
-                  className="button-close"
-                  onClick={() => setShowAvatars(false)}
-                >
+                <button className="button-close" onClick={handleCloseAvatars}>
                   <CloseIcon colorFill={colors?.primary} />
                 </button>
                 <div className="avatars-grid">
