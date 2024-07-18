@@ -1,8 +1,8 @@
-import { useContext } from 'preact/hooks'
+import { useContext, useState } from 'preact/hooks'
 import { ConfigContext } from '../ConfigProvider'
 
 import { DonutChart } from './DonutChart'
-import { CloseIcon, EditIcon } from '../utils/svgIcons'
+import { CloseIcon, EditIcon, UserIcon } from '../utils/svgIcons'
 
 import correctIcon from '/img/correct-icon.webp'
 import incorrectIcon from '/img/incorrect-icon.webp'
@@ -13,7 +13,8 @@ export default function UserMenu({ showMenu, onClose }) {
     points,
     answersType,
     dataStored,
-    userData,
+    userDataStored,
+    setUserDataStored,
     validPeriod,
     config,
     colors,
@@ -21,23 +22,11 @@ export default function UserMenu({ showMenu, onClose }) {
     imagesByLang,
     categories,
   } = useContext(ConfigContext)
+  const [showAvatars, setShowAvatars] = useState(false)
+  const { userName, userId, userAvatar } = userDataStored
 
-  const { userName, userId, userAvatar } = userData
-  const userInitials = getUserInitials(userName)
   const totalProgress = getTotalProgress(dataStored)
   const totalQuestions = getTotalQuestions(categories)
-
-  function getUserInitials(userName) {
-    let userInitials
-    if (userName.split(' ').length >= 2) {
-      userInitials =
-        userName.split(' ')[0].charAt(0) + userName.split(' ')[1].charAt(0)
-    } else {
-      userInitials = userName.charAt(0)
-    }
-
-    return userInitials
-  }
 
   function getTotalProgress(dataStored) {
     return Object.values(dataStored).reduce((sum, day) => {
@@ -47,6 +36,15 @@ export default function UserMenu({ showMenu, onClose }) {
 
   function getTotalQuestions(categories) {
     return categories.reduce((sum, cat) => sum + cat.questions.length, 0)
+  }
+
+  function handleCloseMenu() {
+    onClose()
+    setShowAvatars(false)
+  }
+
+  function handleAvatarSelected(avatar) {
+    setUserDataStored({ ...userDataStored, userAvatar: avatar })
   }
 
   return (
@@ -62,7 +60,7 @@ export default function UserMenu({ showMenu, onClose }) {
         <div className="header" style={{ borderColor: colors?.text }}>
           <h4 style={{ color: colors?.text }}>Menu de usuario</h4>
           <img src={imagesByLang?.logoHeader} alt="Logo Product" />
-          <button className="button-close" onClick={onClose}>
+          <button className="button-close" onClick={handleCloseMenu}>
             <CloseIcon colorFill={colors?.text} />
           </button>
         </div>
@@ -70,23 +68,27 @@ export default function UserMenu({ showMenu, onClose }) {
         <div className="main">
           <div className="user-profile">
             <div className="user-data">
-              {userAvatar.length > 0 ? (
-                <img
-                  className="user-avatar-image"
-                  src={userAvatar}
-                  alt="User Avatar Image"
-                />
-              ) : (
-                <div
-                  className="user-initials"
-                  style={{
-                    backgroundColor: colors?.disable,
-                    color: colors?.text,
-                  }}
-                >
-                  {userInitials}
+              <button
+                type="button"
+                className="user-avatar-container"
+                onClick={() => setShowAvatars(true)}
+              >
+                {userAvatar.length > 0 && true ? (
+                  <img
+                    className="user-avatar-image"
+                    src={userAvatar}
+                    alt="User Avatar Image"
+                  />
+                ) : (
+                  <div className="user-icon-container">
+                    <UserIcon colorStroke="#000" />
+                  </div>
+                )}
+                <div className="edit-icon">
+                  <EditIcon />
                 </div>
-              )}
+              </button>
+
               <span className="user-name">{userName ? userName : userId}</span>
             </div>
 
@@ -130,7 +132,7 @@ export default function UserMenu({ showMenu, onClose }) {
             </div>
           </div>
 
-          <div className="answers-type">
+          <div className="answers-type" style={{ backgroundColor: '#0005' }}>
             <div className="donuts-chart-container">
               <h4 className="title" style={{ color: colors?.text }}>
                 Índice de aciertos
@@ -200,7 +202,46 @@ export default function UserMenu({ showMenu, onClose }) {
               </span>
             </div>
           </div>
-          <div className=""></div>
+
+          {showAvatars && (
+            <div className="avatars-selection-container">
+              <div
+                className="avatars-grid-container"
+                style={{ backgroundColor: colors?.backgroundRewards }}
+              >
+                <button
+                  className="button-close"
+                  onClick={() => setShowAvatars(false)}
+                >
+                  <CloseIcon colorFill={colors?.primary} />
+                </button>
+                <div className="avatars-grid">
+                  {images?.avatars.map((el) => (
+                    <button
+                      type="button"
+                      key={el}
+                      className="button-avatar"
+                      onClick={() => handleAvatarSelected(el)}
+                      style={{
+                        borderColor:
+                          userAvatar === el ? colors?.correct : 'black',
+                        borderWidth: userAvatar === el ? '6px' : '3px',
+                      }}
+                    >
+                      <img
+                        src={el}
+                        alt="Image Avatar"
+                        style={{
+                          filter:
+                            userAvatar === el ? 'grayscale(0)' : 'grayscale(1)',
+                        }}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

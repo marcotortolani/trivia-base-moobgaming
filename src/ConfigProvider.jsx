@@ -43,6 +43,12 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     `userPoints-${hash}`,
     pointsInitial
   )
+
+  const [userDataStored, setUserDataStored] = useLocalStorage(
+    `userData-${hash}`,
+    userData
+  )
+
   const [answersType, setAnswersType] = useLocalStorage(
     `userAnswers-${hash}`,
     answersTypeInitial
@@ -65,6 +71,8 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     dataStored,
     setDataStored,
     userData,
+    userDataStored,
+    setUserDataStored,
     validPeriod,
     config,
     colors,

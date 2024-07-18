@@ -5,7 +5,7 @@
     "userName": "",
     "userMSISDN": "123456",
     "userPoints": "35",
-    "userAvatar": "/img/avatars/mario-avatar.webp"
+    "userAvatar": ""
   },
   "validPeriod": {
     "startDate": "2024-02-28 09:56:37",
@@ -72,9 +72,19 @@
     "triviaUpcoming": "/img/trivia-proximamente.webp",
     "triviaEnded": "/img/trivia-finalizada.webp",
     "avatars": [
-      "/img/avatars/mario-avatar.webp",
-      "/img/avatars/luigi-avatar.webp",
-      "/img/avatars/toad-avatar.webp"
+      "/img/avatars/avatar-1.webp",
+      "/img/avatars/avatar-2.webp",
+      "/img/avatars/avatar-3.webp",
+      "/img/avatars/avatar-4.webp",
+      "/img/avatars/avatar-5.webp",
+      "/img/avatars/avatar-6.webp",
+      "/img/avatars/avatar-7.webp",
+      "/img/avatars/avatar-8.webp",
+      "/img/avatars/avatar-9.webp",
+      "/img/avatars/avatar-10.webp",
+      "/img/avatars/avatar-11.webp",
+      "/img/avatars/avatar-12.webp"
+      
     ]
   },
   "sounds": {
