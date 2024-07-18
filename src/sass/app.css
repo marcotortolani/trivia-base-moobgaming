@@ -593,6 +593,7 @@ body #inputNumCat {
   bottom: 0;
   right: 0;
   width: 1.2rem;
+  height: 1.2rem;
   aspect-ratio: 1/1;
   padding: 3px;
   background-color: gray;
