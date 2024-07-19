@@ -541,6 +541,7 @@ body {
 
         .header {
           position: relative;
+          top: 0;
           width: 100%;
           height: 10vh;
           min-height: 50px;
@@ -585,10 +586,8 @@ body {
           border-bottom: 2px solid;
         }
         .main {
-          position: relative;
-          height: 95%;
-          min-height: 420px;
-
+          height: 90vh;
+          min-height: 500px;
           padding: 1rem 0.6rem;
           display: flex;
           flex-direction: column;
@@ -597,8 +596,10 @@ body {
 
           .user-profile {
             width: 100%;
-            height: 15%;
-            min-height: 70px;
+            height: 20%;
+            min-height: 80px;
+            max-height: 140px;
+            margin: 2rem 0;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
@@ -614,7 +615,9 @@ body {
 
               .user-avatar-container {
                 position: relative;
-                height: 75%;
+                top: 0;
+                width: fit-content;
+                height: 70%;
                 min-height: 50px;
                 max-height: 120px;
                 aspect-ratio: 1/1;
@@ -622,6 +625,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 border: none;
+
                 border-radius: 10rem;
                 -webkit-border-radius: 10rem;
                 -moz-border-radius: 10rem;
@@ -631,6 +635,7 @@ body {
                 .user-avatar-image {
                   width: auto;
                   height: 100%;
+                  aspect-ratio: 1/1;
                   background-color: white;
 
                   border-radius: 100%;
@@ -661,20 +666,14 @@ body {
                   background-color: gray;
                   border: none;
                   cursor: pointer;
-                  transform: translate(0%, 0%);
                   border-radius: 100%;
                   -webkit-border-radius: 100%;
                   -moz-border-radius: 100%;
                   -ms-border-radius: 100%;
                   -o-border-radius: 100%;
-                  -webkit-transform: translate(0%, 0%);
-                  -moz-transform: translate(0%, 0%);
-                  -ms-transform: translate(0%, 0%);
-                  -o-transform: translate(0%, 0%);
                 }
               }
               .user-name {
-                height: 20%;
                 font-size: clamp(0.9rem, 2.5vh, 1.2rem);
                 font-weight: 500;
                 letter-spacing: 1px;
@@ -709,7 +708,10 @@ body {
 
           .user-progress {
             width: 100%;
-            padding: 10px 20px;
+            //height: 100%;
+            height: fit-content;
+
+            padding: 1rem;
 
             .title {
               font-size: 1rem;
@@ -804,7 +806,9 @@ body {
 
           .answers-type {
             width: 100%;
-            padding: 5px;
+            height: fit-content;
+
+            padding: 0.3rem;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -895,10 +899,10 @@ body {
           .answers-points {
             width: 100%;
             height: 20%;
-            min-height: 80px;
-            max-height: 100px;
-            margin-bottom: 1rem;
-            padding: 5px;
+            min-height: 60px;
+            max-height: 120px;
+            margin-bottom: 2rem;
+            padding: 0 5px;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -2806,7 +2810,12 @@ body {
       .user-menu-container {
         .side-menu {
           .main {
+            padding-top: 2rem;
             overflow-y: scroll;
+            .user-profile {
+              margin-bottom: 1rem;
+              margin-top: 2rem;
+            }
           }
         }
       }
@@ -2828,20 +2837,28 @@ body {
         }
       }
     }
-    .panel-footer-container {
-      // .points {
-      //   width: 50%;
-      //   span {
-      //     width: 40%;
-      //     font-size: clamp(1.5rem, 6vw, 2.2rem);
-      //   }
-      // }
-    }
   }
 }
 
 @media screen and (max-height: 550px) {
   .app-trivia {
+    .header {
+      .user-menu-container {
+        .side-menu {
+          top: 0;
+          .main {
+            padding-top: 4rem;
+            min-height: 450px;
+            max-height: 600px;
+            overflow-y: scroll;
+            .user-profile {
+              margin-top: 4.5rem;
+              margin-bottom: 0.2rem;
+            }
+          }
+        }
+      }
+    }
     .stripe {
       height: 200px;
       margin-top: 20px;
@@ -2877,6 +2894,7 @@ body {
       }
     }
   }
+
   .spinner-wheel {
     .pointer-container {
       top: 35%;
