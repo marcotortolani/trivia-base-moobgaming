@@ -222,7 +222,7 @@ body #inputNumCat {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3333333333);
+  background-color: #000;
 }
 .loading-trivia .loader {
   width: 65px;
