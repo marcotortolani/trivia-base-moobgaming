@@ -36,9 +36,6 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     soundDefault
   )
 
-  // en una etapa 2 hacer update de puntos
-  // con lo que viene de datos del config
-
   const [points, setPoints] = useLocalStorage(
     `userPoints-${hash}`,
     pointsInitial
@@ -110,9 +107,6 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     })
 
     setDataStored(newDataStored)
-    // const newPoints = dataConfig.userData.userPoint
-    // console.log(newPoints);
-    // setPoints(dataConfig.userData.userPoint)
   }
 
   useEffect(() => {
