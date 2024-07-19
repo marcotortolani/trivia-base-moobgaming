@@ -8,11 +8,11 @@ import { Loading } from './components/Loading'
 import { Error } from './components/Error'
 import './sass/app.css'
 
-import dataConfig from './conf/config.json'
-const isLoading = false,
-  error = false,
-  gameHash = 1,
-  userHash = 1
+// import dataConfig from './conf/config.json'
+// const isLoading = false,
+//   error = false,
+//   gameHash = 1,
+//   userHash = 1
 
 // const gameHash = '356a192b7913b04c54574d18c28d46e6395428ab'
 // const userHash = '7055eced15538bfb7c0754574d18f8a5b28fc5d0'
@@ -32,18 +32,13 @@ function Application() {
   //   userConfigInitial
   // )
 
-  // const gameHash = urlParams.get('gamehash')
-  // const userHash = urlParams.get('userhash')
+  const gameHash = urlParams.get('gamehash')
+  const userHash = urlParams.get('userhash')
 
   // GET CONFIG FROM ENDPOINT
-  // const { isLoading, error, dataConfig } = useDataConfig(
-  //   configTrivia + `${gameHash}` + `/${userHash}`
-  // )
-
-  // dataConfig.userData.userId : 0 -> User Non Registered
-  // dataConfig.userData.userId : 1 -> User Registered without hash ID
-  // dataConfig.userData.userId : true && userConfig.id !== 1 -> User Registered with hash ID
-  // if (!userConfig.id) return <UserRegister setUserConfig={setUserConfig} />
+  const { isLoading, error, dataConfig } = useDataConfig(
+    configTrivia + `${gameHash}` + `/${userHash}`
+  )
 
   if (isLoading) return <Loading />
 
