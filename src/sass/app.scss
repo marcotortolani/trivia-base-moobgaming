@@ -2035,7 +2035,7 @@ body {
   .logo-header {
     z-index: 20;
     position: absolute;
-    top: 2vh;
+    top: 1vh;
     width: 100%;
     height: 10vh;
     display: flex;
@@ -2052,9 +2052,9 @@ body {
         justify-content: center;
         font-size: 0px;
         img {
-          width: 90%;
+          width: 80%;
           min-width: 220px;
-          max-width: 350px;
+          max-width: 300px;
         }
       }
     }
@@ -2065,13 +2065,18 @@ body {
     position: absolute;
     width: 100vw;
     max-width: 500px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+
+    background-color: red;
 
     h2 {
       margin-bottom: -20px;
       font-size: clamp(1.5rem, 5vh, 2.4rem);
+      line-height: clamp(1.8rem, 7vh, 2.8rem);
       font-weight: 400;
       text-transform: uppercase;
       text-align: center;
@@ -2079,8 +2084,9 @@ body {
     }
     .category-name {
       z-index: 1000;
-      margin-bottom: 10px;
-      font-size: clamp(1.8rem, 11vw, 4rem);
+      //margin-bottom: 10px;
+      font-size: clamp(1.8rem, 5vh, 3.5rem);
+      line-height: clamp(2rem, 9vh, 7rem);
       font-weight: 500;
       text-transform: uppercase;
       text-align: center;
@@ -2798,18 +2804,6 @@ body {
       }
     }
 
-    .panel-footer-container {
-      .wrapper-bases-rewards {
-        .points {
-          width: 50%;
-          span {
-            width: 40%;
-            font-size: clamp(1.5rem, 6vw, 2.2rem);
-          }
-        }
-      }
-    }
-
     .header {
       .user-menu-container {
         .side-menu {
@@ -2837,13 +2831,13 @@ body {
       }
     }
     .panel-footer-container {
-      .points {
-        width: 50%;
-        span {
-          width: 40%;
-          font-size: clamp(1.5rem, 6vw, 2.2rem);
-        }
-      }
+      // .points {
+      //   width: 50%;
+      //   span {
+      //     width: 40%;
+      //     font-size: clamp(1.5rem, 6vw, 2.2rem);
+      //   }
+      // }
     }
   }
 }
@@ -2873,8 +2867,8 @@ body {
     .panel-footer-container {
       .wrapper-bases-rewards {
         .points {
-          width: 40%;
-          min-width: 100px;
+          width: 35%;
+          min-width: 80px;
 
           span {
             width: 30%;
@@ -2891,6 +2885,16 @@ body {
     }
   }
   .category {
+    .logo-header {
+      .logo-img-wrapper {
+        a {
+          img {
+            min-width: 150px;
+            max-width: 250px;
+          }
+        }
+      }
+    }
     .show-questions {
       .title {
         margin-right: 30px;
@@ -2904,9 +2908,15 @@ body {
     }
 
     .category-chosen {
+      justify-content: space-between;
+      gap: 0;
       .category-name {
-        margin-top: 4px;
-        font-size: clamp(1.8rem, 6vh, 3rem);
+        margin-top: 6px;
+        font-size: clamp(1.8rem, 5vh, 3rem);
+      }
+
+      .button-begin {
+        margin-top: -2rem;
       }
     }
 
@@ -2970,8 +2980,15 @@ body {
       }
     }
     .panel-footer-container {
+      background-color: blue;
       .points {
-        width: 45%;
+        margin-bottom: 0;
+        width: 30%;
+        max-width: 120px;
+        img {
+          min-width: 100px;
+          max-width: 120px;
+        }
 
         span {
           width: 35%;

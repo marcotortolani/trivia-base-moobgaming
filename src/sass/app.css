@@ -1816,7 +1816,7 @@ body #inputNumCat {
 .category .logo-header {
   z-index: 20;
   position: absolute;
-  top: 2vh;
+  top: 1vh;
   width: 100%;
   height: 10vh;
   display: flex;
@@ -1835,9 +1835,9 @@ body #inputNumCat {
   font-size: 0px;
 }
 .category .logo-header .logo-img-wrapper a img {
-  width: 90%;
+  width: 80%;
   min-width: 220px;
-  max-width: 350px;
+  max-width: 300px;
 }
 .category .category-chosen {
   z-index: 1000;
@@ -1847,10 +1847,13 @@ body #inputNumCat {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  background-color: red;
 }
 .category .category-chosen h2 {
   margin-bottom: -20px;
   font-size: clamp(1.5rem, 5vh, 2.4rem);
+  line-height: clamp(1.8rem, 7vh, 2.8rem);
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
@@ -1858,8 +1861,8 @@ body #inputNumCat {
 }
 .category .category-chosen .category-name {
   z-index: 1000;
-  margin-bottom: 10px;
-  font-size: clamp(1.8rem, 11vw, 4rem);
+  font-size: clamp(1.8rem, 5vh, 3.5rem);
+  line-height: clamp(2rem, 9vh, 7rem);
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
@@ -2463,13 +2466,6 @@ body #inputNumCat {
     top: -10%;
     scale: 0.9;
   }
-  .app-trivia .panel-footer-container .wrapper-bases-rewards .points {
-    width: 50%;
-  }
-  .app-trivia .panel-footer-container .wrapper-bases-rewards .points span {
-    width: 40%;
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
-  }
   .app-trivia .header .user-menu-container .side-menu .main {
     overflow-y: scroll;
   }
@@ -2478,13 +2474,6 @@ body #inputNumCat {
   }
   .category .category-questions .cards-question .cards-answers .answer {
     font-size: clamp(0.8rem, 3.5vw, 1rem);
-  }
-  .category .panel-footer-container .points {
-    width: 50%;
-  }
-  .category .panel-footer-container .points span {
-    width: 40%;
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
   }
 }
 @media screen and (max-height: 550px) {
@@ -2505,8 +2494,8 @@ body #inputNumCat {
     scale: 0.8;
   }
   .app-trivia .panel-footer-container .wrapper-bases-rewards .points {
-    width: 40%;
-    min-width: 100px;
+    width: 35%;
+    min-width: 80px;
   }
   .app-trivia .panel-footer-container .wrapper-bases-rewards .points span {
     width: 30%;
@@ -2515,6 +2504,10 @@ body #inputNumCat {
   }
   .spinner-wheel .pointer-container {
     top: 35%;
+  }
+  .category .logo-header .logo-img-wrapper a img {
+    min-width: 150px;
+    max-width: 250px;
   }
   .category .show-questions .title {
     margin-right: 30px;
@@ -2525,9 +2518,16 @@ body #inputNumCat {
   .category .show-questions .title h2 {
     margin-right: 10px;
   }
+  .category .category-chosen {
+    justify-content: space-between;
+    gap: 0;
+  }
   .category .category-chosen .category-name {
-    margin-top: 4px;
-    font-size: clamp(1.8rem, 6vh, 3rem);
+    margin-top: 6px;
+    font-size: clamp(1.8rem, 5vh, 3rem);
+  }
+  .category .category-chosen .button-begin {
+    margin-top: -2rem;
   }
   .category .category-questions .cards-question {
     margin-top: 0px;
@@ -2572,8 +2572,17 @@ body #inputNumCat {
   .category .pop-up-limit-answers .title-limit-answers {
     font-size: 1.4rem;
   }
+  .category .panel-footer-container {
+    background-color: blue;
+  }
   .category .panel-footer-container .points {
-    width: 45%;
+    margin-bottom: 0;
+    width: 30%;
+    max-width: 120px;
+  }
+  .category .panel-footer-container .points img {
+    min-width: 100px;
+    max-width: 120px;
   }
   .category .panel-footer-container .points span {
     width: 35%;
