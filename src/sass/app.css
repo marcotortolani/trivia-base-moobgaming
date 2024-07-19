@@ -2531,8 +2531,9 @@ body #inputNumCat {
   .category .category-questions .cards-question {
     margin-top: 0px;
   }
-  .category .category-questions .cards-question .title-question h3 {
+  .category .category-questions .cards-question .title-question .title {
     font-size: 1rem;
+    line-height: 1.05rem;
   }
   .category .category-questions .cards-question .cards-answers .answer {
     width: 100%;
@@ -2570,6 +2571,9 @@ body #inputNumCat {
   }
   .category .pop-up-limit-answers .title-limit-answers {
     font-size: 1.4rem;
+  }
+  .category .panel-footer-container {
+    bottom: 1vh;
   }
   .category .panel-footer-container .points {
     margin-bottom: 0;

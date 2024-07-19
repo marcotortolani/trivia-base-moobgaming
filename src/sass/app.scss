@@ -2923,8 +2923,9 @@ body {
         margin-top: 0px;
 
         .title-question {
-          h3 {
+          .title {
             font-size: 1rem;
+            line-height: 1.05rem;
           }
         }
 
@@ -2978,6 +2979,7 @@ body {
       }
     }
     .panel-footer-container {
+      bottom: 1vh;
       .points {
         margin-bottom: 0;
         width: 30%;
