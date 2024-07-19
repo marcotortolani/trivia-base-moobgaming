@@ -2071,8 +2071,6 @@ body {
     align-items: center;
     justify-content: flex-start;
 
-    background-color: red;
-
     h2 {
       margin-bottom: -20px;
       font-size: clamp(1.5rem, 5vh, 2.4rem);
@@ -2980,7 +2978,6 @@ body {
       }
     }
     .panel-footer-container {
-      background-color: blue;
       .points {
         margin-bottom: 0;
         width: 30%;

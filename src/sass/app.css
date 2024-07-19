@@ -1848,7 +1848,6 @@ body #inputNumCat {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: red;
 }
 .category .category-chosen h2 {
   margin-bottom: -20px;
@@ -2571,9 +2570,6 @@ body #inputNumCat {
   }
   .category .pop-up-limit-answers .title-limit-answers {
     font-size: 1.4rem;
-  }
-  .category .panel-footer-container {
-    background-color: blue;
   }
   .category .panel-footer-container .points {
     margin-bottom: 0;
