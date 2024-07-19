@@ -586,9 +586,11 @@ body {
           border-bottom: 2px solid;
         }
         .main {
-          height: 90vh;
+          position: relative;
+          height: 90dvh;
           min-height: 500px;
           padding: 1rem 0.6rem;
+
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
@@ -599,7 +601,7 @@ body {
             height: 20%;
             min-height: 80px;
             max-height: 140px;
-            margin: 2rem 0;
+            margin: 0.5rem 0;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
@@ -646,6 +648,7 @@ body {
                 }
                 .user-icon-container {
                   height: 100%;
+                  aspect-ratio: 1/1;
                   padding: 15%;
                   background-color: white;
                   border-radius: 10rem;
@@ -944,6 +947,7 @@ body {
             height: 100%;
             min-height: 550px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
 
@@ -951,11 +955,11 @@ body {
 
             .avatars-grid-container {
               position: relative;
+              top: 0;
               width: 90%;
               height: 80%;
               min-height: 500px;
               padding: 2rem 1rem;
-
               display: flex;
               align-items: center;
               justify-content: center;
