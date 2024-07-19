@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'preact/hooks'
 
-const endpoint2 =
-  'https://api.mockfly.dev/mocks/f7f91f94-0a4a-4098-9a8a-92a2625285c9/getTrivia'
-
 export function useDataConfig(endpoint) {
   const [dataConfig, setDataConfig] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
