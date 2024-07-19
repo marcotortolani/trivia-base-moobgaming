@@ -4,9 +4,8 @@ import useSound from 'use-sound'
 import { ConfigContext } from '../../ConfigProvider'
 import PointsDisplay from './PointsDisplay'
 import QuestionsAnswered from './QuestionsAnswered'
-import RewardsSlider from './RewardsSlider'
 
-import { BackArrowIcon, CloseIcon } from '../../utils/svgIcons'
+import { BackArrowIcon } from '../../utils/svgIcons'
 import PopUpRewards from '../PopUpRewards'
 
 const PanelFooter = ({ cat }) => {
