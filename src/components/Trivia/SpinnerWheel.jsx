@@ -45,7 +45,15 @@ export default function SpinnerWheel({ onSpinDisable, onTriviaCompleted }) {
       ),
     [dataStored]
   )
-  onTriviaCompleted(triviaCompleted)
+
+  useEffect(() => {
+    if (triviaCompleted) {
+      onTriviaCompleted(triviaCompleted)
+      setTimeout(() => {
+        onTriviaCompleted(false)
+      }, 3000)
+    }
+  }, [triviaCompleted])
 
   const handleSpin = () => {
     const extraDegree = Math.floor(Math.random() * (360 - 1) + 1)
