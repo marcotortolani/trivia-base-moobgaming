@@ -103,7 +103,9 @@ const PanelFooter = ({ cat }) => {
           </>
         )}
       </div>
-      {openRewards && <PopUpRewards onClose={handleCloseRewards} />}
+      {openRewards && (
+        <PopUpRewards show={openRewards} onClose={handleCloseRewards} />
+      )}
     </>
   )
 }
