@@ -413,6 +413,7 @@ body #inputNumCat {
 }
 
 .app-trivia {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -860,7 +861,7 @@ body #inputNumCat {
   top: 0;
   width: 90%;
   height: 80%;
-  min-height: 500px;
+  min-height: 600px;
   padding: 2rem 1rem;
   display: flex;
   align-items: center;
@@ -898,7 +899,7 @@ body #inputNumCat {
   gap: 1rem;
 }
 .app-trivia .header .user-menu-container .side-menu .main .avatars-selection-container .avatars-grid-container .avatars-grid .button-avatar {
-  height: 90%;
+  width: 100%;
   aspect-ratio: 1/1;
   background-color: transparent;
   border: 5px solid;
@@ -1233,24 +1234,19 @@ body #inputNumCat {
 .app-trivia .panel-footer-container .questions-answered span {
   font-size: 1.5rem;
 }
-
-.wrapper-pop-up {
+.app-trivia .wrapper-pop-up {
   z-index: 900000;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   position: absolute;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
-  transform: translateY(10px);
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
 }
-.wrapper-pop-up .pop-up-rewards {
+.app-trivia .wrapper-pop-up .pop-up-rewards {
   z-index: 200000;
   width: 90vw;
   max-width: 380px;
@@ -1267,14 +1263,14 @@ body #inputNumCat {
   -ms-border-radius: 26px;
   -o-border-radius: 26px;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-button {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-button {
   z-index: 200000;
   width: 100%;
   height: 40px;
   display: flex;
   justify-content: flex-end;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-button .close-rewards {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-button .close-rewards {
   width: 30px;
   height: 30px;
   margin-top: 0.5rem;
@@ -1290,10 +1286,10 @@ body #inputNumCat {
   font-weight: 600;
   border-radius: 50%;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-button .close-rewards:hover {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-button .close-rewards:hover {
   cursor: pointer;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider {
   z-index: 80000000;
   width: 100%;
   max-width: 600px;
@@ -1304,13 +1300,13 @@ body #inputNumCat {
   justify-content: center;
   align-items: center;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .wrapper-image {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .wrapper-image {
   width: 100%;
   max-width: 580px;
   height: 80%;
   margin: 20px 0;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .wrapper-image img {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .wrapper-image img {
   -o-object-fit: contain;
      object-fit: contain;
   width: 100%;
@@ -1318,10 +1314,10 @@ body #inputNumCat {
   height: 100%;
   min-height: 220px;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .wrapper-image-hidden {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .wrapper-image-hidden {
   display: none;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container {
   position: absolute;
   width: 25px;
   height: 40px;
@@ -1335,34 +1331,34 @@ body #inputNumCat {
   -ms-transition: all 250ms ease-in-out;
   -o-transition: all 250ms ease-in-out;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:disabled {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:disabled {
   box-shadow: 0px 0px 3px #a9a9a9;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:disabled img {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:disabled img {
   display: none;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:disabled:hover {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:disabled:hover {
   cursor: default;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:hover {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container:hover {
   cursor: pointer;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container img {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .arrow-container img {
   width: 100%;
   height: auto;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .left-arrow {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .left-arrow {
   left: 1rem;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .right-arrow {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .right-arrow {
   right: 1rem;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .indicators-container {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .indicators-container {
   display: flex;
   position: absolute;
   bottom: 1rem;
 }
-.wrapper-pop-up .pop-up-rewards .wrapper-slider .indicators-container .indicator {
+.app-trivia .wrapper-pop-up .pop-up-rewards .wrapper-slider .indicators-container .indicator {
   height: 0.7rem;
   width: 0.7rem;
   border: none;
@@ -2426,6 +2422,18 @@ body #inputNumCat {
   }
 }
 @media screen and (max-width: 360px) {
+  .app-trivia .header .user-menu-container .side-menu .main .avatars-selection-container {
+    margin-top: 2rem;
+  }
+  .app-trivia .header .user-menu-container .side-menu .main .avatars-selection-container .avatars-grid-container {
+    width: 96%;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+  .app-trivia .header .user-menu-container .side-menu .main .avatars-selection-container .avatars-grid-container .avatars-grid {
+    padding: 0.5rem;
+    gap: 0.6rem;
+  }
   .app-trivia #wrapper #wheel {
     transform: scale(1.3);
     -webkit-transform: scale(1.3);

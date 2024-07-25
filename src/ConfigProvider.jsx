@@ -2,8 +2,6 @@ import { createContext } from 'preact'
 import { useEffect } from 'preact/hooks'
 import useLocalStorage from './helpers/useLocalStorage'
 
-const lang = document.documentElement.lang
-
 const ConfigContext = createContext()
 
 const soundDefault = false
@@ -19,6 +17,7 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     images,
     sounds,
     links,
+    lang,
     textsByLang,
     categories,
   } = dataConfig
@@ -55,8 +54,8 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     catDataConfig
   )
 
-  let texts = textsByLang[`${lang}`],
-    imagesByLang = images[`${lang}`]
+  let texts = textsByLang[lang],
+    imagesByLang = images[lang]
 
   const values = {
     soundOn,

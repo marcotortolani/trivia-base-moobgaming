@@ -19,6 +19,7 @@ export default function UserMenu({ showMenu, onClose }) {
     config,
     colors,
     images,
+    texts,
     imagesByLang,
     categories,
   } = useContext(ConfigContext)
@@ -80,7 +81,7 @@ export default function UserMenu({ showMenu, onClose }) {
         style={{ backgroundColor: colors?.primary }}
       >
         <div className="header" style={{ borderColor: colors?.text }}>
-          <h4 style={{ color: colors?.text }}>Menu de usuario</h4>
+          <h4 style={{ color: colors?.text }}>{texts?.userMenu}</h4>
           <img src={imagesByLang?.logoHeader} alt="Logo Product" />
           <button className="button-close" onClick={handleCloseMenu}>
             <CloseIcon colorFill={colors?.text} />
@@ -123,13 +124,13 @@ export default function UserMenu({ showMenu, onClose }) {
               >
                 {points}
               </div>
-              <span>Puntos</span>
+              <span>{texts?.points}</span>
             </div>
           </div>
 
           <div className="user-progress" style={{ backgroundColor: '#0005' }}>
             <h4 className="title" style={{ color: colors?.text }}>
-              Progreso por categoría
+              {texts?.progressByCategory}
             </h4>
 
             <ul className="categories-progress">
@@ -145,7 +146,7 @@ export default function UserMenu({ showMenu, onClose }) {
               ))}
             </ul>
             <div className="total-progress">
-              <h5 className="title">Progreso Total</h5>
+              <h5 className="title">{texts?.totalProgress}</h5>
               <ProgressBar
                 progress={totalProgress}
                 total={totalQuestions}
@@ -157,7 +158,7 @@ export default function UserMenu({ showMenu, onClose }) {
           <div className="answers-type" style={{ backgroundColor: '#0005' }}>
             <div className="donuts-chart-container">
               <h4 className="title" style={{ color: colors?.text }}>
-                Índice de aciertos
+                {texts?.hitRate}
               </h4>
               <DonutChart
                 answers={answersType}
@@ -172,7 +173,9 @@ export default function UserMenu({ showMenu, onClose }) {
                   src={correctIcon}
                   alt="Image Correct Icon"
                 />
-                <span className="detail">Correctas: {answersType.correct}</span>
+                <span className="detail">
+                  {texts?.correctAmount}: {answersType.correct}
+                </span>
               </div>
               <div className="answer-type">
                 <img
@@ -181,7 +184,7 @@ export default function UserMenu({ showMenu, onClose }) {
                   alt="Image Correct Icon"
                 />
                 <span className="detail">
-                  Incorrectas: {answersType.incorrect}
+                  {texts?.incorrectAmount}: {answersType.incorrect}
                 </span>
               </div>
               <div className="answer-type">
@@ -190,13 +193,15 @@ export default function UserMenu({ showMenu, onClose }) {
                   src={bonusIcon}
                   alt="Image Correct Icon"
                 />
-                <span className="detail">Bonus: {answersType.bonus}</span>
+                <span className="detail">
+                  {texts?.bonusAmount}: {answersType.bonus}
+                </span>
               </div>
             </div>
           </div>
 
           <div className="answers-points">
-            <h4 className="title">Puntos por respuesta</h4>
+            <h4 className="title">{texts?.pointsPerAnswer}</h4>
             <div className="answer">
               <img
                 className="image-icon"
@@ -225,7 +230,7 @@ export default function UserMenu({ showMenu, onClose }) {
             </div>
           </div>
 
-          {showAvatars && (
+          {/* {showAvatars && (
             <div
               className="avatars-selection-container"
               onClick={(e) => e.stopPropagation()}
@@ -263,6 +268,15 @@ export default function UserMenu({ showMenu, onClose }) {
                 </div>
               </div>
             </div>
+          )} */}
+          {showAvatars && (
+            <AvatarsSelection
+              colors={colors}
+              images={images}
+              userAvatar={userAvatar}
+              handleAvatarSelected={handleAvatarSelected}
+              handleCloseAvatars={handleCloseAvatars}
+            />
           )}
         </div>
       </div>
@@ -290,6 +304,52 @@ const ProgressBar = ({ progress, total, colors }) => {
         </div>
       </div>
       <span className="number">{total}</span>
+    </div>
+  )
+}
+
+const AvatarsSelection = ({
+  colors,
+  images,
+  userAvatar,
+  handleAvatarSelected,
+  handleCloseAvatars,
+}) => {
+  return (
+    <div
+      className="avatars-selection-container"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div
+        className="avatars-grid-container"
+        style={{ backgroundColor: colors?.backgroundRewards }}
+      >
+        <button className="button-close" onClick={handleCloseAvatars}>
+          <CloseIcon colorFill={colors?.primary} />
+        </button>
+        <div className="avatars-grid">
+          {images?.avatars.map((el) => (
+            <button
+              type="button"
+              key={el}
+              className="button-avatar"
+              onClick={() => handleAvatarSelected(el)}
+              style={{
+                borderColor: userAvatar === el ? colors?.correct : 'black',
+                borderWidth: userAvatar === el ? '6px' : '3px',
+              }}
+            >
+              <img
+                src={el}
+                alt="Image Avatar"
+                style={{
+                  filter: userAvatar === el ? 'grayscale(0)' : 'grayscale(1)',
+                }}
+              />
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

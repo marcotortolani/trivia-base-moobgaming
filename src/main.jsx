@@ -43,14 +43,12 @@ function Application() {
   if (isLoading) return <Loading />
 
   if (userHash === null || userHash === 'null')
-    return <Error message="Usuario no válido" />
+    return <Error message="User no valid" />
 
   if (dataConfig === null || error)
     return (
       <Error
-        message={
-          error ? error : 'Error: No hay datos. El Juego o Usuario no existe'
-        }
+        message={error ? error : 'Error: No data. Game or user no valid'}
       />
     )
 

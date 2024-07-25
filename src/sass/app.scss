@@ -471,6 +471,7 @@ body {
 
 //! App-Trivia (home)
 .app-trivia {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -958,7 +959,8 @@ body {
               top: 0;
               width: 90%;
               height: 80%;
-              min-height: 500px;
+              min-height: 600px;
+
               padding: 2rem 1rem;
               display: flex;
               align-items: center;
@@ -985,6 +987,7 @@ body {
               .avatars-grid {
                 width: 100%;
                 height: 100%;
+
                 padding: 1rem;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -992,7 +995,8 @@ body {
                 gap: 1rem;
 
                 .button-avatar {
-                  height: 90%;
+                  width: 100%;
+                  // height: 90%;
                   aspect-ratio: 1/1;
                   background-color: transparent;
                   border: 5px solid;
@@ -1382,161 +1386,157 @@ body {
       }
     }
   }
-}
+  .wrapper-pop-up {
+    z-index: 900000;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
 
-.wrapper-pop-up {
-  z-index: 900000;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.75);
-
-  .pop-up-rewards {
-    z-index: 200000;
-    width: 90vw;
-    max-width: 380px;
-    height: 60%;
-    min-height: 300px;
-    max-height: 500px;
+    position: absolute;
+    top: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    box-shadow: 5px 5px 10px #000;
+    background-color: rgba(0, 0, 0, 0.75);
 
-    .wrapper-button {
+    .pop-up-rewards {
       z-index: 200000;
-      width: 100%;
-      height: 40px;
+      width: 90vw;
+      max-width: 380px;
+      height: 60%;
+      min-height: 300px;
+      max-height: 500px;
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 5px 5px 10px #000;
 
-      .close-rewards {
-        width: 30px;
-        height: 30px;
-        margin-top: 0.5rem;
-        margin-right: 0.5rem;
-        padding-bottom: 3px;
-        background-color: transparent;
+      .wrapper-button {
+        z-index: 200000;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: flex-end;
+
+        .close-rewards {
+          width: 30px;
+          height: 30px;
+          margin-top: 0.5rem;
+          margin-right: 0.5rem;
+          padding-bottom: 3px;
+          background-color: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          font-family: 'fontTrivia';
+          font-size: 1.3rem;
+          font-weight: 600;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          border-radius: 50%;
+        }
+      }
+
+      .wrapper-slider {
+        z-index: 80000000;
+        width: 100%;
+        max-width: 600px;
+        max-width: 900px;
+        height: 90%;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: none;
-        font-family: 'fontTrivia';
-        font-size: 1.3rem;
-        font-weight: 600;
 
-        &:hover {
-          cursor: pointer;
-        }
-
-        border-radius: 50%;
-      }
-    }
-
-    .wrapper-slider {
-      z-index: 80000000;
-      width: 100%;
-      max-width: 600px;
-      max-width: 900px;
-      height: 90%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .wrapper-image {
-        width: 100%;
-        max-width: 580px;
-        height: 80%;
-        margin: 20px 0;
-
-        img {
-          object-fit: contain;
+        .wrapper-image {
           width: 100%;
-          min-width: 220px;
-          height: 100%;
-          min-height: 220px;
-        }
-      }
+          max-width: 580px;
+          height: 80%;
+          margin: 20px 0;
 
-      .wrapper-image-hidden {
-        display: none;
-      }
-
-      .arrow-container {
-        position: absolute;
-        width: 25px;
-        height: 40px;
-        border: none;
-        border-radius: 26px;
-        cursor: pointer;
-        &:disabled {
-          box-shadow: 0px 0px 3px #a9a9a9;
           img {
-            display: none;
+            object-fit: contain;
+            width: 100%;
+            min-width: 220px;
+            height: 100%;
+            min-height: 220px;
+          }
+        }
+
+        .wrapper-image-hidden {
+          display: none;
+        }
+
+        .arrow-container {
+          position: absolute;
+          width: 25px;
+          height: 40px;
+          border: none;
+          border-radius: 26px;
+          cursor: pointer;
+          &:disabled {
+            box-shadow: 0px 0px 3px #a9a9a9;
+            img {
+              display: none;
+            }
+
+            &:hover {
+              cursor: default;
+            }
           }
 
           &:hover {
-            cursor: default;
+            cursor: pointer;
+          }
+          img {
+            width: 100%;
+            height: auto;
+          }
+          box-shadow: 0px 0px 5px #666666;
+          transition: all 250ms ease-in-out;
+          -webkit-transition: all 250ms ease-in-out;
+          -moz-transition: all 250ms ease-in-out;
+          -ms-transition: all 250ms ease-in-out;
+          -o-transition: all 250ms ease-in-out;
+        }
+        .left-arrow {
+          left: 1rem;
+        }
+        .right-arrow {
+          right: 1rem;
+        }
+        .indicators-container {
+          display: flex;
+          position: absolute;
+          bottom: 1rem;
+          .indicator {
+            height: 0.7rem;
+            width: 0.7rem;
+            border: none;
+            outline: none;
+            box-shadow: 0px 0px 2px #555;
+            margin: 0 0.5rem;
+            cursor: pointer;
+
+            border-radius: 100%;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            -ms-border-radius: 100%;
+            -o-border-radius: 100%;
           }
         }
-
-        &:hover {
-          cursor: pointer;
-        }
-        img {
-          width: 100%;
-          height: auto;
-        }
-        box-shadow: 0px 0px 5px #666666;
-        transition: all 250ms ease-in-out;
-        -webkit-transition: all 250ms ease-in-out;
-        -moz-transition: all 250ms ease-in-out;
-        -ms-transition: all 250ms ease-in-out;
-        -o-transition: all 250ms ease-in-out;
       }
-      .left-arrow {
-        left: 1rem;
-      }
-      .right-arrow {
-        right: 1rem;
-      }
-      .indicators-container {
-        display: flex;
-        position: absolute;
-        bottom: 1rem;
-        .indicator {
-          height: 0.7rem;
-          width: 0.7rem;
-          border: none;
-          outline: none;
-          box-shadow: 0px 0px 2px #555;
-          margin: 0 0.5rem;
-          cursor: pointer;
-
-          border-radius: 100%;
-          -webkit-border-radius: 100%;
-          -moz-border-radius: 100%;
-          -ms-border-radius: 100%;
-          -o-border-radius: 100%;
-        }
-      }
+      border-radius: 26px;
+      -webkit-border-radius: 26px;
+      -moz-border-radius: 26px;
+      -ms-border-radius: 26px;
+      -o-border-radius: 26px;
     }
-    border-radius: 26px;
-    -webkit-border-radius: 26px;
-    -moz-border-radius: 26px;
-    -ms-border-radius: 26px;
-    -o-border-radius: 26px;
   }
-  transform: translateY(10px);
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
 }
 
 //! Spinner Wheel
@@ -2744,6 +2744,26 @@ body {
 
 @media screen and (max-width: 360px) {
   .app-trivia {
+    .header {
+      .user-menu-container {
+        .side-menu {
+          .main {
+            .avatars-selection-container {
+              margin-top: 2rem;
+              .avatars-grid-container {
+                width: 96%;
+                padding-left: 0.2rem;
+                padding-right: 0.2rem;
+                .avatars-grid {
+                  padding: 0.5rem;
+                  gap: 0.6rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     #wrapper {
       #wheel {
         transform: scale(1.3);

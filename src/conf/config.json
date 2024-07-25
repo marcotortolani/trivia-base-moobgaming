@@ -1,5 +1,6 @@
 {
   "lastUpdated": "2024-04-16",
+  "lang": "es",
   "userData": {
     "userId": "user1",
     "userName": "",
@@ -84,7 +85,6 @@
       "/img/avatars/avatar-10.webp",
       "/img/avatars/avatar-11.webp",
       "/img/avatars/avatar-12.webp"
-      
     ]
   },
   "sounds": {
@@ -109,7 +109,16 @@
       "categoryCompleted": "¡Felicidades! ¡Completaste toda esta categoría!",
       "congratsTriviaCompleted": "¡Felicidades! ¡Completaste toda la trivia!",
       "correctAnswer": "Correcta",
-      "wrongAnswer": "Incorrecta"
+      "wrongAnswer": "Incorrecta",
+      "points": "Puntos",
+      "userMenu": "Menú de usuario",
+      "progressByCategory": "Progreso por Categoría",
+      "totalProgress": "Progreso Total",
+      "hitRate": "Índice de Aciertos",
+      "correctAmount": "Correctas",
+      "wrongAmount": "Incorrectas",
+      "bonusAmount": "Bonus",
+      "pointsPerAnswer": "Puntos por Respuesta"
     },
     "en": {
       "terms": "T&C",
@@ -120,7 +129,16 @@
       "categoryCompleted": "Congratulations! You completed this entire category!",
       "congratsTriviaCompleted": "Congratulations! You completed the Quiz!",
       "correctAnswer": "Correct",
-      "wrongAnswer": "Incorrect"
+      "wrongAnswer": "Incorrect",
+      "points": "Points",
+      "userMenu": "User Menu",
+      "progressByCategory": "Progress by Category",
+      "totalProgress": "Total Progress",
+      "hitRate": "Hit Rate",
+      "correctAmount": "Correct",
+      "incorrectAmount": "Incorrect",
+      "bonusAmount": "Bonus",
+      "pointsPerAnswer": "Points per Answer"
     },
     "pt": {
       "terms": "T&C",
@@ -131,7 +149,16 @@
       "categoryCompleted": "Parabéns! Completaste toda nesta categoria!",
       "congratsTriviaCompleted": "Parabéns! Completaste todo o desafio!",
       "correctAnswer": "Correcta",
-      "wrongAnswer": "Incorrecta"
+      "wrongAnswer": "Incorrecta",
+      "points": "Pontos",
+      "userMenu": "Menu do Usuário",
+      "progressByCategory": "Progresso por Categoria",
+      "totalProgress": "Progresso Total",
+      "hitRate": "Índice de Acertos",
+      "correctAmount": "Correctas",
+      "wrongAmount": "Incorrectas",
+      "bonusAmount": "Bônus",
+      "pointsPerAnswer": "Pontos por Resposta"
     }
   },
   "categories": [
