@@ -14,24 +14,9 @@ import './sass/app.css'
 //   gameHash = 1,
 //   userHash = 1
 
-// const gameHash = '356a192b7913b04c54574d18c28d46e6395428ab'
-// const userHash = '7055eced15538bfb7c0754574d18f8a5b28fc5d0'
-
 const urlParams = new URLSearchParams(window.location.search)
 
-// const userConfigInitial = {
-//   id: 0,
-//   username: '',
-//   msisdn: '',
-//   password: '',
-// }
-
 function Application() {
-  // const [userConfig, setUserConfig] = useLocalStorage(
-  //   'userConfig',
-  //   userConfigInitial
-  // )
-
   const gameHash = urlParams.get('gamehash')
   const userHash = urlParams.get('userhash')
 
@@ -53,6 +38,17 @@ function Application() {
     )
 
   if (!isLoading && dataConfig) {
+    // insert lang on HTML document
+    document.documentElement.lang = dataConfig.lang
+    // -----------------------------------
+    // insert Custom Header on HTML document
+    if (!dataConfig) return
+    const temp = document.createElement('div')
+    temp.innerHTML = dataConfig.customHeader
+    while (temp.firstChild) {
+      document.head.appendChild(temp.firstChild)
+    }
+    // -----------------------------------
     return (
       <HashRouter>
         <ConfigProvider
