@@ -114,11 +114,15 @@ export default function Question() {
           let newAnswer = answersType
           newAnswer = { ...newAnswer, bonus: newAnswer.bonus + 1 }
           setAnswersType(newAnswer)
+          // update partial score to endpoint
+          updateScore({ partialScore: POINTS_CORRECT + POINTS_BONUS })
         } else {
           newPoints = points + POINTS_CORRECT
           let newAnswer = answersType
           newAnswer = { ...newAnswer, correct: newAnswer.correct + 1 }
           setAnswersType(newAnswer)
+          // update partial score to endpoint
+          updateScore({ partialScore: POINTS_CORRECT })
         }
       } else {
         //wrongAnswer
@@ -127,11 +131,12 @@ export default function Question() {
         let newAnswer = answersType
         newAnswer = { ...newAnswer, incorrect: newAnswer.incorrect + 1 }
         setAnswersType(newAnswer)
+        // update partial score to endpoint
+        updateScore({ partialScore: POINTS_WRONG })
       }
 
-      // updateScore
+      // update points on front
       setPoints(newPoints)
-      updateScore({ scoreTotal: newPoints })
 
       const answerClickTrue = answersClicked.map((ans) => {
         if (ans === answerClicked) {
