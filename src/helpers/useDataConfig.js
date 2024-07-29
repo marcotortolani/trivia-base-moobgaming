@@ -19,8 +19,6 @@ export function useDataConfig(endpoint) {
         },
       })
 
-      console.log(res)
-
       if (!res.ok) {
         const errorData = await res.json()
         return setError(errorData.error)
@@ -30,7 +28,6 @@ export function useDataConfig(endpoint) {
       setDataConfig(data)
       setError(null)
     } catch (err) {
-      console.log(err)
       console.error(err)
       setError(err)
       setDataConfig(null)

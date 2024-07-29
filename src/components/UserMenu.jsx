@@ -27,8 +27,6 @@ export default function UserMenu({ showMenu, onClose }) {
   const modalRef = useRef(null)
   const { userName, userId, userAvatar } = userDataStored
 
-  console.log(userAvatar)
-
   const totalProgress = getTotalProgress(dataStored)
   const totalQuestions = getTotalQuestions(categories)
 
