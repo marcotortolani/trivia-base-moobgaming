@@ -41,14 +41,6 @@ function Application() {
     // insert lang on HTML document
     document.documentElement.lang = dataConfig.lang
     // -----------------------------------
-    // insert Custom Header on HTML document
-    if (!dataConfig) return
-    const temp = document.createElement('div')
-    temp.innerHTML = dataConfig.customHeader
-    while (temp.firstChild) {
-      document.head.appendChild(temp.firstChild)
-    }
-    // -----------------------------------
     return (
       <HashRouter>
         <ConfigProvider
