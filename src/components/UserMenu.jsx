@@ -27,6 +27,8 @@ export default function UserMenu({ showMenu, onClose }) {
   const modalRef = useRef(null)
   const { userName, userId, userAvatar } = userDataStored
 
+  console.log(userAvatar)
+
   const totalProgress = getTotalProgress(dataStored)
   const totalQuestions = getTotalQuestions(categories)
 
@@ -96,7 +98,7 @@ export default function UserMenu({ showMenu, onClose }) {
                 className="user-avatar-container"
                 onClick={() => setShowAvatars(true)}
               >
-                {userAvatar.length > 0 && true ? (
+                {userAvatar && userAvatar.length > 0 && true ? (
                   <img
                     className="user-avatar-image"
                     src={userAvatar}
