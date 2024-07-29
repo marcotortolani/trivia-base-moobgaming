@@ -13,6 +13,7 @@
     "lottie-react": "^2.4.0",
     "preact": "^10.13.0",
     "prettier": "^2.8.7",
+    "rc4.js": "^1.2.0",
     "react-router-dom": "^6.10.0",
     "use-sound": "^4.0.1"
   },
