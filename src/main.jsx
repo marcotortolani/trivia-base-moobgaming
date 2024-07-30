@@ -8,9 +8,9 @@ import { Loading } from './components/Loading'
 import { Error } from './components/Error'
 import './sass/app.css'
 
-import dataConfig from './conf/config.json'
-const isLoading = false,
-  error = false
+// import dataConfig from './conf/config.json'
+// const isLoading = false,
+//   error = false
 // gameHash = 1,
 // userHash = 1
 
@@ -21,9 +21,9 @@ function Application() {
   const userHash = urlParams.get('userhash')
 
   // // GET CONFIG FROM ENDPOINT
-  // const { isLoading, error, dataConfig } = useDataConfig(
-  //   configTrivia + `${gameHash}` + `/${userHash}`
-  // )
+  const { isLoading, error, dataConfig } = useDataConfig(
+    configTrivia + `${gameHash}` + `/${userHash}`
+  )
 
   if (isLoading) return <Loading />
 
