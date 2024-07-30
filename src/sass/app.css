@@ -1998,6 +1998,7 @@ body #inputNumCat {
   align-items: center;
 }
 .category .category-questions .cards-question .title-question {
+  position: relative;
   width: 80vw;
   min-width: 220px;
   max-width: 400px;
@@ -2017,17 +2018,14 @@ body #inputNumCat {
 }
 .category .category-questions .cards-question .title-question .wrapper-lottie {
   z-index: 20000;
-  width: 100%;
-  height: 10vh;
+  height: 100%;
   position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: flex-end;
+  right: 0;
+  bottom: 0;
 }
 .category .category-questions .cards-question .title-question .wrapper-lottie .lottie-bonus {
-  margin-top: 10px;
-  position: relative;
+  position: absolute;
+  bottom: -2rem;
   right: 0;
 }
 .category .category-questions .cards-question .hide-lottie-bonus {
@@ -2578,12 +2576,13 @@ body #inputNumCat {
     font-size: clamp(0.7rem, 3vw, 1rem);
   }
   .category .category-questions .cards-question .wrapper-lottie {
-    height: 18vh;
-    min-height: 120px;
+    height: 10vh;
+    max-height: 60px;
+    min-height: 60px;
   }
   .category .category-questions .cards-question .wrapper-lottie .lottie-bonus {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 60px;
   }
   .category .answers-animation {
     top: 5vh;
