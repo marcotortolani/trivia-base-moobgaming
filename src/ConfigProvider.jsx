@@ -1,6 +1,9 @@
 import { createContext } from 'preact'
 import { useEffect } from 'preact/hooks'
 import useLocalStorage from './helpers/useLocalStorage'
+import rc4Min from 'rc4.js'
+
+const rc4 = new rc4Min('MoobgamingAJM')
 
 const ConfigContext = createContext()
 
@@ -37,8 +40,13 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
 
   const [points, setPoints] = useLocalStorage(
     `userPoints-${hash}`,
-    pointsInitial
+    rc4.encrypt(pointsInitial.toString())
   )
+
+  const pointsDecrypted = parseInt(rc4.decrypt(points), 10)
+  const setPointsEncrypted = (number) => {
+    setPoints(rc4.encrypt(number.toString()))
+  }
 
   const [userDataStored, setUserDataStored] = useLocalStorage(
     `userData-${hash}`,
@@ -60,8 +68,8 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
   const values = {
     soundOn,
     setSoundOn,
-    points,
-    setPoints,
+    points: pointsDecrypted,
+    setPoints: setPointsEncrypted,
     answersType,
     setAnswersType,
     dataStored,
