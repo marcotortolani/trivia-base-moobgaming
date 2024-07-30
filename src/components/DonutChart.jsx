@@ -16,10 +16,12 @@ export const DonutChart = ({
   height = 170,
 }) => {
   const [data, setData] = useState(dataInitial)
-
   const valuePercentage =
-    parseInt((answers.correct / (answers.correct + answers.incorrect)) * 100) ||
-    0
+    parseInt(
+      (answers.correct +
+        answers.bonus / (answers.correct + answers.bonus + answers.incorrect)) *
+        100
+    ) || 0
 
   const radius = Math.min(width, height) / 2 - MARGIN
 
@@ -44,7 +46,11 @@ export const DonutChart = ({
     setData((prevData) =>
       prevData.map((d) => {
         if (d.name === 'correct') {
-          return { ...d, value: answers.correct, color: colorCorrect }
+          return {
+            ...d,
+            value: answers.correct + answers.bonus,
+            color: colorCorrect,
+          }
         }
         if (d.name === 'incorrect') {
           return { ...d, value: answers.incorrect, color: colorWrong }
@@ -55,7 +61,10 @@ export const DonutChart = ({
   }, [])
 
   return (
-    <div className=" donut-chart" style={{ width: width/2, height: height / 2 }}>
+    <div
+      className=" donut-chart"
+      style={{ width: width / 2, height: height / 2 }}
+    >
       <svg width={width} height={height}>
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           {arcs.map((arc, i) => {
