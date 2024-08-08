@@ -18,8 +18,8 @@ export const DonutChart = ({
   const [data, setData] = useState(dataInitial)
   const valuePercentage =
     parseInt(
-      (answers.correct +
-        answers.bonus / (answers.correct + answers.bonus + answers.incorrect)) *
+      ((answers.correct + answers.bonus) /
+        (answers.correct + answers.bonus + answers.incorrect)) *
         100
     ) || 0
 
