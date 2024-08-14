@@ -29,6 +29,9 @@ importers:
       use-sound:
         specifier: ^4.0.1
         version: 4.0.1(react@18.2.0)
+      vite-plugin-filter-replace:
+        specifier: ^0.1.13
+        version: 0.1.13
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.5.0
@@ -712,6 +715,9 @@ packages:
     peerDependencies:
       react: '>=16.8'
 
+  vite-plugin-filter-replace@0.1.13:
+    resolution: {integrity: sha512-ctYDU9cKxPAVbcXvVzFXyWJSg7yYDddyUmkgXDOWO65VWPuMPKMJfKckSH2jyb6NL2xQfxBP4q/5z4XS1QTuqg==}
+
   vite@4.2.2:
     resolution: {integrity: sha512-PcNtT5HeDxb3QaSqFYkEum8f5sCVe0R3WK20qxgIvNBZPXU/Obxs/+ubBMeE7nLWeCo2LDzv+8hRYSlcaSehig==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -1394,6 +1400,8 @@ snapshots:
     dependencies:
       howler: 2.2.3
       react: 18.2.0
+
+  vite-plugin-filter-replace@0.1.13: {}
 
   vite@4.2.2:
     dependencies:
