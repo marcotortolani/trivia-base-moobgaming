@@ -27,3 +27,6 @@ dist-ssr
 *.zip
 *.rar
 *.pdf
+
+# Images for testing
+public/img-testing

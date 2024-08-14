@@ -21,39 +21,39 @@
   },
   "URLImagesHost": "",
   "colors": {
-    "background": "#000000",
+    "background": "#072326",
     "backgroundCongrats": "#07121BF2",
     "backgroundRewards": "#FFF",
     "disable": "#989898",
     "wrong": "#ef1f1f",
     "correct": "#35a333",
-    "title": "#9d2b67",
+    "title": "#00b6a2",
     "text": "#FAFAFA",
     "text2": "",
-    "primary": "#9d2b67",
-    "primaryLight": "#c93c87",
+    "primary": "#00b6a2",
+    "primaryLight": "#30d6c2",
     "rouletteSection": [
-      "#8daaa5",
-      "#9d2b67",
-      "#8daaa5",
-      "#9d2b67",
-      "#000000",
-      "#9d2b67",
-      "#8daaa5",
-      "#000000"
+      "#c0bdbd",
+      "#00b6a2",
+      "#0594a3",
+      "#c0bdbd",
+      "#00b6a2",
+      "#0594a3",
+      "#c0bdbd",
+      "#00b6a2"
     ],
-    "wheel": "#325667",
-    "nextBtnGradient": "linear-gradient(180deg, #9d2b67 50%, #691c45 100%)",
+    "wheel": "#006c7d",
+    "nextBtnGradient": "linear-gradient(180deg, #0594a3 50%, #005483 100%)",
     "answerBtnGradient": "linear-gradient(180deg, #536ea9 50%, #3a4f7c 100%)"
   },
   "images": {
     "es": {
-      "logoHeader": "/img/logo.webp",
+      "logoHeader": "/img-testing/logo-trivia-memoob.webp",
       "bubbleStartMessage": "",
       "bubbleDailyLimit": "",
       "rewardsImages": [
         {
-          "src": "/img/premios-01.webp",
+          "src": "/img-testing/premios.webp",
           "name": "prize"
         }
       ]
@@ -62,15 +62,15 @@
     "backgroundApp": "",
     "iconSoundActive": "/img/sound_active_icon.webp",
     "iconSoundMute": "/img/sound_mute_icon.webp",
-    "spinButton": "/img/girar-icon.webp",
+    "spinButton": "/img-testing/spinner.webp",
     "pointerRoulette": "",
-    "rewardsButton": "/img/premios-icon.webp",
-    "termsButton": "/img/bases-icon.webp",
+    "rewardsButton": "/img-testing/premios.webp",
+    "termsButton": "/img-testing/bases.webp",
     "arrowsSlider": {
       "left": "/img/left-golden-arrow.webp",
       "right": "/img/right-golden-arrow.webp"
     },
-    "backgroundPoints": "/img/barra-puntos.webp",
+    "backgroundPoints": "/img-testing/puntos.webp",
     "triviaUpcoming": "/img/trivia-proximamente.webp",
     "triviaEnded": "/img/trivia-finalizada.webp",
     "avatars": [
@@ -165,8 +165,8 @@
   "categories": [
     {
       "id": 1,
-      "name": "Gamers",
-      "imgURL": "/img/categoria-gamers.webp",
+      "name": "Oficina",
+      "imgURL": "/img-testing/oficina-icono.webp",
       "bonus": false,
       "questions": [
         {
@@ -363,8 +363,8 @@
     },
     {
       "id": 2,
-      "name": "Tecno",
-      "imgURL": "/img/categoria-tecno.webp",
+      "name": "Mundo",
+      "imgURL": "/img-testing/mundo-icono.webp",
       "bonus": false,
       "questions": [
         {
@@ -561,8 +561,8 @@
     },
     {
       "id": 3,
-      "name": "Retro",
-      "imgURL": "/img/categoria-retro.webp",
+      "name": "Sorpresa",
+      "imgURL": "/img-testing/sorpresa-icono.webp",
       "bonus": false,
       "questions": [
         {
@@ -759,8 +759,8 @@
     },
     {
       "id": 4,
-      "name": "Personajes",
-      "imgURL": "/img/categoria-personajes.webp",
+      "name": "Productos",
+      "imgURL": "/img-testing/productos-icono.webp",
       "bonus": false,
       "questions": [
         {
@@ -957,8 +957,8 @@
     },
     {
       "id": 5,
-      "name": "Juegos",
-      "imgURL": "/img/categoria-juegos.webp",
+      "name": "Personajes",
+      "imgURL": "/img-testing/personajes-icono.webp",
       "bonus": false,
       "questions": [
         {
