@@ -17,13 +17,13 @@ const isLoading = false,
 const urlParams = new URLSearchParams(window.location.search)
 
 function Application() {
-  // const gameHash = urlParams.get('gamehash')
-  // const userHash = urlParams.get('userhash')
+  const gameHash = urlParams.get('gamehash')
+  const userHash = urlParams.get('userhash')
 
-  // // // GET CONFIG FROM ENDPOINT
-  // const { isLoading, error, dataConfig } = useDataConfig(
-  //   configTrivia + `${gameHash}` + `/${userHash}`
-  // )
+  // // GET CONFIG FROM ENDPOINT
+  const { isLoading, error, dataConfig } = useDataConfig(
+    configTrivia + `${gameHash}` + `/${userHash}`
+  )
 
   if (isLoading) return <Loading />
 
