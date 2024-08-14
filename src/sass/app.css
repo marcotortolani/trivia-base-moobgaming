@@ -172,6 +172,39 @@ body #inputNumCat {
     transform: scale(1) translateY(150px);
   }
 }
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-50px);
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+  }
+  50% {
+    transform: translateX(50px);
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+  }
+  75% {
+    transform: translateX(-50px);
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+}
 @keyframes scaleUpRight {
   0% {
     transform-origin: 100% 50%;
@@ -1933,6 +1966,11 @@ body #inputNumCat {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 1.2rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+  -ms-border-radius: 1.2rem;
+  -o-border-radius: 1.2rem;
 }
 .category .category-questions .category-chosen {
   position: relative;
@@ -1991,7 +2029,6 @@ body #inputNumCat {
   min-height: 220px;
   padding: 0 10px;
   margin-top: 0px;
-  overflow: hidden;
   display: none;
   display: flex;
   flex-direction: column;
@@ -2005,6 +2042,7 @@ body #inputNumCat {
   height: -moz-fit-content;
   height: fit-content;
   padding: 1% 0;
+  display: flex;
   border-top: 1.5px solid;
   border-bottom: 1.5px solid;
 }
@@ -2015,6 +2053,29 @@ body #inputNumCat {
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
+}
+.category .category-questions .cards-question .title-question .timer-countdown {
+  position: absolute;
+  right: -1.5rem;
+  top: -1.5rem;
+  padding: 2px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c43d3d;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.category .category-questions .cards-question .title-question .timer-countdown .seconds {
+  font-size: 1.2rem;
+  font-size: clamp(0.8rem, 3vh, 1rem);
+  font-weight: 500;
+}
+.category .category-questions .cards-question .title-question .timer-countdown .timer-icon {
+  width: 24px;
 }
 .category .category-questions .cards-question .title-question .wrapper-lottie {
   z-index: 20000;
@@ -2161,6 +2222,17 @@ body #inputNumCat {
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
+}
+.category .timeout-lottie {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 200000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .category .title-congrats {
   width: 100vw;

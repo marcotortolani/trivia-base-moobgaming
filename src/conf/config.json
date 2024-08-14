@@ -15,6 +15,7 @@
   },
   "config": {
     "triesAllowedPerDay": 200,
+    "countdownSeconds": 10,
     "pointsCorrect": 1000,
     "pointsWrong": 500,
     "pointsBonus": 1000

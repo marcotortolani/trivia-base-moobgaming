@@ -14,10 +14,12 @@ import { updateScore } from '../services/updateScore'
 import Lottie from 'lottie-react'
 import bonusTag from '../assets/lottie_json/ticket-bonus.json'
 import silverCongrats from '../assets/lottie_json/silver_congrats.json'
+import timesUp from '../assets/lottie_json/timesUp.json'
 
 import LogoHeader from '../components/Trivia/LogoHeader'
 import PanelFooter from '../components/Trivia/PanelFooter'
 import DailyLimit from '../components/DailyLimit'
+import useCountdown from '../helpers/useCountDown'
 
 const indexInitial = 0
 
@@ -49,6 +51,7 @@ export default function Question() {
   const POINTS_WRONG = config['pointsWrong']
   const POINTS_BONUS = config['pointsBonus']
   const TRIES_ALLOWED = config['triesAllowedPerDay']
+  const COUNTDOWN = config['countdownSeconds']
   const { correctAnswerSound, wrongAnswerSound } = sounds
   /*----- */
   let { cat } = useParams()
@@ -70,6 +73,8 @@ export default function Question() {
   const [indexQuestion, setIndexQuestion] = useState(indexInitial)
   const [slideQuestion, setSlideQuestion] = useState(false)
   const [isDisable, setIsDisable] = useState(false)
+  const { secondsLeft, startCountdown } = useCountdown(COUNTDOWN)
+  const [isTimeout, setIsTimeout] = useState(false)
 
   const [animation, setAnimation] = useState('')
   // Posible Animation States:
@@ -93,16 +98,30 @@ export default function Question() {
   }, [])
 
   useEffect(() => {
+    if (secondsLeft === 0) {
+      startCountdown(-1)
+      handleAnswer({ answer: { isCorrect: false }, secondsLeft })
+      setIsTimeout(true)
+      setTimeout(() => {
+        setIsTimeout(false)
+      }, 2000)
+    }
+  }, [secondsLeft])
+
+  useEffect(() => {
     if (!indexQuestion) return
     setSlideQuestion(false)
     setAnswersClicked(answerDefault)
     setIsDisable(false)
+    startCountdown(COUNTDOWN)
   }, [indexQuestion])
 
   const handleAnswer = useCallback(
-    ({ answer }) => {
+    ({ answer, secondsLeft }) => {
       const contextAudio = new AudioContext()
       const answerClicked = answer
+      const pointsBySecondsLeft = secondsLeft * 10
+
       let newPoints
       setIsDisable(true)
 
@@ -136,7 +155,7 @@ export default function Question() {
       }
 
       // update points on front
-      setPoints(newPoints)
+      setPoints(newPoints + pointsBySecondsLeft)
 
       const answerClickTrue = answersClicked.map((ans) => {
         if (ans === answerClicked) {
@@ -195,68 +214,110 @@ export default function Question() {
     }
   }, [animation])
 
-  const CardQuestion = useCallback(() => {
-    return (
-      <>
-        <div className="title-question" style={{ borderColor: colors?.text }}>
-          <h3 className="title" style={{ color: colors?.text }}>
-            {questions[indexQuestion].title}
-          </h3>
-          {hasBonus && (
-            <div className="wrapper-lottie">
-              <Lottie
-                className="lottie-bonus"
-                animationData={bonusTag}
-                loop={true}
-                style={{
-                  width: 100,
-                  height: 100,
-                }}
-              />
+  const CardQuestion = useCallback(
+    ({ secondsLeft, isTimeout }) => {
+      return (
+        <>
+          <div className="title-question" style={{ borderColor: colors?.text }}>
+            <h3 className="title" style={{ color: colors?.text }}>
+              {questions[indexQuestion].title}
+            </h3>
+            {hasBonus && (
+              <div className="wrapper-lottie">
+                <Lottie
+                  className="lottie-bonus"
+                  animationData={bonusTag}
+                  loop={true}
+                  style={{
+                    width: 100,
+                    height: 100,
+                  }}
+                />
+              </div>
+            )}
+            <div className=" timer-countdown">
+              <span className="seconds">{secondsLeft}</span>
+              <svg
+                fill="#000000"
+                viewBox="0 0 24 24"
+                id="timer-5-second"
+                dataName="Line Color"
+                className="timer-icon"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <polyline
+                    id="secondary"
+                    points="12 10 12 14 13.4 15.57"
+                    style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"
+                  ></polyline>
+                  <path
+                    id="secondary-2"
+                    data-name="secondary"
+                    d="M17.3,8.2l1.5-1.5M6.7,8.2,5.2,6.7M12,6V3M9,3h6"
+                    style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"
+                  ></path>
+                  <circle
+                    id="primary"
+                    cx="12"
+                    cy="13.5"
+                    r="7.5"
+                    style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"
+                  ></circle>
+                </g>
+              </svg>
             </div>
-          )}
-        </div>
+          </div>
 
-        <ul className="cards-answers">
-          {answersClicked.map((answer) => (
-            <li key={answer.text}>
-              {answer.isClicked ? (
-                <button
-                  className={`answer ${answer.isCorrect ? 'correct' : 'wrong'}`}
-                  onClick={() => handleAnswer({ answer })}
-                  disabled={isDisable}
-                  style={{
-                    color: colors?.text,
-                    backgroundColor: answer.isCorrect
-                      ? colors?.correct
-                      : colors?.wrong,
-                  }}
-                >
-                  {answer.isCorrect
-                    ? hasBonus
-                      ? `${correctAnswer}: +${POINTS_CORRECT + POINTS_BONUS}`
-                      : `${correctAnswer}: +${POINTS_CORRECT}`
-                    : `${wrongAnswer}: +${POINTS_WRONG}`}
-                </button>
-              ) : (
-                <button
-                  className="answer"
-                  onClick={() => handleAnswer({ answer })}
-                  disabled={isDisable}
-                  style={{
-                    color: colors?.text,
-                    background: colors?.answerBtnGradient,
-                  }}
-                >
-                  {answer.text}
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      </>
-    )
-  }, [cat, indexQuestion, hasBonus, answersClicked, isDisable])
+          <ul className="cards-answers">
+            {answersClicked.map((answer) => (
+              <li key={answer.text}>
+                {answer.isClicked ? (
+                  <button
+                    className={`answer ${
+                      answer.isCorrect ? 'correct' : 'wrong'
+                    }`}
+                    onClick={() => handleAnswer({ answer, secondsLeft })}
+                    disabled={isDisable}
+                    style={{
+                      color: colors?.text,
+                      backgroundColor: answer.isCorrect
+                        ? colors?.correct
+                        : colors?.wrong,
+                    }}
+                  >
+                    {answer.isCorrect
+                      ? hasBonus
+                        ? `${correctAnswer}: +${POINTS_CORRECT + POINTS_BONUS}`
+                        : `${correctAnswer}: +${POINTS_CORRECT}`
+                      : `${wrongAnswer}: +${POINTS_WRONG}`}
+                  </button>
+                ) : (
+                  <button
+                    className="answer"
+                    onClick={() => handleAnswer({ answer, secondsLeft })}
+                    disabled={isDisable}
+                    style={{
+                      color: colors?.text,
+                      background: colors?.answerBtnGradient,
+                    }}
+                  >
+                    {answer.text}
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    },
+    [cat, indexQuestion, hasBonus, answersClicked, isDisable]
+  )
 
   return (
     <div className="category" style={{ backgroundColor: colors?.background }}>
@@ -272,7 +333,13 @@ export default function Question() {
 
       <LogoHeader />
 
-      <div className="category-questions">
+      <div
+        className="category-questions"
+        style={{
+          backgroundColor: isTimeout ? colors.wrong : 'transparent',
+          animation: isTimeout ? 'shake 0.5s infinite ease-in-out' : 'none',
+        }}
+      >
         <div className="category-chosen">
           <div className="category-image" id="cat-image">
             <img src={catSelected?.imgURL} alt="Image - Category Selected" />
@@ -291,11 +358,27 @@ export default function Question() {
             slideQuestion ? 'show-side-right' : 'show-side-left'
           }`}
         >
-          <CardQuestion />
+          <CardQuestion secondsLeft={secondsLeft} isTimeout={isTimeout} />
         </div>
       </div>
 
       {/* ---- Animations ---- */}
+      {isTimeout && (
+        <div
+          className="timeout-lottie"
+          style={{ backgroundColor: `rgba(0, 0, 0, 0.5)` }}
+        >
+          <Lottie
+            animationData={timesUp}
+            loop={true}
+            style={{
+              width: 300,
+              height: 300,
+            }}
+          />
+        </div>
+      )}
+
       {animation === 'catCompleted' && (
         <div
           className="title-congrats"
@@ -322,7 +405,7 @@ export default function Question() {
 
       {animation === 'limitReached' && <DailyLimit text={dailyLimit} />}
 
-      {/* ---- Animations ---- */}
+      {/* ---- End Animations ---- */}
 
       <PanelFooter cat={cat} />
     </div>
