@@ -14,7 +14,7 @@ import { updateScore } from '../services/updateScore'
 import Lottie from 'lottie-react'
 import bonusTag from '../assets/lottie_json/ticket-bonus.json'
 import silverCongrats from '../assets/lottie_json/silver_congrats.json'
-import timesUp from '../assets/lottie_json/timesUp.json'
+import timesUp from '../assets/lottie_json/timesup.json'
 
 import LogoHeader from '../components/Trivia/LogoHeader'
 import PanelFooter from '../components/Trivia/PanelFooter'
