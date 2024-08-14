@@ -28,5 +28,4 @@ dist-ssr
 *.rar
 *.pdf
 
-# Images for testing
-public/img-testing
+
