@@ -1,24 +1,3 @@
-// import { useState, useEffect } from 'preact/hooks'
-
-// export default function useCountdown(countInitial = 0) {
-//   const [secondsLeft, setSecondsLeft] = useState(countInitial)
-
-//   useEffect(() => {
-//     if (secondsLeft <= 0) return
-
-//     const timeout = setTimeout(() => {
-//       setSecondsLeft((prev) => prev - 1)
-//     }, 1000)
-//     return () => clearTimeout(timeout)
-//   }, [secondsLeft])
-
-//   function startCountdown(seconds) {
-//     setSecondsLeft(seconds)
-//   }
-
-//   return { secondsLeft, startCountdown }
-// }
-
 import { useState, useEffect } from 'preact/hooks'
 
 export default function useCountdown(countInitial = 0) {
