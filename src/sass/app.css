@@ -569,6 +569,7 @@ body #inputNumCat {
   flex-direction: column;
   justify-content: space-evenly;
   gap: 0.5rem;
+  overflow-y: scroll;
 }
 .app-trivia .header .user-menu-container .side-menu .main .user-profile {
   width: 100%;
@@ -840,6 +841,61 @@ body #inputNumCat {
 .app-trivia .header .user-menu-container .side-menu .main .answers-type .answers-type-detail .answer-type .detail {
   font-size: clamp(0.6rem, 2.8vw, 0.9rem);
   text-transform: uppercase;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container .title-category {
+  font-size: clamp(0.8rem, 4vw, 1rem);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container .answer-time {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container .answer-time svg {
+  width: 20px;
+  height: 20px;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container .answer-time .title {
+  font-size: clamp(0.8rem, 4vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container .answer-time .detail {
+  font-size: clamp(0.9rem, 4vw, 1.2em);
+  font-weight: 400;
+  vertical-align: bottom;
+  vertical-align: baseline;
+  vertical-align: text-bottom;
+  padding-bottom: -1rem;
+}
+.app-trivia .header .user-menu-container .side-menu .main .answers-time-container .answer-time .detail .number {
+  font-size: clamp(1.1rem, 4.5vw, 1.4em);
+  font-weight: 600;
+  line-height: 1;
 }
 .app-trivia .header .user-menu-container .side-menu .main .answers-points {
   width: 100%;

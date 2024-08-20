@@ -12,6 +12,7 @@ export default function UserMenu({ showMenu, onClose }) {
   const {
     points,
     answersType,
+    totalAnswersTime,
     dataStored,
     userDataStored,
     setUserDataStored,
@@ -29,6 +30,21 @@ export default function UserMenu({ showMenu, onClose }) {
 
   const totalProgress = getTotalProgress(dataStored)
   const totalQuestions = getTotalQuestions(categories)
+
+  console.log(timeToText(65))
+
+  function timeToText(time) {
+    if (time === 0) return '00m:00s'
+    if (isNaN(time)) return '00m:00s'
+
+    if (time < 60) return `${time.toString().padStart(2, '0')}s`
+
+    const minutes = Math.floor(time / 60)
+    const seconds = time - minutes * 60
+    return `${minutes.toString().padStart(2, '0')}m ${seconds
+      .toString()
+      .padStart(2, '0')}s`
+  }
 
   function getTotalProgress(dataStored) {
     return Object.values(dataStored).reduce((sum, day) => {
@@ -53,6 +69,7 @@ export default function UserMenu({ showMenu, onClose }) {
 
   function handleAvatarSelected(avatar) {
     setUserDataStored({ ...userDataStored, userAvatar: avatar })
+    setShowAvatars(false)
   }
 
   useEffect(() => {
@@ -200,6 +217,105 @@ export default function UserMenu({ showMenu, onClose }) {
             </div>
           </div>
 
+          <div
+            className="answers-time-container"
+            style={{ backgroundColor: '#0005' }}
+          >
+            <h4 className="title-category" style={{ color: colors?.text }}>
+              {texts?.timeSpentTitle}
+            </h4>
+
+            <div className="answer-time">
+              <svg
+                fill="#000000"
+                viewBox="0 0 24 24"
+                id="timer-5-second"
+                dataName="Line Color"
+                className="timer-icon"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <polyline
+                    id="secondary"
+                    points="12 10 12 14 13.4 15.57"
+                    style={`fill: none; stroke: ${colors?.primary}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;`}
+                  ></polyline>
+                  <path
+                    id="secondary-2"
+                    data-name="secondary"
+                    d="M17.3,8.2l1.5-1.5M6.7,8.2,5.2,6.7M12,6V3M9,3h6"
+                    style={`fill: none; stroke: ${colors?.primary}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;`}
+                  ></path>
+                  <circle
+                    id="primary"
+                    cx="12"
+                    cy="13.5"
+                    r="7.5"
+                    style={`fill: none; stroke: ${colors?.primary}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;`}
+                  ></circle>
+                </g>
+              </svg>
+              <h5 className="title" style={{ color: colors?.text }}>
+                {texts?.totalTime}:
+              </h5>
+              <p className="detail">
+                <span className="number">{totalAnswersTime}</span>{' '}
+                {texts?.seconds} = {timeToText(totalAnswersTime)}
+              </p>
+            </div>
+
+            <div className="answer-time">
+              <svg
+                fill="#000000"
+                viewBox="0 0 24 24"
+                id="timer-5-second"
+                dataName="Line Color"
+                className="timer-icon"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <polyline
+                    id="secondary"
+                    points="12 10 12 14 13.4 15.57"
+                    style={`fill: none; stroke: ${colors?.primary}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;`}
+                  ></polyline>
+                  <path
+                    id="secondary-2"
+                    data-name="secondary"
+                    d="M17.3,8.2l1.5-1.5M6.7,8.2,5.2,6.7M12,6V3M9,3h6"
+                    style={`fill: none; stroke: ${colors?.primary}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;`}
+                  ></path>
+                  <circle
+                    id="primary"
+                    cx="12"
+                    cy="13.5"
+                    r="7.5"
+                    style={`fill: none; stroke: ${colors?.primary}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;`}
+                  ></circle>
+                </g>
+              </svg>
+              <h5 className="title" style={{ color: colors?.text }}>
+                {texts?.averageTime}:
+              </h5>
+              <p className="detail">
+                <span className="number">
+                  {totalAnswersTime ? totalAnswersTime / totalProgress : 0}
+                </span>{' '}
+                {texts?.seconds}
+              </p>
+            </div>
+          </div>
+
           <div className="answers-points">
             <h4 className="title">{texts?.pointsPerAnswer}</h4>
             <div className="answer">
@@ -230,45 +346,6 @@ export default function UserMenu({ showMenu, onClose }) {
             </div>
           </div>
 
-          {/* {showAvatars && (
-            <div
-              className="avatars-selection-container"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div
-                className="avatars-grid-container"
-                style={{ backgroundColor: colors?.backgroundRewards }}
-              >
-                <button className="button-close" onClick={handleCloseAvatars}>
-                  <CloseIcon colorFill={colors?.primary} />
-                </button>
-                <div className="avatars-grid">
-                  {images?.avatars.map((el) => (
-                    <button
-                      type="button"
-                      key={el}
-                      className="button-avatar"
-                      onClick={() => handleAvatarSelected(el)}
-                      style={{
-                        borderColor:
-                          userAvatar === el ? colors?.correct : 'black',
-                        borderWidth: userAvatar === el ? '6px' : '3px',
-                      }}
-                    >
-                      <img
-                        src={el}
-                        alt="Image Avatar"
-                        style={{
-                          filter:
-                            userAvatar === el ? 'grayscale(0)' : 'grayscale(1)',
-                        }}
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )} */}
           {showAvatars && (
             <AvatarsSelection
               colors={colors}

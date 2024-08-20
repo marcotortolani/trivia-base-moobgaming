@@ -630,6 +630,7 @@ body {
           flex-direction: column;
           justify-content: space-evenly;
           gap: 0.5rem;
+          overflow-y: scroll;
 
           .user-profile {
             width: 100%;
@@ -924,6 +925,66 @@ body {
                 }
               }
             }
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+          }
+
+          .answers-time-container {
+            width: 100%;
+            height: fit-content;
+            padding: 1rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.5rem;
+
+            .title-category {
+              font-size: clamp(0.8rem, 4vw, 1rem);
+              font-size: 1rem;
+              font-weight: 500;
+              letter-spacing: 0.5px;
+              text-transform: uppercase;
+              margin: 0;
+            }
+
+            .answer-time {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+              .title {
+                font-size: clamp(0.8rem, 4vw, 1rem);
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+              }
+
+              .detail {
+                font-size: clamp(0.9rem, 4vw, 1.2em);
+                font-weight: 400;
+                vertical-align: bottom;
+                vertical-align: baseline;
+                vertical-align: text-bottom;
+                padding-bottom: -1rem;
+                .number {
+                  font-size: clamp(1.1rem, 4.5vw, 1.4em);
+                  font-weight: 600;
+                  line-height: 1;
+                }
+              }
+            }
+
             border-radius: 10px;
             -webkit-border-radius: 10px;
             -moz-border-radius: 10px;

@@ -9,6 +9,7 @@ const ConfigContext = createContext()
 
 const soundDefault = false
 const pointsInitial = 0
+const answersTimeInitial = 0
 const answersTypeInitial = { correct: 0, incorrect: 0, bonus: 0 }
 
 const ConfigProvider = ({ children, dataConfig, hash }) => {
@@ -57,6 +58,17 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     `userAnswers-${hash}`,
     answersTypeInitial
   )
+
+  const [totalAnswersTime, setTotalAnswersTime] = useLocalStorage(
+    `totalAnswersTime-${hash}`,
+    rc4.encrypt(answersTimeInitial.toString())
+  )
+
+  const answersTimeDecrypted = parseInt(rc4.decrypt(totalAnswersTime), 10)
+  const setAnswersTimeEncrypted = (number) => {
+    setTotalAnswersTime(rc4.encrypt(number.toString()))
+  }
+
   const [dataStored, setDataStored] = useLocalStorage(
     `userCatData-${hash}`,
     catDataConfig
@@ -72,6 +84,8 @@ const ConfigProvider = ({ children, dataConfig, hash }) => {
     setPoints: setPointsEncrypted,
     answersType,
     setAnswersType,
+    totalAnswersTime: answersTimeDecrypted,
+    setTotalAnswersTime: setAnswersTimeEncrypted,
     dataStored,
     setDataStored,
     userData,

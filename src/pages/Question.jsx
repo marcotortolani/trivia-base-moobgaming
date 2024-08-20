@@ -33,6 +33,8 @@ export default function Question() {
     setPoints,
     answersType,
     setAnswersType,
+    totalAnswersTime,
+    setTotalAnswersTime,
     images,
     texts,
     categories,
@@ -121,6 +123,11 @@ export default function Question() {
       const contextAudio = new AudioContext()
       const answerClicked = answer
       const pointsBySecondsLeft = secondsLeft * 10
+      const timeSpentAnswer = COUNTDOWN - secondsLeft
+
+      startCountdown(-1)
+      setIsTimeout(false)
+      setTotalAnswersTime(totalAnswersTime + timeSpentAnswer)
 
       let newPoints
       setIsDisable(true)

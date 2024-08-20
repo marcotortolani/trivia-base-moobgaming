@@ -120,7 +120,11 @@
       "correctAmount": "Correctas",
       "wrongAmount": "Incorrectas",
       "bonusAmount": "Bonus",
-      "pointsPerAnswer": "Puntos por Respuesta"
+      "pointsPerAnswer": "Puntos por Respuesta",
+      "timeSpentTitle": "Tiempo Dedicado",
+      "totalTime": "Total",
+      "averageTime": "Promedio",
+      "seconds": "segundos"
     },
     "en": {
       "terms": "T&C",
@@ -140,7 +144,11 @@
       "correctAmount": "Correct",
       "incorrectAmount": "Incorrect",
       "bonusAmount": "Bonus",
-      "pointsPerAnswer": "Points per Answer"
+      "pointsPerAnswer": "Points per Answer",
+      "timeSpentTitle": "Time Spent",
+      "totalTime": "Total",
+      "averageTime": "Average",
+      "seconds": "seconds"
     },
     "pt": {
       "terms": "T&C",
@@ -160,7 +168,11 @@
       "correctAmount": "Correctas",
       "wrongAmount": "Incorrectas",
       "bonusAmount": "Bônus",
-      "pointsPerAnswer": "Pontos por Resposta"
+      "pointsPerAnswer": "Pontos por Resposta",
+      "timeSpentTitle": "Tempo dedicado",
+      "totalTime": "Total",
+      "averageTime": "Média",
+      "seconds": "segundos"
     }
   },
   "categories": [
