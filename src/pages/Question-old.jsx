@@ -21,6 +21,8 @@ import PanelFooter from '../components/Trivia/PanelFooter'
 import DailyLimit from '../components/DailyLimit'
 import useCountdown from '../helpers/useCountDown'
 
+const indexInitial = 0
+
 export default function Question() {
   const {
     soundOn,
@@ -53,15 +55,14 @@ export default function Question() {
   const TRIES_ALLOWED = config['triesAllowedPerDay']
   const COUNTDOWN = config['countdownSeconds']
   const { correctAnswerSound, wrongAnswerSound } = sounds
+  /*----- */
+  let { cat } = useParams()
   const [correctAnswSound] = useSound(correctAnswerSound, {
     soundEnabled: soundOn,
   })
   const [wrongAnswSound] = useSound(wrongAnswerSound, {
     soundEnabled: soundOn,
   })
-
-  /*----- */
-  let { cat } = useParams()
   const catSelected = useMemo(
     () => categories.find((categ) => categ.id === parseInt(cat)),
     [cat]
@@ -71,7 +72,7 @@ export default function Question() {
   const questions = catSelected?.questions
   const catBonus = catSelected?.bonus
 
-  const [questionId, setQuestionId] = useState(0)
+  const [indexQuestion, setIndexQuestion] = useState(indexInitial)
   const [slideQuestion, setSlideQuestion] = useState(false)
   const [isDisable, setIsDisable] = useState(false)
   const { secondsLeft, startCountdown } = useCountdown(COUNTDOWN)
@@ -82,43 +83,22 @@ export default function Question() {
   // 1. "limitReached" - Daily Limit of Tries Reached
   // 2. "catCompleted" - Category Completed
 
-  const answerDefault = questions.find((q) => q.id === questionId)
-    ? questions
-        .find((q) => q.id === questionId)
-        .answers.map((answer) => ({
-          ...answer,
-          isClicked: false,
-        }))
-    : []
+  const answerDefault = questions[indexQuestion].answers.map((answer) => ({
+    ...answer,
+    isClicked: false,
+  }))
   const [answersClicked, setAnswersClicked] = useState(answerDefault)
 
-  const hasBonus = useMemo(() => {
-    const question = questions?.find((q) => q.id === questionId)
-    return question ? question.bonus || catBonus : catBonus
-  }, [questionId, questions, catBonus])
-
-  function getRandomQuestionId(questions, dataStored) {
-    // Filtrar las preguntas cuyo ID no esté ya en dataStored
-    const availableQuestions = questions.filter(
-      (question) => !dataStored.includes(question.id)
-    )
-    // Verificar si aún hay preguntas disponibles
-    if (availableQuestions.length === 0) {
-      return null // No hay más preguntas disponibles
-    }
-    // Generar un índice aleatorio del array de preguntas disponibles
-    const randomIndex = Math.floor(Math.random() * availableQuestions.length)
-    // Retornar el ID de la pregunta seleccionada
-    return availableQuestions[randomIndex].id
-  }
+  const hasBonus = useMemo(
+    () => questions[indexQuestion].bonus || catBonus,
+    [catBonus, indexQuestion, questions]
+  )
 
   useEffect(() => {
-    const randomQuestionId = getRandomQuestionId(
-      questions,
-      dataStored[cat].questionsAnswered
-    )
-    setQuestionId(randomQuestionId)
+    const index = dataStored[parseInt(cat)].questionsAnswered.length
+    setIndexQuestion(index)
   }, [])
+
   useEffect(() => {
     if (secondsLeft === 0) {
       startCountdown(-1)
@@ -131,12 +111,12 @@ export default function Question() {
   }, [secondsLeft])
 
   useEffect(() => {
-    if (!questionId) return
+    if (!indexQuestion) return
     setSlideQuestion(false)
     setAnswersClicked(answerDefault)
     setIsDisable(false)
     startCountdown(COUNTDOWN)
-  }, [questionId])
+  }, [indexQuestion])
 
   const handleAnswer = useCallback(
     ({ answer, secondsLeft }) => {
@@ -199,7 +179,7 @@ export default function Question() {
 
   function handleQuestionsAnswered() {
     const newData = dataStored
-    newData[cat].questionsAnswered.push(questionId)
+    newData[cat].questionsAnswered.push(indexQuestion)
     newData[cat].dateAnsweredToday.push(new Date().getDate())
     setDataStored(newData)
 
@@ -227,13 +207,7 @@ export default function Question() {
       setTimeout(() => {
         setSlideQuestion(true)
         setTimeout(() => {
-          const randomQuestionId = getRandomQuestionId(
-            questions,
-            dataStored[cat].questionsAnswered
-          )
-          console.log(randomQuestionId)
-
-          setQuestionId(randomQuestionId)
+          setIndexQuestion((indexQuestion) => indexQuestion + 1)
         }, 500)
       }, 1500)
     }
@@ -253,7 +227,7 @@ export default function Question() {
         <>
           <div className="title-question" style={{ borderColor: colors?.text }}>
             <h3 className="title" style={{ color: colors?.text }}>
-              {questionId && questions.find((q) => q.id === questionId).title}
+              {questions[indexQuestion].title}
             </h3>
             {hasBonus && (
               <div className="wrapper-lottie">
@@ -349,7 +323,7 @@ export default function Question() {
         </>
       )
     },
-    [cat, questionId, hasBonus, answersClicked, isDisable]
+    [cat, indexQuestion, hasBonus, answersClicked, isDisable]
   )
 
   return (

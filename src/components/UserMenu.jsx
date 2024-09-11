@@ -31,8 +31,6 @@ export default function UserMenu({ showMenu, onClose }) {
   const totalProgress = getTotalProgress(dataStored)
   const totalQuestions = getTotalQuestions(categories)
 
-  console.log(timeToText(65))
-
   function timeToText(time) {
     if (time === 0) return '00m:00s'
     if (isNaN(time)) return '00m:00s'
